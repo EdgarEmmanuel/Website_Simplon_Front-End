@@ -5,13 +5,17 @@
     --color:#646677;
 }
 
+/* #414150 */
+
+/* when screen is at 767px  */
+
+@media only screen and (min-width:768px) and (max-width:1120px){
+ 
 *{
-    background:#414150;
+    background:blue;
     text-align: center;
 }
-
 /* start header */
-
 header{
     align-items: center;
     display:flex;
@@ -43,6 +47,7 @@ header .menu a{
     margin:10px 10px;
     font-weight:bold;
 }
+
 
 /* end header */
 
@@ -119,6 +124,149 @@ main  button{
     padding: 12px 12px;
     border-radius: 20px;
 }
-
-
 /* end main */
+}
+
+
+/* (min-width:768px) and (max-width:1120px) */
+
+/* smartphones screen */
+
+@media only screen and (max-width:490px){
+    *{
+        background:skyblue;
+    }
+}
+
+
+
+/* small screen */
+@media only screen and (min-width:500px) and (max-width:767px){
+    *{
+        background-color: red;
+    }
+}
+
+
+/* large screen  */
+
+@media only screen and (min-width:1121px){
+    
+    *{
+        background:#414150;
+        text-align: center;
+    }
+    /* start header */
+    header{
+        align-items: center;
+        display:flex;
+        flex-wrap: wrap;
+        margin-top: 25px;
+        padding: 12px 12px;
+        background: transparent;
+    }
+    
+    header .brand{
+        background:transparent;
+        color:white;
+        font-weight:bold;
+        margin-left: 100px;
+        font-family: 'Noto Sans JP', sans-serif;
+    }
+    
+    header .menu{
+        margin-left: 1000px;
+        margin-top: -17px;
+        background:transparent
+    }
+    
+    header .menu a{
+        color:white;
+        text-decoration: none;
+        font-family: 'Noto Sans JP', sans-serif;
+        background:transparent;
+        margin:10px 10px;
+        font-weight:bold;
+    }
+    
+    
+    /* end header */
+    
+    /* start span */
+    
+    .line{
+        margin-top: 45px;
+        width:83%;
+        border: 1px solid var(--color);
+    }
+    
+    /* end span */
+    
+    /* main start */
+    
+    main{
+        background:transparent;
+    }
+    
+    main h1{
+        color:white;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size:40px;
+        margin-top: 105px;
+        letter-spacing: 2px;
+        background:transparent;
+    }
+    
+    main .categorie{
+        align-items:center;
+        display:flex;
+        flex-wrap: wrap;
+        background:transparent;
+        margin-top: 45px;
+    }
+    
+    main .categorie .col-categorie i,h3,p{
+        background:transparent;
+    }
+    
+    main .categorie .col-categorie{
+        flex-basis: 32%;
+        background:transparent;
+        padding-left: 12px 12px;
+    }
+    
+    main .categorie .col-categorie i{
+        color:#64ad88;
+        font-size: 47px;
+    }
+    
+    main .categorie .col-categorie h3{
+        color:white;
+    }
+    
+    main .categorie .col-categorie p{
+        color:#9e989a;
+        font-weight: bold;
+    }
+    
+    main .categorie .middle{
+        border-left: 2px solid var(--color);
+        border-right: 2px solid var(--color);
+    }
+    
+    main  button{
+        margin-top: 80px;
+        text-align: center;
+        text-transform: uppercase;
+        color:#64ad88;
+        background:transparent;
+        width:220px;
+        border: 3px solid #64ad88;
+        padding: 12px 12px;
+        border-radius: 20px;
+    }
+    
+    
+    /* end main */
+       } 
+    
