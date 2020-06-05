@@ -3,59 +3,166 @@
 
 :root{
     --color:#646677;
+    --BranFontFamily:'Noto Sans JP', sans-serif;
+    --iconeColor:#64ad88;
+    --BodyBackground:#414150;
 }
 
-/* #414150 */
 
-/* when screen is at 767px  */
-
-@media only screen and (min-width:768px) and (max-width:1120px){
- 
 *{
-    background:blue;
-    text-align: center;
+    background:pink;
+    width:90%;
+}
+
+body{
+    overflow:hidden;
 }
 /* start header */
 header{
-    align-items: center;
-    display:flex;
-    flex-wrap: wrap;
-    margin-top: 25px;
-    padding: 12px 12px;
-    background: transparent;
+    background:transparent;
+    display: inline-block;
 }
 
 header .brand{
     background:transparent;
     color:white;
     font-weight:bold;
-    margin-left: 100px;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: var(--BranFontFamily);
+    margin-left: 32px;
 }
 
 header .menu{
-    margin-left: 1000px;
-    margin-top: -17px;
-    background:transparent
+    margin-left: 420px;
+    margin-top: -23px;
+    font-family: var(--BranFontFamily);
 }
 
-header .menu a{
+header .menu a {
+    text-decoration:  none;
     color:white;
-    text-decoration: none;
-    font-family: 'Noto Sans JP', sans-serif;
-    background:transparent;
-    margin:10px 10px;
     font-weight:bold;
+    margin:0 7px;
+}
+/* end header */
+
+/* start line  */
+.line{
+    width:110%;
+    margin-top: 30px;
+    margin-left:35px;
+    border: 1px solid var(--color);
+}
+/* end line  */
+
+
+/* start main part */
+main{
+    margin-top: 55px;
 }
 
+main h1{
+    color:white;
+    font-size:27px;
+    margin-left: 160px;
+}
+
+main .categorie{
+    display:flex;
+    align-items:center;
+    margin-left: 55px;
+    margin-top: 45px;
+    width:100%;
+}
+
+main .categorie .col-categorie{
+    margin:0 34px;
+    text-align: center;
+    width:35%;
+}
+main .categorie .col-categorie h3{
+    font-family: var(--BranFontFamily);
+}
+
+main .categorie .col-categorie h3{
+    color:white;
+    font-size:17px;
+    background:transparent;
+}
+
+
+main .categorie .col-categorie p{
+    color:#9e989a;
+    margin-top: 10px;
+    font-size:13px;
+    font-weight:bold;
+    padding: 0;
+    background:transparent;
+}
+
+main .categorie .col-categorie i{
+    color:var(--iconeColor);
+    font-size: 26px;
+}
+
+main button{
+    margin-top: 30px;
+    margin-left: 230px;
+    text-align: center;
+    text-transform: uppercase;
+    color:#64ad88;
+    background:transparent;
+    width:120px;
+    border: 3px solid #64ad88;
+    padding: 7px 6px;
+    border-radius: 20px;
+}
+
+/* end main part */
+
+
+
+
+
+
+
+
+/* when screen is between 768 and 767px  */
+
+@media only screen and (min-width:768px) and (max-width:1120px){
+ 
+*{
+    background:var(--BodyBackground);
+    text-align: center;
+}
+
+body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/* start header */
+
+header{
+    background: transparent;
+}
+
+header .brand{
+    margin-left: -180px;
+}
+
+header .menu{
+    margin-left: 340px;
+    margin-top: -24px;
+}
 
 /* end header */
+
 
 /* start span */
 
 .line{
-    margin-top: 45px;
-    width:83%;
+    margin-top: 55px;
+    width:110%;
     border: 1px solid var(--color);
 }
 
@@ -63,15 +170,11 @@ header .menu a{
 
 /* main start */
 
-main{
-    background:transparent;
-}
-
 main h1{
     color:white;
     font-family: 'Noto Sans JP', sans-serif;
     font-size:40px;
-    margin-top: 105px;
+    margin-top: 35px;
     letter-spacing: 2px;
     background:transparent;
 }
@@ -79,9 +182,7 @@ main h1{
 main .categorie{
     align-items:center;
     display:flex;
-    flex-wrap: wrap;
-    background:transparent;
-    margin-top: 45px;
+    margin-left: 110px;
 }
 
 main .categorie .col-categorie i,h3,p{
@@ -89,23 +190,12 @@ main .categorie .col-categorie i,h3,p{
 }
 
 main .categorie .col-categorie{
-    flex-basis: 32%;
     background:transparent;
-    padding-left: 12px 12px;
+    padding: 12px 15px;
 }
 
 main .categorie .col-categorie i{
-    color:#64ad88;
     font-size: 47px;
-}
-
-main .categorie .col-categorie h3{
-    color:white;
-}
-
-main .categorie .col-categorie p{
-    color:#9e989a;
-    font-weight: bold;
 }
 
 main .categorie .middle{
@@ -114,9 +204,10 @@ main .categorie .middle{
 }
 
 main  button{
-    margin-top: 80px;
+    margin-top: 20px;
     text-align: center;
     text-transform: uppercase;
+    margin-left: 240px;
     color:#64ad88;
     background:transparent;
     width:220px;
@@ -128,91 +219,263 @@ main  button{
 }
 
 
-/* (min-width:768px) and (max-width:1120px) */
 
-/* smartphones screen */
 
-@media only screen and (max-width:490px){
+/* smartphones screen less than or equal to 590px */
+
+@media only screen and (max-width:590px){
     *{
-        background:skyblue;
+        background:var(--BodyBackground);
+        width:80%;
     }
+    /* start header */
+    header{
+        background:transparent;
+        display: inline-block;
+    }
+
+    header .brand{
+        background:transparent;
+        color:white;
+        font-weight:bold;
+        font-family: var(--BranFontFamily);
+        margin-left: 32px;
+    }
+
+    header .menu{
+        margin-left: 250px;
+        margin-top: -23px;
+        font-family: var(--BranFontFamily);
+    }
+
+    header .menu a {
+        text-decoration:  none;
+        color:white;
+        font-weight:bold;
+    }
+    /* end header */
+
+    /* start line  */
+    .line{
+        width:140%;
+        margin-top: 30px;
+        margin-left: 15px;
+        border: 1px solid var(--color);
+    }
+    /* end line  */
+
+
+    /* start main part */
+    main{
+        margin-top: 45px;
+    }
+
+    main h1{
+        color:white;
+        font-size:17px;
+        margin-left: 120px;
+    }
+
+    main .categorie{
+        display:flex;
+        align-items:center;
+        margin-left: 50px;
+        margin-top: 45px;
+    }
+
+    main .categorie .col-categorie{
+        margin:0 14px;
+        text-align: center;
+    }
+    main .categorie .col-categorie h3{
+        font-family: var(--BranFontFamily);
+    }
+
+    main .categorie .col-categorie h3,p{
+        color:white;
+        font-size:13px;
+        background:transparent;
+    }
+
+   
+    main .categorie .col-categorie p{
+        color:#9e989a;
+        margin-top: 10px;
+    }
+
+
+
+    main .categorie .col-categorie h3{
+        font-size:13px;
+    }
+
+    main .categorie .col-categorie i{
+        color:var(--iconeColor);
+    }
+
+
+main .categorie .middle{
+    padding: 0 22px;
+    border-left: 2px solid var(--color);
+    border-right: 2px solid var(--color);
 }
 
-
-
-/* small screen */
-@media only screen and (min-width:500px) and (max-width:767px){
-    *{
-        background-color: red;
+    main button{
+        margin-top: 30px;
+        margin-left: 170px;
+        text-align: center;
+        text-transform: uppercase;
+        color:#64ad88;
+        background:transparent;
+        width:120px;
+        border: 3px solid #64ad88;
+        padding: 7px 6px;
+        border-radius: 20px;
     }
+
+    /* end main part */
+}
+
+/* when the screen is between 667 and 767px */
+@media only screen and (min-width:668px) and (max-width:767px){
+    *{
+        background:var(--BodyBackground);
+        width:90%;
+    }
+
+    /* start header */
+    header .menu{
+        margin-left: 520px;
+        margin-top: -23px;
+        font-family: var(--BranFontFamily);
+    }
+    /* end header */
+
+    /* start main part */
+
+    main h1{
+        margin-left: 200px;
+    }
+
+    main .categorie{
+        margin-left: 75px;
+    }
+
+    main .categorie .col-categorie{
+        margin: 0 7%;
+    }
+
+   
+    main .categorie .col-categorie p{
+        font-size:14px;
+    }
+
+    main .categorie .col-categorie i{
+        font-size: 32px;
+    }
+
+
+    main .categorie .middle{
+        padding: 0px 10px;
+        border-left: 2px solid var(--color);
+        border-right: 2px solid var(--color);
+    }
+
+    main button{
+        margin-left: 280px;
+    }
+
+    /* end main part */
+}
+
+/* small tablet screen */
+@media only screen and (min-width:591px) and (max-width:667px){
+    *{
+        background:var(--BodyBackground);
+        width:90%;
+    }
+
+    /* start header */
+
+    header .menu{
+        margin-left: 420px;
+    }
+
+    /* end header */
+
+    /* start line  */
+    .line{
+        width:110%;
+    }
+    /* end line  */
+
+
+    /* start main part */
+    main h1{
+        font-size:27px;
+    }
+
+    main .categorie .middle{
+        padding: 0px 10px;
+        border-left: 2px solid var(--color);
+        border-right: 2px solid var(--color);
+    }
+
+    main button{
+        margin-left: 230px;
+    }
+
+    /* end main part */
 }
 
 
 /* large screen  */
-
 @media only screen and (min-width:1121px){
     
     *{
-        background:#414150;
+        background:var(--BodyBackground);
         text-align: center;
+        width:100%;
+    }
+
+    body{
+        overflow-x: hidden;
+        overflow-y: scroll;
     }
     /* start header */
     header{
         align-items: center;
         display:flex;
-        flex-wrap: wrap;
         margin-top: 25px;
-        padding: 12px 12px;
-        background: transparent;
     }
-    
     header .brand{
-        background:transparent;
-        color:white;
-        font-weight:bold;
-        margin-left: 100px;
-        font-family: 'Noto Sans JP', sans-serif;
+        margin-left: -34px;
     }
     
     header .menu{
-        margin-left: 1000px;
+        margin-left: 500px;
         margin-top: -17px;
-        background:transparent
     }
-    
-    header .menu a{
-        color:white;
-        text-decoration: none;
-        font-family: 'Noto Sans JP', sans-serif;
-        background:transparent;
-        margin:10px 10px;
-        font-weight:bold;
-    }
-    
-    
     /* end header */
     
     /* start span */
     
     .line{
-        margin-top: 45px;
-        width:83%;
-        border: 1px solid var(--color);
+        margin-top: 70px;
+        margin-left: 62px;
+        width:90%;
     }
     
     /* end span */
     
     /* main start */
     
-    main{
-        background:transparent;
-    }
-    
     main h1{
         color:white;
         font-family: 'Noto Sans JP', sans-serif;
         font-size:40px;
-        margin-top: 105px;
+        margin-top: 45px;
+        margin-left: -10px;
         letter-spacing: 2px;
         background:transparent;
     }
@@ -220,9 +483,10 @@ main  button{
     main .categorie{
         align-items:center;
         display:flex;
-        flex-wrap: wrap;
         background:transparent;
         margin-top: 45px;
+        margin-left: -12px;
+        width:100%;
     }
     
     main .categorie .col-categorie i,h3,p{
@@ -230,25 +494,15 @@ main  button{
     }
     
     main .categorie .col-categorie{
-        flex-basis: 32%;
         background:transparent;
-        padding-left: 12px 12px;
+        padding: 12px 12px;
     }
     
     main .categorie .col-categorie i{
         color:#64ad88;
         font-size: 47px;
     }
-    
-    main .categorie .col-categorie h3{
-        color:white;
-    }
-    
-    main .categorie .col-categorie p{
-        color:#9e989a;
-        font-weight: bold;
-    }
-    
+
     main .categorie .middle{
         border-left: 2px solid var(--color);
         border-right: 2px solid var(--color);
@@ -261,6 +515,7 @@ main  button{
         color:#64ad88;
         background:transparent;
         width:220px;
+        margin-left: -50px;
         border: 3px solid #64ad88;
         padding: 12px 12px;
         border-radius: 20px;
