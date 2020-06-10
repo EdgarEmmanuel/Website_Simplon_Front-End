@@ -15,14 +15,10 @@ header{
     background: transparent;
 }
 
-header .brand i{
-    color:black;
-}
-
 header .brand h1{
-    margin-top: -45px;
+    margin-top: 5px;
     color:black;
-    margin-left: 65px;
+    margin-left: 25px;
 }
 
 header .right{
