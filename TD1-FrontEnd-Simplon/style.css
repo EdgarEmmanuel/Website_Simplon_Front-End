@@ -8,7 +8,7 @@
     --BodyBackground:#414150;
 }
 
-
+ 
 *{
     background:pink;
     width:90%;
@@ -99,9 +99,9 @@ main .categorie .col-categorie p{
     background:transparent;
 }
 
-main .categorie .col-categorie i{
-    color:var(--iconeColor);
-    font-size: 26px;
+main .categorie .col-categorie img{
+    width:2rem;
+    /* filter: invert(60%) sepia(37%) saturate(385%) hue-rotate(97deg) brightness(96%) contrast(90%); */
 }
 
 main button{
@@ -192,10 +192,6 @@ main .categorie .col-categorie i,h3,p{
 main .categorie .col-categorie{
     background:transparent;
     padding: 12px 15px;
-}
-
-main .categorie .col-categorie i{
-    font-size: 47px;
 }
 
 main .categorie .middle{
@@ -309,10 +305,6 @@ main  button{
         font-size:13px;
     }
 
-    main .categorie .col-categorie i{
-        color:var(--iconeColor);
-    }
-
 
 main .categorie .middle{
     padding: 0 22px;
@@ -369,11 +361,6 @@ main .categorie .middle{
     main .categorie .col-categorie p{
         font-size:14px;
     }
-
-    main .categorie .col-categorie i{
-        font-size: 32px;
-    }
-
 
     main .categorie .middle{
         padding: 0px 10px;
@@ -498,10 +485,6 @@ main .categorie .middle{
         padding: 12px 12px;
     }
     
-    main .categorie .col-categorie i{
-        color:#64ad88;
-        font-size: 47px;
-    }
 
     main .categorie .middle{
         border-left: 2px solid var(--color);
