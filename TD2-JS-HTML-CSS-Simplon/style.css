@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -19,6 +21,7 @@ header .brand h1{
     margin-top: 5px;
     color:black;
     margin-left: 25px;
+    font-family: 'Balsamiq Sans', cursive;
 }
 
 header .right{
@@ -33,6 +36,7 @@ header .right button{
     padding: 10px 10px ;
     font-weight:bold;
     letter-spacing: .2em;
+    font-family: 'Balsamiq Sans', cursive;
 }
 
 header .right button:hover{
@@ -48,4 +52,35 @@ main img{
     width:100%;
     margin-top: -18rem;
     z-index:2
+}
+
+main .menu{
+    width:35rem;
+    height:1.6rem;
+    background-color:white;
+    margin-top: -400px;
+    margin-left: 330px;
+    z-index:6;
+    position:fixed;
+    text-align: center;
+    padding: 15px 20px ;
+}
+
+main .menu a{
+    background:#6d63fa;
+    font-size:22px;
+    text-decoration: none;
+    color:white;
+    font-weight:bold;
+    margin:0px 10px ;
+    border:1px solid #6d63fa;
+    border-radius:10px;
+    padding: 5px 5px;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+main .menu a:hover{
+    background:white;
+    color:#6d63fa;
+    border-color: white;
 }
