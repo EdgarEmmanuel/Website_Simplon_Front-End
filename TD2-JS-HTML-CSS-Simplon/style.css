@@ -45,7 +45,7 @@ header .right button:hover{
 }
 
 
-/* main part */
+/*=================start of main part===================== */
 
 
 main img{
@@ -54,14 +54,15 @@ main img{
     z-index:2
 }
 
+/* start of the menu in teh main */
+
 main .menu{
     width:35rem;
     height:1.6rem;
     background-color:white;
-    margin-top: -400px;
+    margin-top: -600px;
     margin-left: 330px;
     z-index:6;
-    position:fixed;
     text-align: center;
     padding: 15px 20px ;
 }
@@ -84,3 +85,66 @@ main .menu a:hover{
     color:#6d63fa;
     border-color: white;
 }
+
+/* end of the menu in the main  */
+
+main .form{
+    width:45rem;
+   background:rgb(255,255,255,0.4);
+   position:fixed;
+   margin-left: 300px;
+   margin-top: 25px;
+   text-align: center;
+}
+
+main .form button{
+    background:#6d63fa;
+    border:1px solid #6d63fa;
+    color:white;
+    width:200px;
+    font-weight: bold;
+    height:2rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+    cursor:pointer;
+}
+
+
+/* for the salarie form  */
+
+main .form .salarie{
+    display: block;
+}
+
+main .form .salarie input{
+    height:2rem;
+    width:30rem;
+    margin-top: 10px;
+    border-radius:10px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+main .form .salarie label{
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+
+main .form .salarie select{
+    width:10rem;
+    margin-top: 10px;
+    border-radius:10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    background:white;
+}
+
+main .form .salarie select ~ label{
+    margin-left:-160px;
+}
+
+/* end for the salarie form  */
+
+
+
+/* =================end of the main part ================== */
