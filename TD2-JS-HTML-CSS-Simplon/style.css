@@ -54,7 +54,7 @@ main img{
     z-index:2
 }
 
-/* start of the menu in teh main */
+/* start of the menu in the main */
 
 main .menu{
     width:35rem;
@@ -110,10 +110,10 @@ main .form button{
 }
 
 
-/* for the salarie form  */
+/* start for the salarie form  */
 
 main .form .salarie{
-    display: block;
+    display: none;
 }
 
 main .form .salarie input{
@@ -144,6 +144,41 @@ main .form .salarie select ~ label{
 }
 
 /* end for the salarie form  */
+
+
+/* start for the independant formulaire */
+
+main .form .Independant{
+    display: block;
+}
+
+main .form .Independant input{
+    height:2rem;
+    width:30rem;
+    margin-top: 10px;
+    border-radius:10px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+main .form .Independant label{
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+
+main .form .Independant select{
+    width:10rem;
+    margin-top: 10px;
+    border-radius:10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    background:white;
+}
+
+main .form .Independant select ~ label{
+    margin-left:-160px;
+}
+/* end for the independant formulaire  */
 
 
 
