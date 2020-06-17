@@ -113,7 +113,12 @@ main .form button{
 /* start for the salarie form  */
 
 main .form .salarie{
-    display: none;
+    display: block;
+}
+
+main .form .salarie h1{
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 44px;
 }
 
 main .form .salarie input{
@@ -152,6 +157,12 @@ main .form .Independant{
     display: none;
 }
 
+
+main .form .Independant h1{
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 44px;
+}
+
 main .form .Independant input{
     height:2rem;
     width:30rem;
@@ -184,7 +195,12 @@ main .form .Independant select ~ label{
 /* debut du style pour le formulaire client moral */
 
 main .form .Moral{
-    display: block;
+    display: none;
+}
+
+main .form .Moral h1{
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 44px;
 }
 
 main .form .Moral input{
