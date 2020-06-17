@@ -126,6 +126,7 @@ main .form .salarie input{
     width:30rem;
     margin-top: 10px;
     border-radius:10px;
+    border-color:1px solid black;
     font-size: 15px;
     text-transform: uppercase;
 }
@@ -234,3 +235,17 @@ main .form .Moral select ~ label{
 
 
 /* =================end of the main part ================== */
+
+
+
+/* for the javascript code  */
+
+.text{
+    background:white;
+}
+
+
+.text h3{
+    font-weight: bold;
+    font-style: italic;
+}
