@@ -40,24 +40,20 @@
                     <input type="text" name="" placeholder="profession" id="emploi_salarie" ><br>
                     <input type="text" name="" placeholder="nom entreprise" id="NameEnter_salarie" ><br>
                     <label for="">Type Compte </label>
-                    <select name="" id="" >
+                    <select name="" id="type_compte" >
                         <option value="">Choisir...</option>
-                        <option value="">Compte Epargne</option>
-                        <option value="">Compte Courant</option>
-                        <option value="">Compte Bloque</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="">Simple</option>
-                        <option value="">Xeewel</option>
-                    </select> <br>
-                    <label for="">Etat Compte </label>
-                    <select name="" id="" >
-                        <option value="">Choisir...</option>
-                        <option value="">Bloque</option>
-                        <option value="">Ouvert</option>
-                        <option value="">Ferme</option>
+                        <option value="compte_epargne">Compte Epargne</option>
+                        <option value="compte_courant">Compte Courant</option>
+                        <option value="compte_bloque">Compte Bloque</option>
                     </select><br>
-                    <input type="date" name="" placeholder="date ouverture" id=""><br>
+                    <label for="">Etat Compte </label>
+                    <select name="" id="etat_compte" >
+                        <option value="">Choisir...</option>
+                        <option value="bloque">Bloque</option>
+                        <option value="ouvert">Ouvert</option>
+                        <option value="ferme">Ferme</option>
+                    </select><br>
+                    <input type="text" name="" placeholder="date ouverture" id="date_ouvert" readonly><br>
                     <button id="btn_Csalarie">Valider</button>  <button>Annuler</button>
 
                 </form>

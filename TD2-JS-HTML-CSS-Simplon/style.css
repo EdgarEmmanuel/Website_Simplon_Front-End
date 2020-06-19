@@ -93,7 +93,8 @@ main .form{
    background:rgb(255,255,255,0.4);
    position:fixed;
    margin-left: 300px;
-   margin-top: 25px;
+   margin-top: 5px;
+   margin-bottom: 4rem;
    text-align: center;
 }
 
@@ -231,7 +232,7 @@ main .form .Moral select ~ label{
     margin-left:-160px;
 }
 /* fin du style pour le formulaire client moral */
-
+ 
 
 
 /* =================end of the main part ================== */
