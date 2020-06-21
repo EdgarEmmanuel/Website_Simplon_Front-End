@@ -29,7 +29,7 @@
         <div class="form">
            
                 <!-- form for adding Employee client  -->
-                <div class="salarie">
+                <div class="salarie"> 
                 <form action="">
                     <h1>AJOUT CLIENT SALARIE</h1>
                     <input type="text" name="" placeholder="nom" id="nom_salarie" ><br>
@@ -64,32 +64,28 @@
                 <div class="Independant">
                     <h1>AJOUT CLIENT INDEPENDANT</h1>
                     <form action="">
-                    <input type="text" name="" placeholder="nom" id="" required><br>
-                    <input type="text" name="" placeholder="prenom" id="" required><br>
-                    <input type="text" name="" placeholder="adresse" id="" required><br>
-                    <input type="text" name="" placeholder="telephone" id="" required><br>
-                    <input type="text" name="" placeholder="email" id="" required><br>
-                    <input type="text" name="" placeholder="activite" id="" required><br>
+                    <input type="text" name="" placeholder="nom" id="nom_i" /><br>
+                    <input type="text" name="" placeholder="prenom" id="prenom_i" /><br>
+                    <input type="text" name="" placeholder="adresse" id="adresse_i" /><br>
+                    <input type="text" name="" placeholder="telephone" id="telephone_i" /><br>
+                    <input type="text" name="" placeholder="email" id="email_i" /><br>
+                    <input type="text" name="" placeholder="activite" id="activite_i" /><br>
                     <label for="">Type Compte </label>
-                    <select name="" id="" required>
+                    <select name="" id="type_i" >
                         <option value="">Choisir...</option>
-                        <option value="">Compte Epargne</option>
-                        <option value="">Compte Courant</option>
-                        <option value="">Compte Bloque</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="">Simple</option>
-                        <option value="">Xeewel</option>
-                    </select> <br>
-                    <label for="">Etat Compte </label>
-                    <select name="" id="" required>
-                        <option value="">Choisir...</option>
-                        <option value="">Bloque</option>
-                        <option value="">Ouvert</option>
-                        <option value="">Ferme</option>
+                        <option value="compte Epargne">Compte Epargne</option>
+                        <option value="compte Courant">Compte Courant</option>
+                        <option value="compte Bloque">Compte Bloque</option>
                     </select><br>
-                    <input type="date" name="" placeholder="date ouverture" id="" required><br>
-                    <button>Valider</button>  <button>Annuler</button>
+                    <label for="">Etat Compte </label>
+                    <select name="" id="etat_i" >
+                        <option value="">Choisir...</option>
+                        <option value="bloque">Bloque</option>
+                        <option value="ouvert">Ouvert</option>
+                        <option value="ferme">Ferme</option>
+                    </select><br>
+                    <input type="date" name="" placeholder="date ouverture" id="dateOuverture_i" /><br>
+                    <button id="button_i">Valider</button>  <button>Annuler</button>
 
                 </form>
                 </div>

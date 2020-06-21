@@ -30,16 +30,13 @@ static displayDate(){
 }
     
      static clearFiedlC_salarie(){
-    document.querySelector("#nom_salarie").value="";
-    document.querySelector("#prenom_salarie").value="";
-    document.querySelector("#addr_salarie").value="";
-    document.querySelector("#tele_salarie").value="";
-    document.querySelector("#email_salarie").value="";
-    document.querySelector("#emploi_salarie").value="";
-    document.querySelector("#NameEnter_salarie").value="";
-    document.querySelector("#type_compte").value="";
-    document.querySelector("#etat_compte").value="";
-        //location.reload();
+        document.querySelector("#nom_salarie").value="";
+        document.querySelector("#prenom_salarie").value="";
+        document.querySelector("#addr_salarie").value="";
+        document.querySelector("#tele_salarie").value="";
+        document.querySelector("#email_salarie").value="";
+        document.querySelector("#emploi_salarie").value="";
+        document.querySelector("#NameEnter_salarie").value="";
     }
     
     static verifyCSalarie(){
@@ -87,10 +84,69 @@ static displayDate(){
         UI.messageDis(`<h1>Les Champs Suivants sont Vides : <h3>${mess}</h3></h1>`);
       }else{
           UI.messageDis("Les champs sont remplis !!!!");
-          UI.clearFiedlC_salarie();
+          UI_Salarie.clearFiedlC_salarie();
       }
     }
     
+}
+
+
+class UI_Independant{
+    
+     static clearFiedlC_independant(){
+        document.querySelector("#nom_i").value="";
+        document.querySelector("#prenom_i").value="";
+        document.querySelector("#adresse_i").value="";
+        document.querySelector("#telephone_i").value="";
+        document.querySelector("#email_i").value="";
+        document.querySelector("#activite_i").value="";
+    }
+    
+    
+   static verify_Client_Independant(){
+        var name = document.querySelector("#nom_i").value.trim();
+        var prenom = document.querySelector("#prenom_i").value.trim();
+        var adresse = document.querySelector("#adresse_i").value.trim();
+        var tel = document.querySelector("#telephone_i").value.trim();
+        var email = document.querySelector("#email_i").value.trim();
+        var activite = document.querySelector("#activite_i").value.trim();
+        var type_compte = document.querySelector("#type_i").value;
+        var etat_compte = document.querySelector("#etat_i").value;
+        var mess="";
+        let cpt=0;
+    if(name===""){
+       mess+=" nom,";
+        cpt+=1;
+    }if(prenom===""){
+        mess+=" prenom,"; 
+        cpt+=1;
+    }if(adresse===""){
+        mess+=" adresse,";
+        cpt+=1;
+    }if(tel===""){
+        mess+=" telephone,";
+        cpt+=1;  
+    }if(email===""){
+        mess+=" email,";
+        cpt+=1;
+    }if(activite===""){
+         mess+=" profession,";
+        cpt+=1;
+    }if(etat_compte===""){
+        cpt+=1;
+        mess+=" Etat Compte,";
+    }if(type_compte===""){
+        cpt+=1;
+        mess+=" Type Compte,";
+    }
+        //verify if all the fields has not  been fill 
+    if(cpt!=0){
+        UI.messageDis(`<h1>Les Champs Suivants sont Vides : <h3>${mess}</h3></h1>`);
+      }else{
+          UI.messageDis("Client Independant Bien Enregistre!!!!");
+          UI_Independant.clearFiedlC_independant();
+      }
+    }
 }
 
 
@@ -98,12 +154,11 @@ class UI{
     static messageDis(message){
 document.querySelector(".form").insertAdjacentHTML("afterbegin",`<div class="text">${ message }</div>`);
         setTimeout((e)=>{
-            document.querySelector(".form").removeChild(document.querySelector(".text"));
+document.querySelector(".form").removeChild(document.querySelector(".text"));
         },5000);
     }
     
     static displayCinde(){
-        div_clientIndependant.style.display="none";
     div_clientMoral.style.display="none";
     div_salarie.style.display="none";
     
@@ -113,14 +168,12 @@ document.querySelector(".form").insertAdjacentHTML("afterbegin",`<div class="tex
     static displayCSalarie(){
     div_clientIndependant.style.display="none";
     div_clientMoral.style.display="none";
-    div_salarie.style.display="none";
     
     div_salarie.style.display='block';
     }
     
     static displayCMoral(){
         div_clientIndependant.style.display="none";
-    div_clientMoral.style.display="none";
     div_salarie.style.display="none";
     
     div_clientMoral.style.display='block';
@@ -159,4 +212,13 @@ btn_CSalarie.addEventListener("click",(e)=>{
 document.querySelector("#btn_Csalarie").addEventListener("click",(e)=>{
     e.preventDefault();
     UI_Salarie.verifyCSalarie();
+});
+
+
+
+//verificatiuon du formulaire pour la creation client independatnt
+
+document.querySelector("#button_i").addEventListener("click",(e)=>{
+    e.preventDefault();
+    UI_Independant.verify_Client_Independant();
 })
