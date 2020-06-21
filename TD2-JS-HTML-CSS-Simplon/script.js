@@ -112,25 +112,26 @@ class UI_Independant{
         var activite = document.querySelector("#activite_i").value.trim();
         var type_compte = document.querySelector("#type_i").value;
         var etat_compte = document.querySelector("#etat_i").value;
+       var dateOuver = document.querySelector("#dateOuverture_i").value.trim();
         var mess="";
         let cpt=0;
     if(name===""){
-       mess+=" nom,";
+       mess+=" Nom,";
         cpt+=1;
     }if(prenom===""){
-        mess+=" prenom,"; 
+        mess+=" Prenom,"; 
         cpt+=1;
     }if(adresse===""){
-        mess+=" adresse,";
+        mess+=" Adresse,";
         cpt+=1;
     }if(tel===""){
-        mess+=" telephone,";
+        mess+=" Telephone,";
         cpt+=1;  
     }if(email===""){
-        mess+=" email,";
+        mess+=" Email,";
         cpt+=1;
     }if(activite===""){
-         mess+=" profession,";
+         mess+=" Activite,";
         cpt+=1;
     }if(etat_compte===""){
         cpt+=1;
@@ -138,6 +139,9 @@ class UI_Independant{
     }if(type_compte===""){
         cpt+=1;
         mess+=" Type Compte,";
+    }if(dateOuver===""){
+        cpt+=1;
+        mess+=" date Ouverture ,";
     }
         //verify if all the fields has not  been fill 
     if(cpt!=0){
@@ -145,6 +149,67 @@ class UI_Independant{
       }else{
           UI.messageDis("Client Independant Bien Enregistre!!!!");
           UI_Independant.clearFiedlC_independant();
+      }
+    }
+}
+
+class UI_Moral{
+     static clearFiedlC_moral(){
+        document.querySelector("#nom_enter_m").value="";
+        document.querySelector("#adresse_m").value="";
+        document.querySelector("#type_enter_m").value="";
+        document.querySelector("#tel_m").value="";
+        document.querySelector("#email_m").value="";
+        document.querySelector("#activite_m").value="";
+    }
+    
+    
+   static verify_Client_Moral(){
+        var name = document.querySelector("#nom_enter_m").value.trim();
+        var adresse = document.querySelector("#adresse_m").value.trim();
+        var tel = document.querySelector("#tel_m").value.trim();
+        var email = document.querySelector("#email_m").value.trim();
+        var activite = document.querySelector("#activite_i").value.trim();
+       var type_entreprise = document.querySelector("#type_enter_m").value.trim();
+        var type_compte = document.querySelector("#type_m").value;
+        var etat_compte = document.querySelector("#etat_m").value;
+        var dateOuver = document.querySelector("#date_m").value.trim();
+        var mess="";
+        let cpt=0;
+    if(name===""){
+       mess+=" Nom Entreprise,";
+        cpt+=1;
+    }if(type_entreprise===""){
+        mess+=" Type Entreprise,"; 
+        cpt+=1;
+    }if(adresse===""){
+        mess+=" Adresse,";
+        cpt+=1;
+    }if(tel===""){
+        mess+=" Telephone,";
+        cpt+=1;  
+    }if(email===""){
+        mess+=" Email,";
+        cpt+=1;
+    }if(activite===""){
+         mess+=" Activite Entreprise,";
+        cpt+=1;
+    }if(etat_compte===""){
+        cpt+=1;
+        mess+=" Etat Compte,";
+    }if(type_compte===""){
+        cpt+=1;
+        mess+=" Type Compte,";
+    }if(date_m===""){
+        cpt+=1;
+        mess+=" Date ouverture ,"
+    }
+        //verify if all the fields has not  been fill 
+    if(cpt!=0){
+        UI.messageDis(`<h1>Les Champs Suivants sont Vides : <h3>${mess}</h3></h1>`);
+      }else{
+          UI.messageDis("Client Independant Bien Enregistre!!!!");
+          UI_Moral.clearFiedlC_moral();
       }
     }
 }
@@ -217,8 +282,17 @@ document.querySelector("#btn_Csalarie").addEventListener("click",(e)=>{
 
 
 //verificatiuon du formulaire pour la creation client independatnt
-
 document.querySelector("#button_i").addEventListener("click",(e)=>{
     e.preventDefault();
     UI_Independant.verify_Client_Independant();
-})
+});
+
+
+//verification formualire clienty moral 
+document.querySelector("#button_m").addEventListener("click",(e)=>{
+    e.preventDefault();
+    UI_Moral.verify_Client_Moral();
+});
+
+
+

@@ -32,13 +32,13 @@
                 <div class="salarie"> 
                 <form action="">
                     <h1>AJOUT CLIENT SALARIE</h1>
-                    <input type="text" name="" placeholder="nom" id="nom_salarie" ><br>
-                    <input type="text" name="" placeholder="prenom" id="prenom_salarie" ><br>
-                    <input type="text" name="" placeholder="adresse" id="addr_salarie"><br>
-                    <input type="text" name="" placeholder="telephone" id="tele_salarie"><br>
-                    <input type="text" name="" placeholder="email" id="email_salarie" ><br>
-                    <input type="text" name="" placeholder="profession" id="emploi_salarie" ><br>
-                    <input type="text" name="" placeholder="nom entreprise" id="NameEnter_salarie" ><br>
+                    <input type="text" name="" placeholder="nom" id="nom_salarie" /><br>
+                    <input type="text" name="" placeholder="prenom" id="prenom_salarie" /><br>
+                    <input type="text" name="" placeholder="adresse" id="addr_salarie"/><br>
+                    <input type="text" name="" placeholder="telephone" id="tele_salarie"/><br>
+                    <input type="text" name="" placeholder="email" id="email_salarie" /><br>
+                    <input type="text" name="" placeholder="profession" id="emploi_salarie" /><br>
+                    <input type="text" name="" placeholder="nom entreprise" id="NameEnter_salarie" /><br>
                     <label for="">Type Compte </label>
                     <select name="" id="type_compte" >
                         <option value="">Choisir...</option>
@@ -53,7 +53,7 @@
                         <option value="ouvert">Ouvert</option>
                         <option value="ferme">Ferme</option>
                     </select><br>
-                    <input type="text" name="" placeholder="date ouverture" id="date_ouvert" readonly><br>
+                    <input type="date" name="" placeholder="date ouverture" id="date_ouvert" /><br>
                     <button id="btn_Csalarie">Valider</button>  <button>Annuler</button>
 
                 </form>
@@ -97,32 +97,28 @@
                 <div class="Moral">
                     <h1>AJOUT CLIENT MORAL</h1>
                     <form action="">
-                    <input type="text" name="" placeholder="nom Entreprise" id="" required><br>
-                    <input type="text" name="" placeholder="adresse" id="" required><br>
-                    <input type="text" name="" placeholder="telephone Professionel" id="" required><br>
-                    <input type="text" name="" placeholder="email" id="" required><br>
-                    <input type="text" name="" placeholder="type entreprise" id="" required><br>
-                    <input type="text" name="" placeholder="activite Entreprise" id="" required><br>
+                    <input type="text" name="" placeholder="nom Entreprise" id="nom_enter_m" /><br>
+                    <input type="text" name="" placeholder="adresse" id="adresse_m" /><br>
+                    <input type="text" name="" placeholder="telephone Professionel" id="tel_m" /><br>
+                    <input type="text" name="" placeholder="email entreprise" id="email_m" /><br>
+                    <input type="text" name="" placeholder="type entreprise" id="type_enter_m" /><br>
+                    <input type="text" name="" placeholder="activite Entreprise" id="activite_m" /><br>
                     <label for="">Type Compte </label>
-                    <select name="" id="" required>
+                    <select name="" id="type_m" required>
                         <option value="">Choisir...</option>
-                        <option value="">Compte Epargne</option>
-                        <option value="">Compte Courant</option>
-                        <option value="">Compte Bloque</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="">Simple</option>
-                        <option value="">Xeewel</option>
-                    </select> <br>
-                    <label for="">Etat Compte </label>
-                    <select name="" id="" required>
-                        <option value="">Choisir...</option>
-                        <option value="">Bloque</option>
-                        <option value="">Ouvert</option>
-                        <option value="">Ferme</option>
+                        <option value="c_Epargne">Compte Epargne</option>
+                        <option value="c_Courant">Compte Courant</option>
+                        <option value="c_moral">Compte Bloque</option>
                     </select><br>
-                    <input type="date" name="" placeholder="date ouverture" id="" required><br>
-                    <button>Valider</button>  <button>Annuler</button>
+                    <label for="">Etat Compte </label>
+                    <select name="" id="etat_m" required>
+                        <option value="">Choisir...</option>
+                        <option value="bloque">Bloque</option>
+                        <option value="ouvert">Ouvert</option>
+                        <option value="ferme">Ferme</option>
+                    </select><br>
+                    <input type="date" name="" placeholder="date ouverture" id="date_m" /><br>
+                    <button id="button_m">Valider</button>  <button>Annuler</button>
 
                 </form>
                 </div>

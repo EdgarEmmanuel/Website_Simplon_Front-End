@@ -156,7 +156,7 @@ main .form .salarie select ~ label{
 /* start for the independant formulaire */
 
 main .form .Independant{
-    display: block;
+    display: none;
 }
 
 
@@ -197,7 +197,7 @@ main .form .Independant select ~ label{
 /* debut du style pour le formulaire client moral */
 
 main .form .Moral{
-    display: none;
+    display: block;
 }
 
 main .form .Moral h1{
@@ -243,6 +243,10 @@ main .form .Moral select ~ label{
 
 .text{
     background:white;
+    width:65rem;
+    text-align: center;
+    margin-left: -10rem;
+    margin-top: -1rem;
 }
 
 
