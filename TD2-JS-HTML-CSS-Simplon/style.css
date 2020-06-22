@@ -130,7 +130,7 @@ main .form button{
 
 /* start for the salarie form  */
 main .form .salarie{
-    display: none;
+    display: block;
 }
 
 main .form .salarie h2{
@@ -168,16 +168,16 @@ main .form .salarie select ~ label{
 
 
 /* start for the independant formulaire */
-main .form .Independant{
+main .form form .Independant{
     display: none;
 }
 
 
-main .form .Independant h2{
+main .form form .Independant h2{
     font-family: 'Balsamiq Sans', cursive;
 }
 
-main .form .Independant input{
+main .form form .Independant input{
     height:2rem;
     width:30rem;
     margin-top: 10px;
@@ -186,12 +186,12 @@ main .form .Independant input{
     text-transform: uppercase;
 }
 
-main .form .Independant label{
+main .form form .Independant label{
     font-family: 'Balsamiq Sans', cursive;
 }
+ 
 
-
-main .form .Independant select{
+main .form form .Independant select{
     width:10rem;
     margin-top: 10px;
     border-radius:10px;
@@ -200,7 +200,7 @@ main .form .Independant select{
     background:white;
 }
 
-main .form .Independant select ~ label{
+main .form form .Independant select ~ label{
     margin-left:-160px;
 }
 /* end for the independant formulaire  */
@@ -208,8 +208,8 @@ main .form .Independant select ~ label{
 
 
 /* debut du style pour le formulaire client moral */
-main .form .Moral{
-    display: block;
+main .form form .Moral{
+    display: none;
 }
 
 main .form .Moral h2{
@@ -235,11 +235,10 @@ main .form .Moral select ~ label{
 
 
 /* button after the div for account data */
-
-
 main .form form  #button{
-    margin-top: 50px;
+    margin-top: 17rem;
     margin-left: 300px;
+    position: fixed;
 }
 
 main .form form .button_for_i{
@@ -275,7 +274,9 @@ main .form .compte{
        text-transform: uppercase;
    }
    
-   
+   main .form .compte h2{
+    font-family: 'Balsamiq Sans', cursive;
+   }
    
    main .form .compte select{
        width:10rem;
@@ -301,14 +302,14 @@ main .form .compte{
 
 .text{
     background:white;
-    width:65rem;
     text-align: center;
-    margin-left: -10rem;
     margin-top: -1rem;
+    overflow-y: hidden;
 }
 
 
 .text h3{
     font-weight: bold;
     font-style: italic;
+    margin-left: 200px;
 }

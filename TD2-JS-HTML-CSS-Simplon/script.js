@@ -18,23 +18,7 @@ var btn_s=document.querySelector(".button_for_s");
 
 
 class UI_Salarie{
-static displayDate(){
-         //creation d'une date 
-        var tr ="";
-        var t ="";
-        var date = new Date();
-        if(date.getDate().toLocaleString().length==2  ) {
-            tr = date.getDate().toLocaleString();
-        }else{
-            tr="0"+date.getDate().toLocaleString();
-        }
-        if(date.getMonth().toLocaleString().length==2){
-            t = date.getMonth().toLocaleString();
-        }else{
-            t = "0"+date.getMonth().toLocaleString();
-        }
-          document.querySelector("#date_ouvert").value=`${tr}/${t}/${date.getFullYear()}`;
-}
+   
     
      static clearFiedlC_salarie(){
         document.querySelector("#nom_salarie").value="";
@@ -54,41 +38,25 @@ static displayDate(){
         var email = document.querySelector("#email_salarie").value.trim();
         var profession = document.querySelector("#emploi_salarie").value.trim();
         var enterprise_name = document.querySelector("#NameEnter_salarie").value.trim();
-        var type_compte = document.querySelector("#type_compte").value;
-        var etat_compte = document.querySelector("#etat_compte").value;
-        var mess="";
         let cpt=0;
     if(name===""){
-       mess+=" nom,";
         cpt+=1;
     }if(prenom===""){
-        mess+=" prenom,"; 
         cpt+=1;
     }if(adresse===""){
-        mess+=" adresse,";
         cpt+=1;
     }if(tel===""){
-        mess+=" telephone,";
         cpt+=1;  
     }if(email===""){
-        mess+=" email,";
         cpt+=1;
     }if(profession===""){
-         mess+=" profession,";
         cpt+=1;
     }if(enterprise_name===""){
-        mess+=" Nom Entreprise,";
         cpt+=1;
-    }if(etat_compte===""){
-        cpt+=1;
-        mess+=" Etat Compte,";
-    }if(type_compte===""){
-        cpt+=1;
-        mess+=" Type Compte,";
     }
         //verify if all the fields has not  been fill 
     if(cpt!=0){
-        UI.messageDis(`<h1>Les Champs Suivants sont Vides : <h3>${mess}</h3></h1>`);
+        UI.messageDis(`<h1>Veuillez Remplir les champs Marques en Rouge </h1>`);
       }else{
           UI.messageDis("Les champs sont remplis !!!!");
           UI_Salarie.clearFiedlC_salarie();
@@ -117,48 +85,31 @@ class UI_Independant{
         var tel = document.querySelector("#telephone_i").value.trim();
         var email = document.querySelector("#email_i").value.trim();
         var activite = document.querySelector("#activite_i").value.trim();
-        var type_compte = document.querySelector("#type_i").value;
-        var etat_compte = document.querySelector("#etat_i").value;
-       var dateOuver = document.querySelector("#dateOuverture_i").value.trim();
-        var mess="";
         let cpt=0;
     if(name===""){
-       mess+=" Nom,";
         cpt+=1;
     }if(prenom===""){
-        mess+=" Prenom,"; 
         cpt+=1;
     }if(adresse===""){
-        mess+=" Adresse,";
         cpt+=1;
     }if(tel===""){
-        mess+=" Telephone,";
         cpt+=1;  
     }if(email===""){
-        mess+=" Email,";
         cpt+=1;
     }if(activite===""){
-         mess+=" Activite,";
         cpt+=1;
-    }if(etat_compte===""){
-        cpt+=1;
-        mess+=" Etat Compte,";
-    }if(type_compte===""){
-        cpt+=1;
-        mess+=" Type Compte,";
-    }if(dateOuver===""){
-        cpt+=1;
-        mess+=" date Ouverture ,";
     }
-        //verify if all the fields has not  been fill 
+       //verify if all the fields has not  been fill 
     if(cpt!=0){
-        UI.messageDis(`<h1>Les Champs Suivants sont Vides : <h3>${mess}</h3></h1>`);
+        UI.messageDis(`<h1>Veuillez Remplir les champs Indiques</h1>`);
       }else{
-          UI.messageDis("Client Independant Bien Enregistre!!!!");
           UI_Independant.clearFiedlC_independant();
+          UI.messageDis("Client Independant Bien Enregistre!!!!");
       }
     }
 }
+
+
 
 class UI_Moral{
      static clearFiedlC_moral(){
@@ -197,9 +148,39 @@ class UI_Moral{
     if(cpt!=0){
         UI.messageDis(`<h1>Veuillez Remplir les champs en rouge</h1>`);
       }else{
-          UI.messageDis("Client Independant Bien Enregistre!!!!");
           UI_Moral.clearFiedlC_moral();
+          UI.messageDis("Client Moral Bien Enregistre!!!!");
+          
       }
+    }
+}
+
+
+class UI_Compte{
+    static getTypeCompte(){
+        document.querySelector("#type_m").addEventListener("change",()=>{
+            var valueOption = document.querySelector("#type_m").value;
+            switch(valueOption){
+                case 'Epargne': 
+                    UI_Compte.AccountEpargne();
+                    break;
+                case 'Courant': 
+                    console.log(valueOption);
+                    break;
+                case 'moral':
+                    console.log(valueOption);
+                    break;
+            }
+        });
+    }
+    
+    
+    static AccountEpargne(){
+        document.querySelector("#raison_social").style.display='none';
+        document.querySelector("#taux_agios").style.display='none';
+        document.querySelector("#nom_Entreprise").style.display='none';
+        document.querySelector("#date_deblocage").style.display='none';
+        document.querySelector("#Adresse_Entreprise").style.display='none';
     }
 }
 
@@ -212,6 +193,28 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         },5000);
     }
     
+     static displayStaticData(){
+             //creation d'une date 
+            var tr ="";
+            var t ="";
+            var date = new Date();
+            if(date.getDate().toLocaleString().length==2  ) {
+                tr = date.getDate().toLocaleString();
+            }else{
+                tr="0"+date.getDate().toLocaleString();
+            }
+            if(date.getMonth().toLocaleString().length==2){
+                t = date.getMonth().toLocaleString();
+            }else{
+                t = "0"+date.getMonth().toLocaleString();
+            }
+              document.querySelector("#date_m").value=`${tr}/${t}/${date.getFullYear()}`;
+         
+         //pour numero agence
+         document.querySelector("#numeroAgence").value='BP0056';
+         
+    }
+    
     static displayCinde(){
         //for the div 
     div_clientMoral.style.display="none";
@@ -222,6 +225,9 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         btn_m.style.display='none';
         btn_s.style.display='none';
         btn_i.style.display='block';
+        
+        //pour le champ input numero compte dans le formulaire compte 
+        document.querySelector("#numCompte").value="CI456";
     }
     
     static displayCSalarie(){
@@ -233,6 +239,9 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         btn_m.style.display='none';
         btn_s.style.display='block';
         btn_i.style.display='none';
+        
+        //pour le champ input numero compte dans le formulaire compte 
+        document.querySelector("#numCompte").value="CS456";
     }
     
     static displayCMoral(){
@@ -244,14 +253,18 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         btn_m.style.display='block';
         btn_s.style.display='none';
         btn_i.style.display='none';
+        
+        //pour le champ input numero compte dans le formulaire compte 
+        document.querySelector("#numCompte").value="CM456";
     }
 }
 
+//aficher la donnees constantes 
+UI.displayStaticData();
 
-document.addEventListener('reload',()=>{
-    UI_Salarie.displayDate()
-    
-});
+
+//pour formulaire 
+UI_Compte.getTypeCompte();
 
 
 // pour afficher le formulaire des clients independants 
