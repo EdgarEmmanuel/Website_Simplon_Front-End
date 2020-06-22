@@ -34,13 +34,13 @@
                 <form action="">
                     <div class="salarie"> 
                         <h2>Informations Client Salarie</h2>
-                        <input type="text" name="" placeholder="nom" id="nom_salarie" /><br>
-                        <input type="text" name="" placeholder="prenom" id="prenom_salarie" /><br>
-                        <input type="text" name="" placeholder="adresse" id="addr_salarie"/><br>
-                        <input type="text" name="" placeholder="telephone" id="tele_salarie"/><br>
-                        <input type="text" name="" placeholder="email" id="email_salarie" /><br>
-                        <input type="text" name="" placeholder="profession" id="emploi_salarie" /><br>
-                        <input type="text" name="" placeholder="nom entreprise" id="NameEnter_salarie" /><br>
+                        <input type="text" name="" placeholder="nom" id="nom_salarie" autocomplete="off" /><br>
+                        <input type="text" name="" placeholder="prenom" id="prenom_salarie" autocomplete="off" /><br>
+                        <input type="text" name="" placeholder="adresse" id="addr_salarie" autocomplete="off"/><br>
+                        <input type="text" name="" placeholder="telephone" id="tele_salarie" autocomplete="off"/><br>
+                        <input type="text" name="" placeholder="email" id="email_salarie" autocomplete="off" /><br>
+                        <input type="text" name="" placeholder="profession" id="emploi_salarie" autocomplete="off" /><br>
+                        <input type="text" name="" placeholder="nom entreprise" id="NameEnter_salarie" autocomplete="off" /><br>
                     </div>
 
 
@@ -78,25 +78,21 @@
                         <option value="">Choisir...</option>
                         <option value="Epargne">Compte Epargne</option>
                         <option value="Courant">Compte Courant</option>
-                        <option value="moral">Compte Bloque</option>
-                    </select><br>
-                    <label for="">Etat Compte </label>
-                    <select name="" id="etat_m" required>
-                        <option value="">Choisir...</option>
-                        <option value="bloque">Bloque</option>
-                        <option value="ouvert">Ouvert</option>
-                        <option value="ferme">Ferme</option>
+                        <option value="Bloque">Compte Bloque</option>
                     </select><br>
                     <input type="text" name="" id="raison_social" placeholder="raison social"/><br>
+                    <input type="text" name="" id="cle_rib" placeholder="Cle RIB"/><br>
                     <input type="number" name="" id="taux_agios" placeholder="taux agios" /> <br>
                     <input type="text" name="" id="nom_Entreprise" placeholder="nom Entreprise" /><br>
                     <input type="text" name="" id="Adresse_Entreprise" placeholder="Adresse Entreprise" /><br>
-                    <input type="number" name="" id="Frais_Compte" placeholder="frais compte"/> <br>
+                    <input type="text" name="" id="Frais_Compte" placeholder="frais compte" readonly/> <br>
                     <input type="date" placeholder="date deblocage compte" id="date_deblocage" /> <br>
                     <input type="text" name="" id="numeroAgence" placeholder="numeroAgence" readonly/><br>
                     <input type="text" name="" id="numCompte" placeholder="numeroCompte" readonly/> <br>
                     <input type="text" name="" placeholder="date ouverture" id="date_m" readonly/><br>
                 </div>
+
+                <!-- the button for all the differents forms i the project -->
                 <div class="button_for_i" id="button">
                     <button id="button_i">Valider</button>  <button>Annuler</button>
                 </div>
@@ -106,6 +102,7 @@
                 <div class="button_for_s" id="button">
                     <button id="btn_Csalarie" >Valider</button>  <button>Annuler</button>
                 </div>
+                <!-- end of all the  -->
             </form>
         </div>
     </main>

@@ -11,10 +11,18 @@ var div_clientIndependant = document.querySelector(".Independant");
 
 
 //get all the button afetr the div with class compte
-
 var btn_m = document.querySelector(".button_for_m");
 var btn_i= document.querySelector(".button_for_i");
 var btn_s=document.querySelector(".button_for_s");
+
+
+//get all my input fields in the form 
+let raison =document.querySelector("#raison_social");
+let cle_rib = document.querySelector("#cle_rib");
+let taux_agios = document.querySelector("#taux_agios");
+let nom_enterprise = document.querySelector("#nom_Entreprise");
+let adrr_entreprise = document.querySelector("#Adresse_Entreprise");
+let date_deblocage = document.querySelector("#date_deblocage");
 
 
 class UI_Salarie{
@@ -41,25 +49,32 @@ class UI_Salarie{
         let cpt=0;
     if(name===""){
         cpt+=1;
+         document.querySelector("#nom_salarie").style.borderColor='#FA6D63';
     }if(prenom===""){
         cpt+=1;
+         document.querySelector("#prenom_salarie").style.borderColor='#FA6D63';
     }if(adresse===""){
         cpt+=1;
+        document.querySelector("#addr_salarie").style.borderColor='#FA6D63';
     }if(tel===""){
         cpt+=1;  
+        document.querySelector("#tele_salarie").style.borderColor='#FA6D63';
     }if(email===""){
         cpt+=1;
+         document.querySelector("#email_salarie").style.borderColor='#FA6D63';
     }if(profession===""){
         cpt+=1;
+        document.querySelector("#emploi_salarie").style.borderColor='#FA6D63';
     }if(enterprise_name===""){
         cpt+=1;
+        document.querySelector("#NameEnter_salarie").style.borderColor='#FA6D63';
     }
         //verify if all the fields has not  been fill 
     if(cpt!=0){
-        UI.messageDis(`<h1>Veuillez Remplir les champs Marques en Rouge </h1>`);
+        UI.messageDis(`<h1>Veuillez Remplir les champs en Rouge </h1>`);
+        return 1;
       }else{
-          UI.messageDis("Les champs sont remplis !!!!");
-          UI_Salarie.clearFiedlC_salarie();
+          return 2;
       }
     }
     
@@ -88,23 +103,29 @@ class UI_Independant{
         let cpt=0;
     if(name===""){
         cpt+=1;
+        document.querySelector("#nom_i").style.borderColor='#FA6D63';
     }if(prenom===""){
         cpt+=1;
+        document.querySelector("#prenom_i").style.borderColor='#FA6D63';
     }if(adresse===""){
         cpt+=1;
+        document.querySelector("#adresse_i").style.borderColor='#FA6D63';
     }if(tel===""){
         cpt+=1;  
+        document.querySelector("#telephone_i").style.borderColor='#FA6D63';
     }if(email===""){
         cpt+=1;
+        document.querySelector("#email_i").style.borderColor='#FA6D63';
     }if(activite===""){
         cpt+=1;
+        document.querySelector("#activite_i").style.borderColor='#FA6D63';
     }
        //verify if all the fields has not  been fill 
     if(cpt!=0){
         UI.messageDis(`<h1>Veuillez Remplir les champs Indiques</h1>`);
+        return 1;
       }else{
-          UI_Independant.clearFiedlC_independant();
-          UI.messageDis("Client Independant Bien Enregistre!!!!");
+         return 2;
       }
     }
 }
@@ -127,36 +148,42 @@ class UI_Moral{
         var adresse = document.querySelector("#adresse_m").value.trim();
         var tel = document.querySelector("#tel_m").value.trim();
         var email = document.querySelector("#email_m").value.trim();
-        var activite = document.querySelector("#activite_i").value.trim();
+        var activite = document.querySelector("#activite_m").value.trim();
        var type_entreprise = document.querySelector("#type_enter_m").value.trim();
-        var mess="";
         let cpt=0;
     if(name===""){
         cpt+=1;
+        document.querySelector("#nom_enter_m").style.borderColor='#FA6D63';
     }if(adresse===""){
         cpt+=1;
+         document.querySelector("#adresse_m").style.borderColor='#FA6D63';
     }if(tel===""){
         cpt+=1;  
+         document.querySelector("#tel_m").style.borderColor='#FA6D63';
     }if(email===""){
         cpt+=1;
+         document.querySelector("#email_m").style.borderColor='#FA6D63';
     }if(activite===""){
         cpt+=1;
+         document.querySelector("#activite_m").style.borderColor='#FA6D63';
     }if(type_entreprise===""){
         cpt+=1;
+         document.querySelector("#type_enter_m").style.borderColor='#FA6D63';
     }
        //verify if all the fields has not  been fill 
     if(cpt!=0){
         UI.messageDis(`<h1>Veuillez Remplir les champs en rouge</h1>`);
+        return 1;
       }else{
-          UI_Moral.clearFiedlC_moral();
-          UI.messageDis("Client Moral Bien Enregistre!!!!");
-          
+          return 2;
       }
     }
 }
 
 
+//class pour les informations du compte 
 class UI_Compte{
+    
     static getTypeCompte(){
         document.querySelector("#type_m").addEventListener("change",()=>{
             var valueOption = document.querySelector("#type_m").value;
@@ -165,26 +192,88 @@ class UI_Compte{
                     UI_Compte.AccountEpargne();
                     break;
                 case 'Courant': 
-                    console.log(valueOption);
+                    UI_Compte.AccountCourant();
                     break;
-                case 'moral':
-                    console.log(valueOption);
+                case 'Bloque':
+                    UI_Compte.AccountBloque();
+                    break;
+                default:
+                    UI_Compte.displayAll();
                     break;
             }
         });
     }
     
+    static displayAll(){
+        document.querySelector("#raison_social").style.display='initial';
+        document.querySelector("#nom_Entreprise").style.display='initial';
+        document.querySelector("#date_deblocage").style.display='initial';
+        document.querySelector("#Adresse_Entreprise").style.display='initial';
+        document.querySelector("#date_deblocage").style.display='initial';
+        document.querySelector("#cle_rib").style.display='initial';
+        document.querySelector("#taux_agios").style.display='initial';
+        
+        //automate field for frais compte 
+        document.querySelector("#Frais_Compte").value="";
+    }
+    
+    static verifyAccountBloque(){
+        let cpt = 0;
+        let verify =0;
+        if(cle_rib.value===""){
+           cpt+=1;
+        cle_rib.style.borderColor='#FA6D63';
+        }if(taux_agios.value===""){
+               cpt+=1;
+            taux_agios.style.borderColor='#FA6D63';
+        }if(date_deblocage.value===""){ 
+            cpt+=1;
+            date_deblocage.style.borderColor='#FA6D63';
+        }
+        if(cpt!=0){
+            return 2;
+        }else{
+            return 1;
+        }
+    }
+    
+    static AccountBloque(){
+        UI_Compte.displayAll();
+        document.querySelector("#raison_social").style.display='none';
+        document.querySelector("#nom_Entreprise").style.display='none';
+        document.querySelector("#Adresse_Entreprise").style.display='none';
+        
+        //atomate the field for frais compte 
+        document.querySelector("#Frais_Compte").value="Frais Compte : 10000FCFA";
+    }
     
     static AccountEpargne(){
+        UI_Compte.displayAll();
         document.querySelector("#raison_social").style.display='none';
-        document.querySelector("#taux_agios").style.display='none';
         document.querySelector("#nom_Entreprise").style.display='none';
         document.querySelector("#date_deblocage").style.display='none';
         document.querySelector("#Adresse_Entreprise").style.display='none';
+        
+        //automate the field for frais compte 
+        document.querySelector("#Frais_Compte").value="Frais Compte : 9000FCFA";
+    }
+    
+    static AccountCourant(){
+        UI_Compte.displayAll();
+        document.querySelector("#date_deblocage").style.display='none';
+        
+        //automate field for frais compte 
+        document.querySelector("#Frais_Compte").value="Frais Ouverture : 10000FCFA";
     }
 }
 
 
+
+
+
+
+
+//class pour le User INterface generale 
 class UI{
     static messageDis(message){
 document.querySelector(".form").insertAdjacentHTML("afterbegin",`<div class="text">${ message }</div>`);
@@ -208,10 +297,10 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
             }else{
                 t = "0"+date.getMonth().toLocaleString();
             }
-              document.querySelector("#date_m").value=`${tr}/${t}/${date.getFullYear()}`;
+        document.querySelector("#date_m").value=`Date Ouverture Compte : ${tr}/${t}/${date.getFullYear()}`;
          
          //pour numero agence
-         document.querySelector("#numeroAgence").value='BP0056';
+         document.querySelector("#numeroAgence").value='Numero Agence : BP0056';
          
     }
     
@@ -227,7 +316,7 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         btn_i.style.display='block';
         
         //pour le champ input numero compte dans le formulaire compte 
-        document.querySelector("#numCompte").value="CI456";
+        document.querySelector("#numCompte").value="Numero Compte : CI456";
     }
     
     static displayCSalarie(){
@@ -241,7 +330,7 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         btn_i.style.display='none';
         
         //pour le champ input numero compte dans le formulaire compte 
-        document.querySelector("#numCompte").value="CS456";
+        document.querySelector("#numCompte").value="Numero Compte : CS456";
     }
     
     static displayCMoral(){
@@ -255,9 +344,11 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         btn_i.style.display='none';
         
         //pour le champ input numero compte dans le formulaire compte 
-        document.querySelector("#numCompte").value="CM456";
+        document.querySelector("#numCompte").value="Numero Compte : CM456";
     }
 }
+
+
 
 //aficher la donnees constantes 
 UI.displayStaticData();
@@ -291,7 +382,15 @@ btn_CSalarie.addEventListener("click",(e)=>{
 // apres nous commencons a verifier les champs du formualire client Salarie 
 document.querySelector("#btn_Csalarie").addEventListener("click",(e)=>{
     e.preventDefault();
-    UI_Salarie.verifyCSalarie();
+    
+    if(document.querySelector("#type_m").value==="Bloque"){
+        var tes1= UI_Salarie.verifyCSalarie();
+        var tesBloq = UI_Compte.verifyAccountBloque();
+        console.log("slarie : "+tes1);
+        console.log("bloque : "+tesBloq);
+    }else{
+        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
+    }
 });
 
 
@@ -299,14 +398,30 @@ document.querySelector("#btn_Csalarie").addEventListener("click",(e)=>{
 //verificatiuon du formulaire pour la creation client independatnt
 document.querySelector("#button_i").addEventListener("click",(e)=>{
     e.preventDefault();
-    UI_Independant.verify_Client_Independant();
+    
+     if(document.querySelector("#type_m").value==="Bloque"){
+        var tes1= UI_Independant.verify_Client_Independant();
+        var tesBloq = UI_Compte.verifyAccountBloque();
+        console.log("slarie : "+tes1);
+        console.log("bloque : "+tesBloq);
+    }else{
+        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
+    }
 });
 
 
 //verification formualire clienty moral 
 document.querySelector("#button_m").addEventListener("click",(e)=>{
     e.preventDefault();
-    UI_Moral.verify_Client_Moral();
+    
+    if(document.querySelector("#type_m").value==="Bloque"){
+        var tes1= UI_Moral.verify_Client_Moral();
+        var tesBloq = UI_Compte.verifyAccountBloque();
+        console.log("slarie : "+tes1);
+        console.log("bloque : "+tesBloq);
+    }else{
+        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
+    }
 });
 
 

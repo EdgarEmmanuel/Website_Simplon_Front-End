@@ -60,7 +60,7 @@ main .menu{
     width:35rem;
     height:1.6rem;
     background-color:white;
-    margin-top: -600px;
+    margin-top: -610px;
     margin-left: 330px;
     z-index:6;
     text-align: center;
@@ -78,6 +78,7 @@ main .menu a{
     border-radius:10px;
     padding: 5px 5px;
     font-family: 'Balsamiq Sans', cursive;
+    cursor: pointer;
 }
 
 main .menu a:hover{
@@ -93,7 +94,7 @@ main .menu a:hover{
 /* start of the div with the class form */
 main .form{
     width:75rem;
-   background:rgb(255,255,255,0.4);
+   background:rgb(255,255,255,0.2);
    position:fixed;
    margin-left: 100px;
    margin-top: 5px;
@@ -236,7 +237,7 @@ main .form .Moral select ~ label{
 
 /* button after the div for account data */
 main .form form  #button{
-    margin-top: 17rem;
+    margin-top: 18rem;
     margin-left: 300px;
     position: fixed;
 }
