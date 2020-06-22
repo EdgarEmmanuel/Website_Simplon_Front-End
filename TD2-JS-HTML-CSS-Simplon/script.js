@@ -25,6 +25,9 @@ let adrr_entreprise = document.querySelector("#Adresse_Entreprise");
 let date_deblocage = document.querySelector("#date_deblocage");
 
 
+
+
+
 class UI_Salarie{
    
     
@@ -79,6 +82,9 @@ class UI_Salarie{
     }
     
 }
+
+
+
 
 
 class UI_Independant{
@@ -179,6 +185,10 @@ class UI_Moral{
       }
     }
 }
+
+
+
+
 
 
 //class pour les informations du compte 
@@ -354,7 +364,7 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
 UI.displayStaticData();
 
 
-//pour formulaire 
+//pour formulaire des donnees du compte 
 UI_Compte.getTypeCompte();
 
 
