@@ -31,65 +31,28 @@
         <div class="form">
            
                 <!-- form for adding Employee client  -->
-                <div class="salarie"> 
                 <form action="">
-                    <h1>AJOUT CLIENT SALARIE</h1>
-                    <input type="text" name="" placeholder="nom" id="nom_salarie" /><br>
-                    <input type="text" name="" placeholder="prenom" id="prenom_salarie" /><br>
-                    <input type="text" name="" placeholder="adresse" id="addr_salarie"/><br>
-                    <input type="text" name="" placeholder="telephone" id="tele_salarie"/><br>
-                    <input type="text" name="" placeholder="email" id="email_salarie" /><br>
-                    <input type="text" name="" placeholder="profession" id="emploi_salarie" /><br>
-                    <input type="text" name="" placeholder="nom entreprise" id="NameEnter_salarie" /><br>
-                    <label for="">Type Compte </label>
-                    <select name="" id="type_compte" >
-                        <option value="">Choisir...</option>
-                        <option value="compte_epargne">Compte Epargne</option>
-                        <option value="compte_courant">Compte Courant</option>
-                        <option value="compte_bloque">Compte Bloque</option>
-                    </select><br>
-                    <label for="">Etat Compte </label>
-                    <select name="" id="etat_compte" >
-                        <option value="">Choisir...</option>
-                        <option value="bloque">Bloque</option>
-                        <option value="ouvert">Ouvert</option>
-                        <option value="ferme">Ferme</option>
-                    </select><br>
-                    <input type="date" name="" placeholder="date ouverture" id="date_ouvert" /><br>
-                    <button id="btn_Csalarie">Valider</button>  <button>Annuler</button>
-
-                </form>
-                </div>
+                    <div class="salarie"> 
+                        <h2>Informations Client Salarie</h2>
+                        <input type="text" name="" placeholder="nom" id="nom_salarie" /><br>
+                        <input type="text" name="" placeholder="prenom" id="prenom_salarie" /><br>
+                        <input type="text" name="" placeholder="adresse" id="addr_salarie"/><br>
+                        <input type="text" name="" placeholder="telephone" id="tele_salarie"/><br>
+                        <input type="text" name="" placeholder="email" id="email_salarie" /><br>
+                        <input type="text" name="" placeholder="profession" id="emploi_salarie" /><br>
+                        <input type="text" name="" placeholder="nom entreprise" id="NameEnter_salarie" /><br>
+                    </div>
 
 
                 <!-- form for adding Indepndant client -->
                 <div class="Independant">
-                    <h1>AJOUT CLIENT INDEPENDANT</h1>
-                    <form action="">
+                    <h2>Informations Clients Independant</h2>
                     <input type="text" name="" placeholder="nom" id="nom_i" /><br>
                     <input type="text" name="" placeholder="prenom" id="prenom_i" /><br>
                     <input type="text" name="" placeholder="adresse" id="adresse_i" /><br>
                     <input type="text" name="" placeholder="telephone" id="telephone_i" /><br>
                     <input type="text" name="" placeholder="email" id="email_i" /><br>
                     <input type="text" name="" placeholder="activite" id="activite_i" /><br>
-                    <label for="">Type Compte </label>
-                    <select name="" id="type_i" >
-                        <option value="">Choisir...</option>
-                        <option value="compte Epargne">Compte Epargne</option>
-                        <option value="compte Courant">Compte Courant</option>
-                        <option value="compte Bloque">Compte Bloque</option>
-                    </select><br>
-                    <label for="">Etat Compte </label>
-                    <select name="" id="etat_i" >
-                        <option value="">Choisir...</option>
-                        <option value="bloque">Bloque</option>
-                        <option value="ouvert">Ouvert</option>
-                        <option value="ferme">Ferme</option>
-                    </select><br>
-                    <input type="date" name="" placeholder="date ouverture" id="dateOuverture_i" /><br>
-                    <button id="button_i">Valider</button>  <button>Annuler</button>
-
-                </form>
                 </div>
 
 
@@ -97,14 +60,19 @@
                 <!-- form for adding moral client -->
 
                 <div class="Moral">
-                    <h1>AJOUT CLIENT MORAL</h1>
-                    <form action="">
+                        <h2>INFORMATIONS CLIENT MORAL</h2>
                     <input type="text" name="" placeholder="nom Entreprise" id="nom_enter_m" /><br>
                     <input type="text" name="" placeholder="adresse" id="adresse_m" /><br>
                     <input type="text" name="" placeholder="telephone Professionel" id="tel_m" /><br>
                     <input type="text" name="" placeholder="email entreprise" id="email_m" /><br>
                     <input type="text" name="" placeholder="type entreprise" id="type_enter_m" /><br>
                     <input type="text" name="" placeholder="activite Entreprise" id="activite_m" /><br>
+                </div>
+
+
+
+                <div class="compte">
+                        <h2>INFORMATIONS COMPTE DU CLIENT </h2>
                     <label for="">Type Compte </label>
                     <select name="" id="type_m" required>
                         <option value="">Choisir...</option>
@@ -119,13 +87,24 @@
                         <option value="ouvert">Ouvert</option>
                         <option value="ferme">Ferme</option>
                     </select><br>
+                    <input type="text" name="" id="" placeholder="raison social"/><br>
+                    <input type="number" name="" id="" placeholder="taux agios" /> <br>
+                    <input type="text" name="" id="" placeholder="nom Entreprise" /><br>
+                    <input type="text" name="" id="" placeholder="adresse_entreprise" /><br>
+                    <input type="number" name="" id="" placeholder="frais compte"/> <br>
+                    <input type="date" placeholder="date deblocage compte" /> <br>
                     <input type="date" name="" placeholder="date ouverture" id="date_m" /><br>
-                    <button id="button_m">Valider</button>  <button>Annuler</button>
-
-                </form>
                 </div>
-                
-               
+                <div class="button_for_i" id="button">
+                    <button id="button_i">Valider</button>  <button>Annuler</button>
+                </div>
+                <div class="button_for_m" id="button">
+                    <button id="button_m" class="btn_final">Valider</button>  <button>Annuler</button>
+                </div>
+                <div class="button_for_s" id="button">
+                    <button id="btn_Csalarie" >Valider</button>  <button>Annuler</button>
+                </div>
+            </form>
         </div>
     </main>
     
