@@ -1,3 +1,8 @@
+
+//=================================Page addclient.html===========================
+
+
+
 // get all the buttons in the menu 
 let btn_Cindependant = document.querySelector(".btn-Independant");
 let btn_Cmoral = document.querySelector(".btn-Moral");
