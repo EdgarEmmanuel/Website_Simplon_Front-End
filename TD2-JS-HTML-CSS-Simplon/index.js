@@ -26,7 +26,7 @@ class UI_GestClient{
         clients.forEach((client)=>{
             if(client.cni==str){
                 localStorage.setItem("client",JSON.stringify(client));
-                UI_GestClient.redirection("AddClient.html");
+                UI_GestClient.redirection("AddCompte.html");
             }else{
                 UI_GestClient.displayErreurDiv();
             }

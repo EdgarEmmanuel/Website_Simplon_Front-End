@@ -18,6 +18,7 @@
         <div class="right">
             <button>en</button>
             <button>fr</button>
+            <button id="return">Accueil</button>
         </div>
     </header>
 
@@ -29,10 +30,9 @@
 
              <div class="Moral">
                 <h2>INFORMATIONS CLIENT </h2>
-                <input type="text" name="" placeholder="nom Entreprise" id="nom" /> 
-                <input type="text" name="" placeholder="adresse" id="prenom" />
-            
-                <input type="text" name="" placeholder="telephone Professionel" id="cni" /><br/>
+                <input type="text" name="" placeholder="nom complet" id="prenom" readonly/>
+                <input type="text" name="" placeholder="cni" id="idClient" readonly/>
+                <input type="text" name="" placeholder="cni" id="cni" readonly/><br/>
             </div>
 
 
@@ -46,21 +46,22 @@
                 <option value="Courant">Compte Courant</option>
                 <option value="Bloque">Compte Bloque</option>
             </select><br/>
-            <input type="text" name="" id="raison_social" placeholder="raison social"/>
+            <input type="text" name="" id="raison_social" placeholder="raison social" />
             <input type="text" name="" id="cle_rib" placeholder="Cle RIB"/><br/>
             <input type="number" name="" id="taux_agios" placeholder="taux agios" /> 
             <input type="text" name="" id="nom_Entreprise" placeholder="nom Entreprise" /><br/>
             <input type="text" name="" id="Adresse_Entreprise" placeholder="Adresse Entreprise" />
             <input type="text" name="" id="Frais_Compte" placeholder="frais compte" readonly/> <br/>
-            <input type="date" placeholder="date deblocage compte" id="date_deblocage" /> <br/>
-            <input type="text" name="" id="numeroAgence" placeholder="numeroAgence" readonly/><br/>
-            <input type="text" name="" id="numCompte" placeholder="numeroCompte" readonly/> <br/>
+            <input type="text" name="" id="montant" placeholder="montant" readonly/> 
+            <input type="date" placeholder="date deblocage compte" id="date_deblocage" />  <br/>
+            <input type="text" name="" id="numeroAgence" placeholder="numeroAgence" readonly/>
+            <input type="text" name="" id="numCompte" placeholder="numeroCompte" readonly/>
             <input type="text" name="" placeholder="date ouverture" id="date_m" readonly/><br/>
         </div>
 
         <!-- the button for all the differents forms i the project -->
         <div class="button_for_s" id="button">
-            <button id="btn_Csalarie" >Valider</button>  <button>Annuler</button>
+            <button id="btn_create" >Valider</button>  <button>Annuler</button>
         </div>
         </form>
     </main>
