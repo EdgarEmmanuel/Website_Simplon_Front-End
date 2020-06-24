@@ -252,6 +252,35 @@ class UI_Compte{
         }
     }
     
+    static verifyAccountEpargne(){
+        let cpt = 0;
+        let verify =0;
+        if(ddocument.querySelector("#raison_social").value.trim()===""){
+           cpt+=1;
+        document.querySelector("#raison_social").style.borderColor='#FA6D63';
+        }if( document.querySelector("#taux_agios").value.trim()===""){
+               cpt+=1;
+             document.querySelector("#taux_agios").style.borderColor='#FA6D63';
+        }if(document.querySelector("#Adresse_Entreprise").value.trim()===""){ 
+            cpt+=1;
+        document.querySelector("#Adresse_Entreprise").style.borderColor='#FA6D63';
+        }if(document.querySelector("#nom_Entreprise").value.trim()===""){ 
+            cpt+=1;
+          document.querySelector("#nom_Entreprise").style.borderColor='#FA6D63';
+        }if(document.querySelector("#montant").value.trim()===""){ 
+            cpt+=1;
+           document.querySelector("#montant").style.borderColor='#FA6D63';
+        }if(document.querySelector("#cle_rib").value.trim()===""){ 
+            cpt+=1;
+           document.querySelector("#cle_rib").style.borderColor='#FA6D63';
+        }
+        if(cpt!=0){
+            return 2;
+        }else{
+            return 1;
+        }
+    }
+    
     static AccountBloque(){
         UI_Compte.displayAll();
         document.querySelector("#raison_social").style.display='none';

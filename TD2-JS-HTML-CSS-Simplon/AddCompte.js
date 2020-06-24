@@ -43,19 +43,68 @@ class UI_Compte{
         document.querySelector("#montant").removeAttribute("disabled");
     }
     
+     
+    static verifyAccountEpargne(){
+        let cpt = 0;
+      if( document.querySelector("#taux_agios").value.trim()===""){
+               cpt+=1;
+             document.querySelector("#taux_agios").style.borderColor='#FA6D63';
+        }if(document.querySelector("#montant").value.trim()===""){ 
+            cpt+=1;
+           document.querySelector("#montant").style.borderColor='#FA6D63';
+        }if(document.querySelector("#cle_rib").value.trim()===""){ 
+            cpt+=1;
+           document.querySelector("#cle_rib").style.borderColor='#FA6D63';
+        }
+        if(cpt!=0){
+            return 2;
+        }else{
+            return 1;
+        }
+    }
+    
     
     static verifyAccountBloque(){
         let cpt = 0;
         let verify =0;
-        if(cle_rib.value===""){
+        if(document.querySelector("#cle_rib").value.trim()===""){
            cpt+=1;
-        cle_rib.style.borderColor='#FA6D63';
-        }if(taux_agios.value===""){
+        document.querySelector("#cle_rib").style.borderColor='#FA6D63';
+        }if( document.querySelector("#taux_agios").value.trim()===""){
                cpt+=1;
-            taux_agios.style.borderColor='#FA6D63';
-        }if(date_deblocage.value===""){ 
+             document.querySelector("#taux_agios").style.borderColor='#FA6D63';
+        }if(document.querySelector("#date_deblocage").value.trim()===""){ 
             cpt+=1;
-            date_deblocage.style.borderColor='#FA6D63';
+           document.querySelector("#date_deblocage").style.borderColor='#FA6D63';
+        }
+        if(cpt!=0){
+            return 2;
+        }else{
+            return 1;
+        }
+    }
+    
+    static verifyAccountCourant(){
+        let cpt = 0;
+        let verify =0;
+        if(document.querySelector("#cle_rib").value.trim()===""){
+           cpt+=1;
+        document.querySelector("#cle_rib").style.borderColor='#FA6D63';
+        }if( document.querySelector("#taux_agios").value.trim()===""){
+               cpt+=1;
+             document.querySelector("#taux_agios").style.borderColor='#FA6D63';
+        }if(document.querySelector("#montant").value.trim()===""){ 
+            cpt+=1;
+           document.querySelector("#montant").style.borderColor='#FA6D63';
+        }if( document.querySelector("#raison_social").value.trim()===""){
+               cpt+=1;
+             document.querySelector("#raison_social").style.borderColor='#FA6D63';
+        }if(  document.querySelector("#Adresse_Entreprise").value.trim()===""){
+               cpt+=1;
+        document.querySelector("#Adresse_Entreprise").style.borderColor='#FA6D63';
+        }if(  document.querySelector("#nom_Entreprise").value.trim()===""){
+               cpt+=1;
+        document.querySelector("#nom_Entreprise").style.borderColor='#FA6D63';
         }
         if(cpt!=0){
             return 2;
@@ -69,6 +118,7 @@ class UI_Compte{
         document.querySelector("#raison_social").setAttribute("disabled","");
         document.querySelector("#nom_Entreprise").setAttribute("disabled","");
         document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
+         document.querySelector("#montant").setAttribute("disabled","");
         
         //atomate the field for frais compte 
         document.querySelector("#Frais_Compte").value="Frais Ouverture : 10000FCFA";
@@ -123,7 +173,6 @@ class UI_AddCompte{
         document.querySelector("#date_m").value=`${tr}/${t}/${date.getFullYear()}`;
         
         //for the account treatment
-        
         document.querySelector("#numCompte").value='CI567';
          
          //pour numero agence
@@ -138,13 +187,40 @@ class UI_AddCompte{
 }
 
 //displaying userData
-UI_AddCompte.displayInfoClient();
+if(localStorage.getItem("client")!=null){
+    UI_AddCompte.displayInfoClient();
+}
 
 //set the fields for the form enable or disable
 UI_Compte.getTypeCompte();
 
 
-
+//return to the index page 
 document.querySelector("#return").addEventListener("click",(e)=>{
     UI_AddCompte.redirection("index.html");
+});
+
+
+
+document.querySelector("#btn_create").addEventListener("click",(e)=>{
+    e.preventDefault();
+    var valeur=document.querySelector("#type_m").value;
+    let t=0;
+    if(valeur=="Epargne"){ 
+            t=UI_Compte.verifyAccountEpargne();
+            if(t==1){
+                alert("INSERTION EFFECTUE AVEC SUCCES !!!");
+            }else{
+                alert("Veuillez Remplir les champs en Rouge");
+            }
+    }else if(valeur=="Courant"){
+        t = UI_Compte.verifyAccountCourant();
+             if(t==1){
+                 alert("Insertion Effectuee avec Success!!!");
+             }else{
+                  alert("Veuillez Remplir les champs en Rouge");
+             }
+    }else{
+        alert("Veuillez Specifier le Type de Compte !!!!");
+    }
 })
