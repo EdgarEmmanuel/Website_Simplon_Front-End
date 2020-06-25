@@ -197,7 +197,7 @@ UI_Compte.getTypeCompte();
 
 //return to the index page 
 document.querySelector("#return").addEventListener("click",(e)=>{
-    UI_AddCompte.redirection("index.html");
+    UI_AddCompte.redirection("verifyCNI.html");
 });
 
 
@@ -210,6 +210,7 @@ document.querySelector("#btn_create").addEventListener("click",(e)=>{
             t=UI_Compte.verifyAccountEpargne();
             if(t==1){
                 alert("INSERTION EFFECTUE AVEC SUCCES !!!");
+                UI_AddCompte.redirection("verifyCNI.html");
             }else{
                 alert("Veuillez Remplir les champs en Rouge");
             }
@@ -217,9 +218,18 @@ document.querySelector("#btn_create").addEventListener("click",(e)=>{
         t = UI_Compte.verifyAccountCourant();
              if(t==1){
                  alert("Insertion Effectuee avec Success!!!");
+                 UI_AddCompte.redirection("verifyCNI.html");
              }else{
                   alert("Veuillez Remplir les champs en Rouge");
              }
+    }else if(valeur=="Bloque"){
+             t=UI_Compte.verifyAccountBloque();
+        if(t==1){
+            alert("INSERTION EFFECTUE AVEC SUCCESS !!!");
+            UI_AddCompte.redirection("verifyCNI.html");
+        }else{
+             alert("Veuillez Remplir les champs en Rouge");
+        }
     }else{
         alert("Veuillez Specifier le Type de Compte !!!!");
     }
