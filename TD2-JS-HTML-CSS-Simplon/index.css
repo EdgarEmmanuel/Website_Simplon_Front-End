@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
+
+
+
+
+body{
+    /* background:linear-gradient(100deg,#242e4c,#ea6a9f); */
+    background:linear-gradient(0.25turn, #242e4c, #ea6a9f);
+}
+
+
+
+/* header part */
+
+header .brand{
+    color:white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 56px;
+    text-align: center;
+}
+
+/* end header part */
+
+
+
+/* form part */
+
+.div_form {
+    background:#242e4c;
+    width:40rem;
+    height: 20rem;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px 20px;
+}
+
+.div_form form{
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.div_form form label{
+    border:1px solid rgba(255,255,255,0.01);
+    border-radius: 10px;
+    text-transform: uppercase;
+    color:white;
+    padding: 10px 10px;
+    background:#191f4b;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+.div_form form .input{
+    margin-top: 50px;
+    width:320px;
+    height:40px;
+    font:16px;
+    font-style: italic;
+    text-transform: uppercase;
+    background:#0f1436;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.div_form form .input:focus{
+    border-color:#ea6a9f;
+    outline:none;
+}
+
+.div_form form button{
+    background:#ea6a9f;
+    color:white;
+    width:220px;
+    height:2rem;
+    border-radius:10px;
+    border:0.5px solid;
+    border-color: white;
+    margin-top: 30px;
+    cursor:pointer;
+}
+
+.div_form form button:hover{
+    background:white;
+    color:#ea6a9f;
+}
+
+/* end of the form part */
