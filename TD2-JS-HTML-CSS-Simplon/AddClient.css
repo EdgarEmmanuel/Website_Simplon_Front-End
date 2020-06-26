@@ -24,6 +24,45 @@ header .brand h1{
     font-family: 'Balsamiq Sans', cursive;
 }
 
+/* start for the menu  */
+header .menu{
+    margin-left: 25rem;
+}
+
+header .menu{
+    width:35rem;
+    height:1.6rem;
+    z-index:6;
+    margin-top: -45px;
+    text-align: center;
+    padding: 15px 20px ;
+}
+
+
+header .menu a{
+    background:#6d63fa;
+    font-size:22px;
+    text-decoration: none;
+    color:white;
+    font-weight:bold;
+    margin:0px 10px ;
+    border:1px solid #6d63fa;
+    border-radius:10px;
+    padding: 5px 5px;
+    font-family: 'Balsamiq Sans', cursive;
+    cursor: pointer;
+}
+
+
+
+header .menu a:hover{
+    background:white;
+    color:#6d63fa;
+    border-color: white;
+}
+
+/* end for the menu */
+
 header .right{
     margin-left:75rem;
     margin-top: -42px;
@@ -54,50 +93,14 @@ main img{
     z-index:2
 }
 
-/* start of the menu in the main */
-
-main .menu{
-    width:35rem;
-    height:1.6rem;
-    background-color:white;
-    margin-top: -610px;
-    margin-left: 330px;
-    z-index:6;
-    text-align: center;
-    padding: 15px 20px ;
-}
-
-main .menu a{
-    background:#6d63fa;
-    font-size:22px;
-    text-decoration: none;
-    color:white;
-    font-weight:bold;
-    margin:0px 10px ;
-    border:1px solid #6d63fa;
-    border-radius:10px;
-    padding: 5px 5px;
-    font-family: 'Balsamiq Sans', cursive;
-    cursor: pointer;
-}
-
-main .menu a:hover{
-    background:white;
-    color:#6d63fa;
-    border-color: white;
-}
-
-/* end of the menu in the main  */
-
 
 
 /* start of the div with the class form */
 main .form{
     width:75rem;
    background:rgb(255,255,255,0.2);
-   position:fixed;
    margin-left: 100px;
-   margin-top: 5px;
+   margin-top: -570px;
    margin-bottom: 4rem;
    text-align: center;
   
@@ -237,9 +240,8 @@ main .form .Moral select ~ label{
 
 /* button after the div for account data */
 main .form form  #button{
-    margin-top: 18rem;
-    margin-left: 300px;
-    position: fixed;
+    margin-left: 50px;
+    margin-top: -5rem;
 }
 
 main .form form .button_for_i{
@@ -306,10 +308,6 @@ main .form .compte{
     text-align: center;
     margin-top: -1rem;
     overflow-y: hidden;
-}
-
-
-.text h3{
     font-weight: bold;
     font-style: italic;
     margin-left: 200px;

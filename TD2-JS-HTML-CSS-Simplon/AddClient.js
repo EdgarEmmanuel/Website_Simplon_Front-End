@@ -80,9 +80,9 @@ class UI_Salarie{
         //verify if all the fields has not  been fill 
     if(cpt!=0){
         UI.messageDis(`<h1>Veuillez Remplir les champs en Rouge </h1>`);
-        return 1;
+        return 2;
       }else{
-          return 2;
+          return 1;
       }
     }
     
@@ -134,9 +134,9 @@ class UI_Independant{
        //verify if all the fields has not  been fill 
     if(cpt!=0){
         UI.messageDis(`<h1>Veuillez Remplir les champs Indiques</h1>`);
-        return 1;
+        return 2;
       }else{
-         return 2;
+         return 1;
       }
     }
 }
@@ -184,9 +184,9 @@ class UI_Moral{
        //verify if all the fields has not  been fill 
     if(cpt!=0){
         UI.messageDis(`<h1>Veuillez Remplir les champs en rouge</h1>`);
-        return 1;
+        return 2;
       }else{
-          return 2;
+          return 1;
       }
     }
 }
@@ -219,22 +219,31 @@ class UI_Compte{
         });
     }
     
+    static clearFieldCompte(){
+          document.querySelector("#raison_social").value="";
+        document.querySelector("#nom_Entreprise").value="";
+        document.querySelector("#date_deblocage").value="";
+    document.querySelector("#Adresse_Entreprise").value="";
+        document.querySelector("#date_deblocage").value="";
+        document.querySelector("#cle_rib").value="";
+        document.querySelector("#taux_agios").value="";
+        document.querySelector("#montant").value="";
+    }
+    
     static displayAll(){
-        document.querySelector("#raison_social").style.display='initial';
-        document.querySelector("#nom_Entreprise").style.display='initial';
-        document.querySelector("#date_deblocage").style.display='initial';
-        document.querySelector("#Adresse_Entreprise").style.display='initial';
-        document.querySelector("#date_deblocage").style.display='initial';
-        document.querySelector("#cle_rib").style.display='initial';
-        document.querySelector("#taux_agios").style.display='initial';
-        
-        //automate field for frais compte 
-        document.querySelector("#Frais_Compte").value="";
+        UI_Compte.clearFieldCompte();
+        document.querySelector("#raison_social").removeAttribute("disabled");
+        document.querySelector("#nom_Entreprise").removeAttribute("disabled");
+        document.querySelector("#date_deblocage").removeAttribute("disabled");
+    document.querySelector("#Adresse_Entreprise").removeAttribute("disabled");
+        document.querySelector("#date_deblocage").removeAttribute("disabled");
+        document.querySelector("#cle_rib").removeAttribute("disabled");
+        document.querySelector("#taux_agios").removeAttribute("disabled");
+        document.querySelector("#montant").removeAttribute("disabled");
     }
     
     static verifyAccountBloque(){
         let cpt = 0;
-        let verify =0;
         if(cle_rib.value===""){
            cpt+=1;
         cle_rib.style.borderColor='#FA6D63';
@@ -252,10 +261,10 @@ class UI_Compte{
         }
     }
     
-    static verifyAccountEpargne(){
-        let cpt = 0;
+    static verifyAccountCourant(){
+         let cpt = 0;
         let verify =0;
-        if(ddocument.querySelector("#raison_social").value.trim()===""){
+        if(document.querySelector("#raison_social").value.trim()===""){
            cpt+=1;
         document.querySelector("#raison_social").style.borderColor='#FA6D63';
         }if( document.querySelector("#taux_agios").value.trim()===""){
@@ -281,30 +290,51 @@ class UI_Compte{
         }
     }
     
-    static AccountBloque(){
+    static verifyAccountEpargne(){
+        let cpt = 0;
+        let verify =0;
+        if( document.querySelector("#taux_agios").value.trim()===""){
+               cpt+=1;
+             document.querySelector("#taux_agios").style.borderColor='#FA6D63';
+        }if(document.querySelector("#montant").value.trim()===""){ 
+            cpt+=1;
+           document.querySelector("#montant").style.borderColor='#FA6D63';
+        }if(document.querySelector("#cle_rib").value.trim()===""){ 
+            cpt+=1;
+           document.querySelector("#cle_rib").style.borderColor='#FA6D63';
+        }
+        if(cpt!=0){
+            return 2;
+        }else{
+            return 1;
+        }
+    }
+    
+   static AccountBloque(){
         UI_Compte.displayAll();
-        document.querySelector("#raison_social").style.display='none';
-        document.querySelector("#nom_Entreprise").style.display='none';
-        document.querySelector("#Adresse_Entreprise").style.display='none';
+        document.querySelector("#raison_social").setAttribute("disabled","");
+        document.querySelector("#nom_Entreprise").setAttribute("disabled","");
+        document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
+         document.querySelector("#montant").setAttribute("disabled","");
         
         //atomate the field for frais compte 
-        document.querySelector("#Frais_Compte").value="Frais Compte : 10000FCFA";
+        document.querySelector("#Frais_Compte").value="Frais Ouverture : 10000FCFA";
     }
     
     static AccountEpargne(){
         UI_Compte.displayAll();
-        document.querySelector("#raison_social").style.display='none';
-        document.querySelector("#nom_Entreprise").style.display='none';
-        document.querySelector("#date_deblocage").style.display='none';
-        document.querySelector("#Adresse_Entreprise").style.display='none';
+        document.querySelector("#raison_social").setAttribute("disabled","");
+        document.querySelector("#nom_Entreprise").setAttribute("disabled","");
+        document.querySelector("#date_deblocage").setAttribute("disabled","");
+        document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
         
         //automate the field for frais compte 
-        document.querySelector("#Frais_Compte").value="Frais Compte : 9000FCFA";
+        document.querySelector("#Frais_Compte").value="Frais Ouverture : 9000FCFA";
     }
     
     static AccountCourant(){
         UI_Compte.displayAll();
-        document.querySelector("#date_deblocage").style.display='none';
+        document.querySelector("#date_deblocage").setAttribute("disabled","");
         
         //automate field for frais compte 
         document.querySelector("#Frais_Compte").value="Frais Ouverture : 10000FCFA";
@@ -423,15 +453,53 @@ btn_CSalarie.addEventListener("click",(e)=>{
 });
 
 
+
+//display and automate for displaying for the salarie account
+document.querySelector("#numCompte").value="Numero Compte : CS456";
+
+
 // apres nous commencons a verifier les champs du formualire client Salarie 
 document.querySelector("#btn_Csalarie").addEventListener("click",(e)=>{
     e.preventDefault();
-    
     if(document.querySelector("#type_m").value==="Bloque"){
         var tes1= UI_Salarie.verifyCSalarie();
         var tesBloq = UI_Compte.verifyAccountBloque();
         console.log("slarie : "+tes1);
         console.log("bloque : "+tesBloq);
+    }else if(document.querySelector("#type_m").value==="Courant"){
+        var tes1= UI_Salarie.verifyCSalarie();
+        var tesBloq = UI_Compte.verifyAccountCourant();
+        console.log("slarie : "+tes1);
+        console.log("courant : "+tesBloq);
+    }else if(document.querySelector("#type_m").value==="Epargne"){
+        var tes1= UI_Salarie.verifyCSalarie();
+        var tesBloq = UI_Compte.verifyAccountEpargne();
+        console.log("slarie : "+tes1);
+        console.log("Epargne : "+tesBloq);
+    }else{
+        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
+    }
+});
+
+
+//verificatiuon du formulaire pour la creation client independatnt
+document.querySelector("#button_i").addEventListener("click",(e)=>{
+    e.preventDefault();
+     if(document.querySelector("#type_m").value==="Bloque"){
+        var tes1= UI_Independant.verify_Client_Independant();
+        var tesBloq = UI_Compte.verifyAccountBloque();
+        console.log("ind : "+tes1);
+        console.log("bloque : "+tesBloq);
+    }else if(document.querySelector("#type_m").value==="Epargne"){
+        var tes1= UI_Independant.verify_Client_Independant();
+        var tesBloq = UI_Compte.verifyAccountEpargne();
+        console.log("ind : "+tes1);
+        console.log("Epargne : "+tesBloq);
+    }else if(document.querySelector("#type_m").value==="Courant"){
+        var tes1= UI_Independant.verify_Client_Independant();
+        var tesBloq = UI_Compte.verifyAccountCourant()
+        console.log("ind : "+tes1);
+        console.log("courant : "+tesBloq);
     }else{
         UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
     }
@@ -440,29 +508,23 @@ document.querySelector("#btn_Csalarie").addEventListener("click",(e)=>{
 
 
 //verificatiuon du formulaire pour la creation client independatnt
-document.querySelector("#button_i").addEventListener("click",(e)=>{
-    e.preventDefault();
-    
-     if(document.querySelector("#type_m").value==="Bloque"){
-        var tes1= UI_Independant.verify_Client_Independant();
-        var tesBloq = UI_Compte.verifyAccountBloque();
-        console.log("slarie : "+tes1);
-        console.log("bloque : "+tesBloq);
-    }else{
-        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
-    }
-});
-
-
-//verification formualire clienty moral 
 document.querySelector("#button_m").addEventListener("click",(e)=>{
     e.preventDefault();
-    
-    if(document.querySelector("#type_m").value==="Bloque"){
+     if(document.querySelector("#type_m").value==="Bloque"){
         var tes1= UI_Moral.verify_Client_Moral();
         var tesBloq = UI_Compte.verifyAccountBloque();
-        console.log("slarie : "+tes1);
+        console.log("ind : "+tes1);
         console.log("bloque : "+tesBloq);
+    }else if(document.querySelector("#type_m").value==="Epargne"){
+        var tes1=  UI_Moral.verify_Client_Moral();
+        var tesBloq = UI_Compte.verifyAccountEpargne();
+        console.log("ind : "+tes1);
+        console.log("Epargne : "+tesBloq);
+    }else if(document.querySelector("#type_m").value==="Courant"){
+        var tes1=  UI_Moral.verify_Client_Moral();
+        var tesBloq = UI_Compte.verifyAccountCourant()
+        console.log("ind : "+tes1);
+        console.log("courant : "+tesBloq);
     }else{
         UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
     }
