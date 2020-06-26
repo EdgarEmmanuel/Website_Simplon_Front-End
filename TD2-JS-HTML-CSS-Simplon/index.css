@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
 
 
 
@@ -42,14 +40,16 @@ header .brand{
     padding: 20px 20px;
 }
 
-.div_form form label{
-    border:1px solid rgba(255,255,255,0.01);
-    border-radius: 10px;
-    text-transform: uppercase;
+.div_form form select{
+    width:320px;
+    height:40px;
+    font:16px;
     color:white;
-    padding: 10px 10px;
-    background:#191f4b;
-    font-family: 'Balsamiq Sans', cursive;
+    font-style: italic;
+    text-transform: uppercase;
+    background:#0f1436;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
 }
 
 .div_form form .input{
@@ -62,9 +62,10 @@ header .brand{
     background:#0f1436;
     border:1px solid rgba(255,255,255,0.1);
     border-radius: 10px;
+    color:white;
 }
 
-.div_form form .input:focus{
+.div_form form .input:focus , select:focus{
     border-color:#ea6a9f;
     outline:none;
 }
@@ -88,3 +89,16 @@ header .brand{
 }
 
 /* end of the form part */
+
+/* for the javacsript */
+
+.divMess h1{
+    text-align: center;
+    color:white;
+    font-weight:bold;
+    font-weight:bold;
+    font-family: 'Notable', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* end for the javascript */
