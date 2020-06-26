@@ -63,10 +63,16 @@ UI_GestClient.dosplayCaisiere();
 
 
 //go add a new client
-
 document.querySelector("#add").addEventListener("click",(e)=>{
     e.preventDefault();
     UI_GestClient.redirection("AddClient.html");
+});
+
+//deconnexion du responsable 
+
+document.querySelector("#deco").addEventListener("click",(e)=>{
+    e.preventDefault();
+    UI_GestClient.redirection("index.html");
 })
 
 

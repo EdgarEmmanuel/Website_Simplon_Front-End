@@ -92,6 +92,25 @@ main button:hover{
 }
 
 
+main #deco{
+    border:1px solid #235d8e;
+    color:white;
+    background:#235d8e;
+    width:200px;
+    font-weight: bold;
+    height:2rem;
+    text-transform: uppercase;
+    cursor:pointer;
+    margin-left: 10px;
+}
+
+main #deco:hover{
+    color:#235d8e;
+    background:white;
+    border-color:white;
+}
+
+
 main .desMess{
     font-family:var(--font-Family) ;
     font-size:30px;
@@ -101,6 +120,8 @@ main .desMess{
 /* end main part */
 
 
+
+/* button for adding new client */
 #add{
     border:1px solid #235d8e;
     color:white;
@@ -119,3 +140,4 @@ main .desMess{
     background:white;
     border-color:white; 
 }
+/* end for the button for adding  */
