@@ -356,6 +356,10 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         },5000);
     }
     
+    static redirection(url){
+        location.href=url;
+    }
+    
      static displayStaticData(){
              //creation d'une date 
             var tr ="";
@@ -456,6 +460,14 @@ btn_CSalarie.addEventListener("click",(e)=>{
 
 //display and automate for displaying for the salarie account
 document.querySelector("#numCompte").value="Numero Compte : CS456";
+
+
+//rediriger vers accueil
+
+document.querySelector("#accueil").addEventListener("click",(e)=>{
+    e.preventDefault();
+    UI.redirection("verifyCNI.html");
+})
 
 
 // apres nous commencons a verifier les champs du formualire client Salarie 
