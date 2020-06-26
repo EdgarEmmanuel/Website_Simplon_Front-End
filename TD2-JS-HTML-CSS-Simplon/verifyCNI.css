@@ -7,8 +7,8 @@
 
 
 body{
-    background-image: url(img/Page-Turner.svg);
-    background-repeat: no-repeat;
+    background:linear-gradient(0.25turn, #504DC1, rgb(80, 77, 193,0.8));
+   
 }
 
 
@@ -17,6 +17,7 @@ body{
 header .brand{
     font-family:var(--font-Family) ;
     font-size: 45px;
+    color:white;
 }
 /*  end header part*/
 
@@ -98,3 +99,23 @@ main .desMess{
     position:fixed;
 }
 /* end main part */
+
+
+#add{
+    border:1px solid #235d8e;
+    color:white;
+    background:#235d8e;
+    width:200px;
+    font-weight: bold;
+    height:2rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+    cursor:pointer;
+    margin-left: 47.5rem;
+}
+
+#add:hover{
+    color:#235d8e;
+    background:white;
+    border-color:white; 
+}

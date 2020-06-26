@@ -20,6 +20,13 @@ class UI_Compte{
         });
     }
     
+    
+    static disMess(mess){
+        document.querySelector("body").insertAdjacentHTML("beforeend",`<div class="divMess">
+        <h1>${mess}</h1>
+    </div>`)
+    }
+    
     static clearFieldCompte(){
           document.querySelector("#raison_social").value="";
         document.querySelector("#nom_Entreprise").value="";

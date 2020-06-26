@@ -4,7 +4,8 @@
 
 body{
     /* background:linear-gradient(100deg,#242e4c,#ea6a9f); */
-    background:linear-gradient(0.25turn, #242e4c, #ea6a9f);
+    /* background:linear-gradient(0.25turn, #242e4c, #ea6a9f); */
+    background:linear-gradient(0.25turn, #504DC1, rgb(80, 77, 193,0.8));
 }
 
 
@@ -66,12 +67,12 @@ header .brand{
 }
 
 .div_form form .input:focus , select:focus{
-    border-color:#ea6a9f;
+    border-color:#504DC1;
     outline:none;
 }
 
 .div_form form button{
-    background:#ea6a9f;
+    background:#504DC1;
     color:white;
     width:220px;
     height:2rem;
@@ -85,7 +86,7 @@ header .brand{
 
 .div_form form button:hover{
     background:white;
-    color:#ea6a9f;
+    color:#504DC1;
 }
 
 /* end of the form part */

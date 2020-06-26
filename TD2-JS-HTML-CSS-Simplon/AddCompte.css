@@ -129,3 +129,12 @@ main form .button_for_s{
 }
 
 /* end button after the div for account data */
+
+
+.divMess{
+    width:50%;
+    background:white;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+}
