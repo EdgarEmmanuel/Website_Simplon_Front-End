@@ -28,6 +28,7 @@ let taux_agios = document.querySelector("#taux_agios");
 let nom_enterprise = document.querySelector("#nom_Entreprise");
 let adrr_entreprise = document.querySelector("#Adresse_Entreprise");
 let date_deblocage = document.querySelector("#date_deblocage");
+let date_ouverture = document.querySelector("#date_m");
 
 
 
@@ -240,6 +241,7 @@ class UI_Compte{
         document.querySelector("#cle_rib").removeAttribute("disabled");
         document.querySelector("#taux_agios").removeAttribute("disabled");
         document.querySelector("#montant").removeAttribute("disabled");
+        document.querySelector("#date_m").removeAttribute("disabled");
     }
     
     static verifyAccountBloque(){
@@ -253,7 +255,10 @@ class UI_Compte{
         }if(date_deblocage.value===""){ 
             cpt+=1;
             date_deblocage.style.borderColor='#FA6D63';
-        }
+        }if(date_ouverture.value===""){
+            cpt+=1;
+            date_ouverture.style.borderColor='#FA6D63';
+            }
         if(cpt!=0){
             return 2;
         }else{
@@ -282,7 +287,10 @@ class UI_Compte{
         }if(document.querySelector("#cle_rib").value.trim()===""){ 
             cpt+=1;
            document.querySelector("#cle_rib").style.borderColor='#FA6D63';
-        }
+        }if(date_ouverture.value===""){
+            cpt+=1;
+            date_ouverture.style.borderColor='#FA6D63';
+            }
         if(cpt!=0){
             return 2;
         }else{
@@ -302,7 +310,10 @@ class UI_Compte{
         }if(document.querySelector("#cle_rib").value.trim()===""){ 
             cpt+=1;
            document.querySelector("#cle_rib").style.borderColor='#FA6D63';
-        }
+        }if(date_ouverture.value===""){
+            cpt+=1;
+            date_ouverture.style.borderColor='#FA6D63';
+            }
         if(cpt!=0){
             return 2;
         }else{
@@ -360,8 +371,8 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         location.href=url;
     }
     
-     static displayStaticData(){
-             //creation d'une date 
+    static automateDate(){
+        //creation d'une date 
             var tr ="";
             var t ="";
             var date = new Date();
@@ -376,6 +387,9 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
                 t = "0"+date.getMonth().toLocaleString();
             }
         document.querySelector("#date_m").value=`Date Ouverture Compte : ${tr}/${t}/${date.getFullYear()}`;
+    }
+    
+     static displayStaticData(){
          
          //pour numero agence
          document.querySelector("#numeroAgence").value='Numero Agence : BP0056';
