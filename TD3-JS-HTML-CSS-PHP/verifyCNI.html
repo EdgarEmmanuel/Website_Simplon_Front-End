@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="verifyCNI.css"/>
+    <title>GestionClient</title>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            Banque du Peuple
+        </div>
+    </header>
+    <main>
+        
+        <input type="text" placeholder="" id="caissiere" readonly/><button id="deco">Deconnexion</button><br>
+        <form action="" id="formGest">
+            <input type="text" placeholder="CNI CLIENT" id="cni" autocomplete="off"/> <br>
+            <button id="verClient">Verifier</button>
+        </form>
+       
+    </main>
+    <div class="message">
+        <h1>Le Client n'est Pas dans le Systeme</h1>
+        <button id="createClient">Creer le Client </button> <button id="annuler">Annuler</button>
+    </div> <br/><br/><br/>
+    <button id="add">Nouveau Client </button>
+
+
+<script src="verifyCNI.js" type="text/javascript"></script>
+</body>
+</html>

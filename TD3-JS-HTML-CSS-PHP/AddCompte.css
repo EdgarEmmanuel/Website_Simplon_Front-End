@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image:url("img/images.jpg");
+}
+
+/* header parts */
+
+header{
+    z-index:4;
+    position: absolute;
+    width:100%;
+    height:4rem;
+    background: transparent;
+}
+
+header .brand h1{
+    margin-top: 5px;
+    color:black;
+    margin-left: 25px;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+header .right{
+    margin-left:75rem;
+    margin-top: -42px;
+}
+
+header .right button{
+    background:transparent;
+    border:none;
+    border-radius: 10px;
+    padding: 10px 10px ;
+    font-weight:bold;
+    letter-spacing: .2em;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+header .right button:hover{
+    background:white;
+    cursor: pointer;
+}
+
+
+/* ===========================start main ========================= */
+
+main form{
+    margin-left: 150px;
+    text-align: center;
+}
+
+
+/* debut du style pour le formulaire client moral */
+main form .Moral{
+    display: block;
+    text-align: center;
+}
+
+main .Moral h2{
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+main  .Moral input{
+    height:2rem;
+    width:220px;
+    margin-top: 10px;
+    border-radius:10px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+/* fin du style pour le formulaire client moral */
+
+
+
+/* start for the account part */
+main form .compte{
+    text-align: center;
+}
+   
+   main form .compte input{
+       height:2rem;
+       width:240px;
+       margin-top: 10px;
+       border-radius:10px;
+       border-color:1px solid black;
+       font-size: 15px;
+       text-transform: uppercase;
+   }
+   
+   main form .compte h2{
+    font-family: 'Balsamiq Sans', cursive;
+   }
+   
+   main form .compte select{
+       width:10rem;
+       margin-top: 10px;
+       border-radius:10px;
+       font-size: 15px;
+       text-transform: uppercase;
+       background:white;
+   }
+/* end of data for account data  */
+
+/* end for the account part */
+
+
+/* button after the div for account data */
+
+main form button{
+background:#6d63fa;
+    border:1px solid #6d63fa;
+    color:white;
+    width:200px;
+    font-weight: bold;
+    height:2rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+    cursor:pointer;
+}
+
+main form .button_for_s{
+    display:block;
+}
+
+/* end button after the div for account data */
+
+
+.divMess{
+    width:50%;
+    background:white;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+}

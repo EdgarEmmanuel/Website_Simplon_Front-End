@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <title>Ajout Client</title>
+    <!-- link for stylesheet -->
+    <link rel="stylesheet" href="AddClient.css">
+</head>
+<body>
+    <header>
+        <div class="brand"> 
+            <h1>BANQUE DU PEUPLE</h1>
+        </div>
+        <div class="menu">
+            <a class="btn-Independant" href="">Client Independant</a>
+            <a class="btn-Salarie" href="">Client Salarie</a>
+            <a class="btn-Moral" href="">Client Moral</a>
+        </div>
+        <div class="right">
+            <button>en</button>
+            <button>fr</button>
+            <button id="accueil">Accueil</button>
+        </div>
+    </header>
+
+    <main>
+        <img src="img/images.jpg" alt="">
+       
+        <div class="form">
+           
+                <!-- form for adding Employee client  -->
+                <form action="">
+                    <div class="salarie"> 
+                        <h2>Informations Client Salarie</h2>
+                        <input type="text" name="" placeholder="nom" id="nom_salarie" autocomplete="off" /><br/>
+                        <input type="text" name="" placeholder="prenom" id="prenom_salarie" autocomplete="off" /><br/>
+                        <input type="text" name="" placeholder="adresse" id="addr_salarie" autocomplete="off"/><br/>
+                        <input type="text" name="" placeholder="telephone" id="tele_salarie" autocomplete="off"/><br/>
+                        <input type="text" name="" placeholder="email" id="email_salarie" autocomplete="off" /><br/>
+                        <input type="text" name="" placeholder="profession" id="emploi_salarie" autocomplete="off" /><br/>
+                        <input type="text" name="" placeholder="nom entreprise" id="NameEnter_salarie" autocomplete="off" /><br/>
+                    </div>
+
+
+                <!-- form for adding Indepndant client -->
+                <div class="Independant">
+                    <h2>Informations Clients Independant</h2>
+                    <input type="text" name="" placeholder="nom" id="nom_i" /><br/>
+                    <input type="text" name="" placeholder="prenom" id="prenom_i" /><br/>
+                    <input type="text" name="" placeholder="adresse" id="adresse_i" /><br/>
+                    <input type="text" name="" placeholder="telephone" id="telephone_i" /><br/>
+                    <input type="text" name="" placeholder="email" id="email_i" /><br/>
+                    <input type="text" name="" placeholder="activite" id="activite_i" /><br/>
+                </div>
+
+
+
+                <!-- form for adding moral client -->
+
+                <div class="Moral">
+                        <h2>INFORMATIONS CLIENT MORAL</h2>
+                    <input type="text" name="" placeholder="nom Entreprise" id="nom_enter_m" /><br/>
+                    <input type="text" name="" placeholder="adresse" id="adresse_m" /><br/>
+                    <input type="text" name="" placeholder="telephone Professionel" id="tel_m" /><br/>
+                    <input type="text" name="" placeholder="email entreprise" id="email_m" /><br/>
+                    <input type="text" name="" placeholder="type entreprise" id="type_enter_m" /><br/>
+                    <input type="text" name="" placeholder="activite Entreprise" id="activite_m" /><br/>
+                </div>
+
+
+
+                <div class="compte">
+                        <h2>INFORMATIONS COMPTE DU CLIENT </h2>
+                    <label for="">Type Compte </label>
+                    <select name="" id="type_m" required>
+                        <option value="">Choisir...</option>
+                        <option value="Epargne">Compte Epargne</option>
+                        <option value="Courant">Compte Courant</option>
+                        <option value="Bloque">Compte Bloque</option>
+                    </select><br/>
+                    <input type="text" name="" id="raison_social" placeholder="raison social"/><br/>
+                    <input type="text" name="" id="cle_rib" placeholder="Cle RIB"/><br/>
+                    <input type="number" name="" id="taux_agios" placeholder="taux agios" /> <br/>
+                    <input type="number" name="" id="montant" placeholder="montant" /> <br/>
+                    <input type="text" name="" id="nom_Entreprise" placeholder="nom Entreprise" /><br/>
+                    <input type="text" name="" id="Adresse_Entreprise" placeholder="Adresse Entreprise" /><br/>
+                    <input type="text" name="" id="Frais_Compte" placeholder="frais compte" readonly/> <br/>
+                    <input type="date" placeholder="date deblocage compte" id="date_deblocage" /> <br/>
+                    <input type="text" name="" id="numeroAgence" placeholder="numeroAgence" readonly/><br/>
+                    <input type="text" name="" id="numCompte" placeholder="numeroCompte" readonly/> <br/>
+                    <input type="date" name="" placeholder="date ouverture" id="date_m" /><br/>
+                </div>
+
+                <!-- the button for all the differents forms i the project -->
+                <div class="button_for_i" id="button">
+                    <button id="button_i">Valider</button>  <button>Annuler</button>
+                </div>
+                <div class="button_for_m" id="button">
+                    <button id="button_m" class="btn_final">Valider</button>  <button>Annuler</button>
+                </div>
+                <div class="button_for_s" id="button">
+                    <button id="btn_Csalarie" >Valider</button>  <button>Annuler</button>
+                </div>
+                <!-- end of all the  -->
+            </form>
+        </div>
+    </main>
+    
+
+
+<script type="text/javascript" src="AddClient.js"></script>
+</body>
+</html>
