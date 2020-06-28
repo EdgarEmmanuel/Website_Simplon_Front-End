@@ -44,10 +44,6 @@ class MySqlConnection {
         return $data;
     }
 
-    public static function closeConnection(){
-        self::$_pdo->close();
-    }
-
 }
 
 ?>
