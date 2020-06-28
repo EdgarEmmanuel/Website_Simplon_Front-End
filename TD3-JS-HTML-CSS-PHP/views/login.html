@@ -14,16 +14,16 @@
     <div class="brand">Sign In</div>
 </header>
     <div class="div_form">
-            <form action="">
-                <select name="" id="type_employe">
+            <form action="index.php" method="post">
+                <select name="type" id="type_employe">
                     <option value="">...</option>
                     <option value="responsable">Responsable Compte</option>
                     <option value="administrateur">Administrateur</option>
                     <option value="caissiere">Caissiere</option>
                 </select><br>
-                <input class="input" type="text" name="" id="login" autocomplete="off" placeholder="entrer votre login"/><br>
-                <input class="input" type="password" name="" id="pwd" placeholder="entrer votre mot de passe"/><br>
-                <button id="connect">CONNEXION</button> <button id="annuler">ANNULER</button>
+                <input class="input" type="text" name="login" id="login" autocomplete="off" placeholder="entrer votre login"/><br>
+                <input class="input" type="password" name="password" id="pwd" placeholder="entrer votre mot de passe"/><br>
+                <button type="submit" name="send" id="connect">CONNEXION</button> <button type="reset" id="annuler">ANNULER</button>
             </form>
     </div>
 

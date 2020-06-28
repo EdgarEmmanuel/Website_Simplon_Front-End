@@ -26,15 +26,23 @@ define("SRC_MODELS",ROOT."Models");
 include_once(SRC_CONTROLLERS."/Controller_BP_Class.php");
 $controller = new Controller_BP();
 
-if(isset($_GET["page"])){
-
+if(isset($_GET["code"])){
+    $code = $_GET["code"];
+    switch($code){
+        case "cni": 
+            $controller->getPageVerifyCNI();
+        break;
+        case "login": 
+            $controller->getPageLogin();
+        break;
+        default : 
+            $controller->getPageLogin();
+        break;
+    }
 }else{
     $controller->getPageLogin();
 }
-$req = 2;
-if($req==2){
-    $data = json_decode(file_get_contents("php://input"));
-    var_dump($data);
-}
+
+
 
 ?>

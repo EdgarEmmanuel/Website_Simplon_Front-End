@@ -33,19 +33,15 @@ class UI_loginPage{
         
     }
     
-    static sendRequestConnex(){
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST","../index.php",true);
-        xhr.setRequestHeader("Content-type","application/json");
-        var jsonString ={
-            "value":"connex",
-            "login":"test",
-            "pwd":"aba",
-            "employe":"resp"
-        }
-        //"application/x-www-form-urlencoded"
-        const str = JSON.stringify(jsonString);
-        xhr.send(JSON.stringify(jsonString));
+    static sendRequestConnex(User){
+         var xhr = new XMLHttpRequest();
+            xhr.open("POST","index.php",true);
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send("btn="+encodeURI("connex")+"&nom="+encodeURI("edgar"));   
+    }
+    
+    static redirection(url){
+        location.href=url;
     }
     
     static verify_loginPage(){
@@ -61,7 +57,7 @@ class UI_loginPage{
             var user = new User(login,pwd,employe);
             
             //send the request
-            UI_loginPage.sendRequestConnex(user);
+             UI_loginPage.sendRequestConnex(user);
             
             //clear all the field 
             UI_loginPage.clearField();
@@ -71,15 +67,28 @@ class UI_loginPage{
     
     
 }
-    
-UI_loginPage.sendRequestConnex();
 
+//document.querySelector("#connect").style.display='none';
+//document.querySelector("#annuler").style.display='none';
+//
+//document.querySelector("#pwd").addEventListener("focus",(e)=>{
+//    e.preventDefault();
+//    setTimeout((e)=>{console.log("wait")
+//                if(password_input.value.trim()==="" || type_employe.value.trim()===""){
+//        console.log(0);
+//    }else{
+//        document.querySelector("#connect").style.display='initial';
+//        document.querySelector("#annuler").style.display='initial';
+//    }     
+//                    
+//    },100);
+//   
+//})
 
-//after click on the butoton connexionn
+////after click on the butoton connexionn
 document.querySelector("#connect").addEventListener("click",(e)=>{
     e.preventDefault();
-    //UI_loginPage.verify_loginPage();
-    UI_loginPage.sendRequestConnex();
+    UI_loginPage.verify_loginPage();
 });
 
 
