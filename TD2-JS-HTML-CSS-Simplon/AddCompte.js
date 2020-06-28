@@ -163,7 +163,16 @@ class UI_AddCompte{
         document.querySelector("#idClient").value=`${client.idClient}`;
         document.querySelector("#cni").value=`${client.cni}`;
         
-         //creation d'une date 
+        //for the account treatment
+        document.querySelector("#numCompte").value='CI567';
+         
+         //pour numero agence
+         document.querySelector("#numeroAgence").value='Numero Agence : BP0056';
+    }
+    
+    
+    static automateDate(){
+        //creation d'une date 
             var tr ="";
             var t ="";
             var date = new Date();
@@ -178,12 +187,6 @@ class UI_AddCompte{
                 t = "0"+date.getMonth().toLocaleString();
             }
         document.querySelector("#date_m").value=`${tr}/${t}/${date.getFullYear()}`;
-        
-        //for the account treatment
-        document.querySelector("#numCompte").value='CI567';
-         
-         //pour numero agence
-         document.querySelector("#numeroAgence").value='Numero Agence : BP0056';
     }
     
     
