@@ -3,10 +3,16 @@
 class Client{
     protected $_telephone;
     protected $_mail;
+    protected $_mat;
 
-    public function __construct($telephone , $mail){
+    public function __construct($telephone , $mail,$matricule){
         $this->_telephone=$telephone;
         $this->_mail=$mail;
+        $this->_mat=$matricule;
+    }
+
+    public function getMatricule(){
+        return $this->_mat;
     }
 
 

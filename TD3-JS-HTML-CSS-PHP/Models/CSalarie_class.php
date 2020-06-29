@@ -4,8 +4,6 @@ include_once(SRC_MODELS."/Client_class.php");
 
 
 class Client_Salarie extends Client{
-    private $_telephone;
-    private $_mail;
     private $_nom;
     private $_prenom;
     private $_cni;
@@ -13,8 +11,8 @@ class Client_Salarie extends Client{
     private $_nomEntreprise;
     private $_adresseEntreprise;
 
-    public function __construct($tel,$mail,$nom,$nomEntreprise,$prenom,$cni,$salaire,$adreEntre){
-        parent::__construct( $tel , $mail);
+    public function __construct($tel,$mail,$nom,$nomEntreprise,$prenom,$cni,$salaire,$adreEntre,$matricule){
+        parent::__construct( $tel , $mail,$matricule);
         $this->_prenom=$prenom;
         $this->_cni=$cni;
         $this->_nom=$nom;
@@ -23,13 +21,6 @@ class Client_Salarie extends Client{
         $this->_adresseEntreprise=$adreEntre;
     }
 
-    public function getTelephone(){
-        return $this->_telephone;
-    }
-
-    public function getMail(){
-        return $this->_mail;
-    }
 
     public function getSalaire(){
         return $this->_salaire;
@@ -53,6 +44,18 @@ class Client_Salarie extends Client{
 
     public function getPrenom(){
         return $this->_prenom;
+    }
+
+    public function getMail(){
+        return parent::getMail();
+    }
+
+    public function getTelephone(){
+        return parent::getTelephone();
+    }
+
+    public function getMatricule(){
+        return parent::getMatricule();
     }
 }
 
