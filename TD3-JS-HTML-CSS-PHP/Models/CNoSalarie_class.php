@@ -12,7 +12,8 @@ class Client_Non_Salarie extends Client{
     private $_nom;
    
     public function __construct($adr,$tel,$mail,$nom,$activite,$prenom,$cni){
-        parent::__construct($adr , $tel , $mail);
+        parent::__construct( $tel , $mail);
+        $this->_adresse=$adr;
         $this->_prenom=$prenom;
         $this->_cni=$cni;
         $this->_nom=$nom;
@@ -36,7 +37,7 @@ class Client_Non_Salarie extends Client{
     }
 
     public function getAdresse(){
-        return parent::getAdresse();
+        return $this->_adresse;
     }
 
     public function getMail(){

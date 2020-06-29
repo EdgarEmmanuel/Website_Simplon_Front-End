@@ -1,21 +1,14 @@
 <?php 
 
-
-
 class Client{
-    protected $_adresse;
     protected $_telephone;
     protected $_mail;
 
-    public function __construct($adresse , $telephone , $mail){
-        $this->_adresse=$adresse;
+    public function __construct($telephone , $mail){
         $this->_telephone=$telephone;
         $this->_mail=$mail;
     }
 
-    public function getAdresse(){
-        return $this->_adresse;
-    }
 
     public function getTelephone(){
         return $this->_telephone;
@@ -29,9 +22,6 @@ class Client{
         $this->_mail=$mail;
     }
 
-    public function setAdresse($adr){
-        $this->_adresse=$adr;
-    }
 
     public function setTelephone($tel){
         $this->_telephone=$tel;
