@@ -1,0 +1,71 @@
+<?php 
+
+include_once(SRC_MODELS."/Client_class.php");
+
+class Client_Non_Salarie extends Client{
+    private $_adresse;
+    private $_telephone;
+    private $_mail;
+    private $_prenom;
+    private $_activite_client;
+    private $_cni;
+    private $_nom;
+   
+    public function __construct($adr,$tel,$mail,$nom,$activite,$prenom,$cni){
+        parent::__construct($adr , $tel , $mail);
+        $this->_prenom=$prenom;
+        $this->_cni=$cni;
+        $this->_nom=$nom;
+        $this->_activite_entreprise=$activite;
+    }
+
+    public function getCni(){
+        return $this->_cni;
+    }
+
+    public function getActivite(){
+        return $this->_activite_client;
+    }
+
+    public function getNom(){
+        return $this->_nom;
+    }
+
+    public function getPrenom(){
+        return $this->_prenom;
+    }
+
+    public function getAdresse(){
+        return parent::getAdresse();
+    }
+
+    public function getMail(){
+        return parent::getMail();
+    }
+
+    public function getTelephone(){
+        return parent::getTelephone();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>

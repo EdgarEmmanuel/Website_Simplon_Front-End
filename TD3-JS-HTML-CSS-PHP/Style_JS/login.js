@@ -28,15 +28,24 @@ class UI_loginPage{
     </div>`);
         
         setTimeout(()=>{
-            document.querySelector("body").removeChild(document.querySelector(".divMess"));
+ document.querySelector("body").removeChild(document.querySelector(".divMess"));
         },3000)
-        
     }
     
     static sendRequestConnex(User){
          var xhr = new XMLHttpRequest();
-            xhr.open("POST","index.php",true);
+            xhr.open("POST","hello.php",true);
             xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.responseType="blob";
+        xhr.onreadystatechange=(e)=>{
+            e.preventDefault();
+            if(xhr.status==200 && xhr.readyState==2){
+                //xhr.responseText="json";
+                console.log(xhr);
+                //console.log(JSON.parse(xhr.response));
+            }
+        }
+        
         xhr.send("btn="+encodeURI("connex")+"&nom="+encodeURI("edgar"));   
     }
     
