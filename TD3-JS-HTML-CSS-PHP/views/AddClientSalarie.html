@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
     <link rel="icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
-    <title>Ajout Client</title>
+    <title>CLIENT SALARIE</title>
     <!-- link for stylesheet -->
     <!-- <link rel="stylesheet" href="<?= SRC_STYLE_CSS.'/AddClient.css' ?>"> -->
     <link rel="stylesheet" href="<?= SRC_STYLE_CSS.'/AddCl.css' ?>">
@@ -34,7 +34,7 @@
                         <input type="text" name="nom_Entreprise" placeholder="nom entreprise" id="NameEnter_salarie" autocomplete="off" required/><br/>
                     </div>
                 <h2>INFORMATIONS COMPTE DU CLIENT </h2>
-                <label for="">TYPE COMPTE </label>
+                <label for="" style="color:white;">TYPE COMPTE </label>
                 <select name="typeCompte" id="type_m" required>
                     <option value="">Choisir...</option>
                     <option value="Epargne">Compte Epargne</option>
@@ -49,7 +49,7 @@
                 <input type="text" name="adrEntreprise" id="Adresse_Entreprise" placeholder="Adresse Entreprise" /><br/>
                 <input type="date" placeholder="date deblocage compte" id="date_deblocage" name="dateDebloc"/> 
                 <input type="text" name="numAgence" id="numeroAgence" placeholder="numeroAgence" value="<?= $_SESSION['idAgence'] ;?>" readonly/><br/>
-                <label for="">DATE OUVERTURE COMPTE</label><input type="date" name="dateOuvert" placeholder="date ouverture" id="date_m" /> 
+                <label for="" style="color:white;">DATE OUVERTURE COMPTE</label><input type="date" name="dateOuvert" placeholder="date ouverture" id="date_m" /> 
                 <div id="choix">
                     <label for="" style="color:white;">FRAIS OUVERTURE</label><input  type="checkbox" name="souscription" value="souscri" id="frais"/>
                 </div>

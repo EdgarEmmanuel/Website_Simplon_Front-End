@@ -70,7 +70,8 @@ if(isset($_POST["btn"])){
         break;
         case "cSalarie": 
             //var_dump($_POST);
-            echo '<meta http-equiv="refresh" content="0;URL=index.php?code=newCli">';
+            $controller->Salarie($_POST);
+            //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=newCli">';
         break;
     }
 }
