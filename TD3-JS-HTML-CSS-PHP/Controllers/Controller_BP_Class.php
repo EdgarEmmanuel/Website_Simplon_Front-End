@@ -51,7 +51,8 @@ class Controller_BP{
             //pour aller recuperer les donnees(nom et prenom) du client avec son IDEmploye
             $infos = $IRespo->getAllInfoRespoById($_SESSION["idEmploye"]);
             $_SESSION["nom_complet"]=$infos->nom." ".$infos->prenom;
-            $_SESSION["idAgence"]=$infos->idagenceEmploye;
+            $_SESSION["idAgence"]=$infos->idagencEmploye;
+
            
             //redirection vers la page VerifyCNI.html
             echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';

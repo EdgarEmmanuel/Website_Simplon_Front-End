@@ -16,7 +16,7 @@ class RespoCompteImpl implements IResponsableCompte{
     public function getAllInfoRespoById($id){
         MySqlConnection::getConnection();
 
-        $sql = "SELECT nom , prenom from employes where idEmploye=$id";
+        $sql = "SELECT * from employes where idEmploye=$id";
 
         $infosRespo = MySqlConnection::execOne($sql);
 

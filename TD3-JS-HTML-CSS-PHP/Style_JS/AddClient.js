@@ -258,6 +258,8 @@ class UI_Compte{
         document.querySelector("#taux_agios").removeAttribute("required");
         document.querySelector("#montant").removeAttribute("required");
         document.querySelector("#date_m").removeAttribute("required");
+        document.querySelector("#frais").removeAttribute("required");
+        document.querySelector("#fraisR").removeAttribute("required");
     }
     
     static verifyAccountBloque(){
@@ -342,6 +344,7 @@ class UI_Compte{
         document.querySelector("#raison_social").setAttribute("disabled","");
         document.querySelector("#nom_Entreprise").setAttribute("disabled","");
         document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
+       document.querySelector("#taux_agios").setAttribute("disabled","");
        
        //for the required attribute 
         document.querySelector("#date_deblocage").setAttribute("required","");
@@ -350,6 +353,7 @@ class UI_Compte{
         document.querySelector("#taux_agios").setAttribute("required","");
         document.querySelector("#montant").setAttribute("required","");
         document.querySelector("#date_m").setAttribute("required","");
+       document.querySelector("#frais").setAttribute("required","");
        
         
         //atomate the field for frais compte 
@@ -363,6 +367,7 @@ class UI_Compte{
         document.querySelector("#nom_Entreprise").setAttribute("disabled","");
         document.querySelector("#date_deblocage").setAttribute("disabled","");
         document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
+        document.querySelector("#taux_agios").setAttribute("disabled","");
         
         //remove the attribute reqired for specific fields 
         document.querySelector("#date_deblocage").setAttribute("required","");
@@ -370,6 +375,7 @@ class UI_Compte{
         document.querySelector("#taux_agios").setAttribute("required","");
         document.querySelector("#montant").setAttribute("required","");
         document.querySelector("#date_m").setAttribute("required","");
+        document.querySelector("#frais").setAttribute("required","");
         
         //automate the field for frais compte 
         document.querySelector("#choix").style.display='block';
@@ -389,6 +395,7 @@ class UI_Compte{
         document.querySelector("#taux_agios").setAttribute("required","");
         document.querySelector("#montant").setAttribute("required","");
         document.querySelector("#date_m").setAttribute("required","");
+        document.querySelector("#fraisR").setAttribute("required","");
         
         //automate field for frais compte 
         document.querySelector("#choix").style.display='none';

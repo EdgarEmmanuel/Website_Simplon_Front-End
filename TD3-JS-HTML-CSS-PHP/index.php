@@ -69,7 +69,8 @@ if(isset($_POST["btn"])){
             //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=login">';
         break;
         case "cSalarie": 
-            var_dump($_POST);
+            //var_dump($_POST);
+            echo '<meta http-equiv="refresh" content="0;URL=index.php?code=newCli">';
         break;
     }
 }
