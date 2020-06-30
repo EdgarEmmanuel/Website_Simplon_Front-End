@@ -3,15 +3,13 @@
 include_once(SRC_MODELS."/Client_class.php");
 
 class Client_Non_Salarie extends Client{
-    private $_adresse;
     private $_prenom;
     private $_activite_client;
     private $_cni;
     private $_nom;
    
-    public function __construct($adr,$tel,$mail,$nom,$activite,$prenom,$cni,$matricule){
+    public function __construct($tel,$mail,$nom,$activite,$prenom,$cni,$matricule){
         parent::__construct( $tel , $mail,$matricule);
-        $this->_adresse=$adr;
         $this->_prenom=$prenom;
         $this->_cni=$cni;
         $this->_nom=$nom;
@@ -32,10 +30,6 @@ class Client_Non_Salarie extends Client{
 
     public function getPrenom(){
         return $this->_prenom;
-    }
-
-    public function getAdresse(){
-        return $this->_adresse;
     }
 
     public function getMail(){

@@ -200,6 +200,9 @@ class UI_Moral{
 //class pour les informations du compte 
 class UI_Compte{
     
+    
+
+    
     static getTypeCompte(){
         document.querySelector("#type_m").addEventListener("change",()=>{
             var valueOption = document.querySelector("#type_m").value;
@@ -236,12 +239,25 @@ class UI_Compte{
         document.querySelector("#raison_social").removeAttribute("disabled");
         document.querySelector("#nom_Entreprise").removeAttribute("disabled");
         document.querySelector("#date_deblocage").removeAttribute("disabled");
-    document.querySelector("#Adresse_Entreprise").removeAttribute("disabled");
+        document.querySelector("#Adresse_Entreprise").removeAttribute("disabled");
         document.querySelector("#date_deblocage").removeAttribute("disabled");
         document.querySelector("#cle_rib").removeAttribute("disabled");
         document.querySelector("#taux_agios").removeAttribute("disabled");
         document.querySelector("#montant").removeAttribute("disabled");
         document.querySelector("#date_m").removeAttribute("disabled");
+        document.querySelector("#choix").style.display='none';
+        document.querySelector("#choix2").style.display='none';
+        
+        //remove all the field required 
+         document.querySelector("#raison_social").removeAttribute("required");
+        document.querySelector("#nom_Entreprise").removeAttribute("required");
+        document.querySelector("#date_deblocage").removeAttribute("required");
+    document.querySelector("#Adresse_Entreprise").removeAttribute("required");
+        document.querySelector("#date_deblocage").removeAttribute("required");
+        document.querySelector("#cle_rib").removeAttribute("required");
+        document.querySelector("#taux_agios").removeAttribute("required");
+        document.querySelector("#montant").removeAttribute("required");
+        document.querySelector("#date_m").removeAttribute("required");
     }
     
     static verifyAccountBloque(){
@@ -326,10 +342,19 @@ class UI_Compte{
         document.querySelector("#raison_social").setAttribute("disabled","");
         document.querySelector("#nom_Entreprise").setAttribute("disabled","");
         document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
-         document.querySelector("#montant").setAttribute("disabled","");
+       
+       //for the required attribute 
+        document.querySelector("#date_deblocage").setAttribute("required","");
+        document.querySelector("#date_deblocage").setAttribute("required","");
+        document.querySelector("#cle_rib").setAttribute("required","");
+        document.querySelector("#taux_agios").setAttribute("required","");
+        document.querySelector("#montant").setAttribute("required","");
+        document.querySelector("#date_m").setAttribute("required","");
+       
         
         //atomate the field for frais compte 
-        document.querySelector("#Frais_Compte").value="Frais Ouverture : 10000FCFA";
+       document.querySelector("#choix").style.display='block';
+       document.querySelector("#choix2").style.display='none';
     }
     
     static AccountEpargne(){
@@ -339,16 +364,35 @@ class UI_Compte{
         document.querySelector("#date_deblocage").setAttribute("disabled","");
         document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
         
+        //remove the attribute reqired for specific fields 
+        document.querySelector("#date_deblocage").setAttribute("required","");
+        document.querySelector("#cle_rib").setAttribute("required","");
+        document.querySelector("#taux_agios").setAttribute("required","");
+        document.querySelector("#montant").setAttribute("required","");
+        document.querySelector("#date_m").setAttribute("required","");
+        
         //automate the field for frais compte 
-        document.querySelector("#Frais_Compte").value="Frais Ouverture : 9000FCFA";
+        document.querySelector("#choix").style.display='block';
+        document.querySelector("#choix2").style.display='none';
     }
     
     static AccountCourant(){
         UI_Compte.displayAll();
         document.querySelector("#date_deblocage").setAttribute("disabled","");
         
+        //remove the attribute required for specific fields
+         document.querySelector("#raison_social").setAttribute("required","");
+        document.querySelector("#nom_Entreprise").setAttribute("required","");
+    document.querySelector("#Adresse_Entreprise").setAttribute("required","");
+        document.querySelector("#date_deblocage").setAttribute("required","");
+        document.querySelector("#cle_rib").setAttribute("required","");
+        document.querySelector("#taux_agios").setAttribute("required","");
+        document.querySelector("#montant").setAttribute("required","");
+        document.querySelector("#date_m").setAttribute("required","");
+        
         //automate field for frais compte 
-        document.querySelector("#Frais_Compte").value="Frais Ouverture : 10000FCFA";
+        document.querySelector("#choix").style.display='none';
+        document.querySelector("#choix2").style.display='block';
     }
 }
 
@@ -439,122 +483,81 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         document.querySelector("#numCompte").value="Numero Compte : CM456";
     }
 }
-
-
-
-//aficher la donnees constantes 
-UI.displayStaticData();
-
-
-//pour formulaire des donnees du compte 
+//1
 UI_Compte.getTypeCompte();
 
-
-// pour afficher le formulaire des clients independants 
-btn_Cindependant.addEventListener("click",(e)=>{
-    e.preventDefault();
-    UI.displayCinde();
-});
-
-
-//pour afficher le formulaire de client Moral 
-btn_Cmoral.addEventListener("click",(e)=>{
-    e.preventDefault();
-    UI.displayCMoral();
-});
-
-
-//pour le formulaire du client salarie 
-btn_CSalarie.addEventListener("click",(e)=>{
-    e.preventDefault();
-    UI.displayCSalarie();
-});
-
-
-
-//display and automate for displaying for the salarie account
-document.querySelector("#numCompte").value="Numero Compte : CS456";
-
-
-//rediriger vers accueil
-
-document.querySelector("#accueil").addEventListener("click",(e)=>{
-    e.preventDefault();
-    UI.redirection("verifyCNI.html");
-})
-
-
-// apres nous commencons a verifier les champs du formualire client Salarie 
-document.querySelector("#btn_Csalarie").addEventListener("click",(e)=>{
-    e.preventDefault();
-    if(document.querySelector("#type_m").value==="Bloque"){
-        var tes1= UI_Salarie.verifyCSalarie();
-        var tesBloq = UI_Compte.verifyAccountBloque();
-        console.log("slarie : "+tes1);
-        console.log("bloque : "+tesBloq);
-    }else if(document.querySelector("#type_m").value==="Courant"){
-        var tes1= UI_Salarie.verifyCSalarie();
-        var tesBloq = UI_Compte.verifyAccountCourant();
-        console.log("slarie : "+tes1);
-        console.log("courant : "+tesBloq);
-    }else if(document.querySelector("#type_m").value==="Epargne"){
-        var tes1= UI_Salarie.verifyCSalarie();
-        var tesBloq = UI_Compte.verifyAccountEpargne();
-        console.log("slarie : "+tes1);
-        console.log("Epargne : "+tesBloq);
-    }else{
-        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
-    }
-});
-
-
-//verificatiuon du formulaire pour la creation client independatnt
-document.querySelector("#button_i").addEventListener("click",(e)=>{
-    e.preventDefault();
-     if(document.querySelector("#type_m").value==="Bloque"){
-        var tes1= UI_Independant.verify_Client_Independant();
-        var tesBloq = UI_Compte.verifyAccountBloque();
-        console.log("ind : "+tes1);
-        console.log("bloque : "+tesBloq);
-    }else if(document.querySelector("#type_m").value==="Epargne"){
-        var tes1= UI_Independant.verify_Client_Independant();
-        var tesBloq = UI_Compte.verifyAccountEpargne();
-        console.log("ind : "+tes1);
-        console.log("Epargne : "+tesBloq);
-    }else if(document.querySelector("#type_m").value==="Courant"){
-        var tes1= UI_Independant.verify_Client_Independant();
-        var tesBloq = UI_Compte.verifyAccountCourant()
-        console.log("ind : "+tes1);
-        console.log("courant : "+tesBloq);
-    }else{
-        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
-    }
-});
-
-
-
-//verificatiuon du formulaire pour la creation client independatnt
-document.querySelector("#button_m").addEventListener("click",(e)=>{
-    e.preventDefault();
-     if(document.querySelector("#type_m").value==="Bloque"){
-        var tes1= UI_Moral.verify_Client_Moral();
-        var tesBloq = UI_Compte.verifyAccountBloque();
-        console.log("ind : "+tes1);
-        console.log("bloque : "+tesBloq);
-    }else if(document.querySelector("#type_m").value==="Epargne"){
-        var tes1=  UI_Moral.verify_Client_Moral();
-        var tesBloq = UI_Compte.verifyAccountEpargne();
-        console.log("ind : "+tes1);
-        console.log("Epargne : "+tesBloq);
-    }else if(document.querySelector("#type_m").value==="Courant"){
-        var tes1=  UI_Moral.verify_Client_Moral();
-        var tesBloq = UI_Compte.verifyAccountCourant()
-        console.log("ind : "+tes1);
-        console.log("courant : "+tesBloq);
-    }else{
-        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
-    }
-});
+//
+//// apres nous commencons a verifier les champs du formualire client Salarie 
+//document.querySelector("#btn_Csalarie").addEventListener("click",(e)=>{
+//    e.preventDefault();
+//    if(document.querySelector("#type_m").value==="Bloque"){
+//        var tes1= UI_Salarie.verifyCSalarie();
+//        var tesBloq = UI_Compte.verifyAccountBloque();
+//        console.log("slarie : "+tes1);
+//        console.log("bloque : "+tesBloq);
+//    }else if(document.querySelector("#type_m").value==="Courant"){
+//        var tes1= UI_Salarie.verifyCSalarie();
+//        var tesBloq = UI_Compte.verifyAccountCourant();
+//        console.log("slarie : "+tes1);
+//        console.log("courant : "+tesBloq);
+//    }else if(document.querySelector("#type_m").value==="Epargne"){
+//        var tes1= UI_Salarie.verifyCSalarie();
+//        var tesBloq = UI_Compte.verifyAccountEpargne();
+//        console.log("slarie : "+tes1);
+//        console.log("Epargne : "+tesBloq);
+//    }else{
+//        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
+//    }
+//});
+//
+//
+////verificatiuon du formulaire pour la creation client independatnt
+//document.querySelector("#button_i").addEventListener("click",(e)=>{
+//    e.preventDefault();
+//     if(document.querySelector("#type_m").value==="Bloque"){
+//        var tes1= UI_Independant.verify_Client_Independant();
+//        var tesBloq = UI_Compte.verifyAccountBloque();
+//        console.log("ind : "+tes1);
+//        console.log("bloque : "+tesBloq);
+//    }else if(document.querySelector("#type_m").value==="Epargne"){
+//        var tes1= UI_Independant.verify_Client_Independant();
+//        var tesBloq = UI_Compte.verifyAccountEpargne();
+//        console.log("ind : "+tes1);
+//        console.log("Epargne : "+tesBloq);
+//    }else if(document.querySelector("#type_m").value==="Courant"){
+//        var tes1= UI_Independant.verify_Client_Independant();
+//        var tesBloq = UI_Compte.verifyAccountCourant()
+//        console.log("ind : "+tes1);
+//        console.log("courant : "+tesBloq);
+//    }else{
+//        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
+//    }
+//});
+//
+//
+//
+////verificatiuon du formulaire pour la creation client independatnt
+//document.querySelector("#button_m").addEventListener("click",(e)=>{
+//    e.preventDefault();
+//     if(document.querySelector("#type_m").value==="Bloque"){
+//        var tes1= UI_Moral.verify_Client_Moral();
+//        var tesBloq = UI_Compte.verifyAccountBloque();
+//        console.log("ind : "+tes1);
+//        console.log("bloque : "+tesBloq);
+//    }else if(document.querySelector("#type_m").value==="Epargne"){
+//        var tes1=  UI_Moral.verify_Client_Moral();
+//        var tesBloq = UI_Compte.verifyAccountEpargne();
+//        console.log("ind : "+tes1);
+//        console.log("Epargne : "+tesBloq);
+//    }else if(document.querySelector("#type_m").value==="Courant"){
+//        var tes1=  UI_Moral.verify_Client_Moral();
+//        var tesBloq = UI_Compte.verifyAccountCourant()
+//        console.log("ind : "+tes1);
+//        console.log("courant : "+tesBloq);
+//    }else{
+//        UI.messageDis("<h1>VEUILLEZ CHOISIR UN TYPE DE COMPTE</h1>");
+//    }
+//});
 
 
 

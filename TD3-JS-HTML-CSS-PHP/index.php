@@ -26,6 +26,7 @@ define("SRC_MODELS",ROOT."Models");
 include_once(SRC_CONTROLLERS."/Controller_BP_Class.php");
 $controller = new Controller_BP();
 
+//pour les pages 
 if(isset($_GET["code"])){
     $code = $_GET["code"];
     switch($code){
@@ -35,6 +36,19 @@ if(isset($_GET["code"])){
         case "login": 
             $controller->getPageLogin();
         break;
+        case "newCli": 
+            $controller->getPageAddClientSalarie();
+        break;
+        case "CliNoSalarie": 
+            $controller->getPageClientNoSalarie();
+        break;
+        case "CliMoral": 
+            $controller->getPageClientMoral();
+        break;
+        //deconnexion
+        case "deconnex": 
+            $controller->Deconnexion();
+        break;
         default : 
             $controller->getPageLogin();
         break;
@@ -43,6 +57,22 @@ if(isset($_GET["code"])){
     $controller->getPageLogin();
 }
 
+
+//pour les post
+
+if(isset($_POST["btn"])){
+    $post = $_POST["btn"];
+    switch($post){
+        case "connex": 
+            //var_dump($_POST);
+            $controller->verifyPersonnel($_POST);
+            //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=login">';
+        break;
+        case "cSalarie": 
+            var_dump($_POST);
+        break;
+    }
+}
 
 
 ?>

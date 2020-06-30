@@ -57,9 +57,6 @@ header .brand{
     margin-top: 50px;
     width:320px;
     height:40px;
-    font:16px;
-    font-style: italic;
-    text-transform: uppercase;
     background:#0f1436;
     border:1px solid rgba(255,255,255,0.1);
     border-radius: 10px;

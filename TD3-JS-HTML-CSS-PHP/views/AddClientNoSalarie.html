@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
+    <link rel="icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
+    <title>Ajout Client</title>
+    <!-- link for stylesheet -->
+    <!-- <link rel="stylesheet" href="<?= SRC_STYLE_CSS.'/AddClient.css' ?>"> -->
+    <link rel="stylesheet" href="<?= SRC_STYLE_CSS.'/cssNoSalarie.css' ?>">
+</head>
+<body>
+    <header>
+        <div class="brand"> 
+            <h1>BANQUE DU PEUPLE</h1>
+        </div>
+    </header>
+
+    <main>
+       
+        <div class="form">
+                <!-- form for adding Employee client  -->
+                <form action="index.php" method="post">
+
+                <!-- form for adding Indepndant client -->
+                <div class="Independant">
+                    <h2>Informations Clients Independant</h2>
+                    <input type="text" name="" placeholder="nom" id="nom_i" />
+                    <input type="text" name="" placeholder="prenom" id="prenom_i" /><br/>
+                    <input type="text" name="" placeholder="adresse" id="adresse_i" />
+                    <input type="text" name="" placeholder="telephone" id="telephone_i" /><br/>
+                    <input type="text" name="" placeholder="email" id="email_i" />
+                    <input type="text" name="" placeholder="mat_client" id="mat_client" /><br/>
+                    <input type="text" name="" placeholder="activite" id="activite_i" /><br/>
+                    
+                </div>
+
+                <h2>INFORMATIONS COMPTE DU CLIENT </h2>
+                <label for="">Type Compte </label>
+                <select name="" id="type_m" required>
+                    <option value="">Choisir...</option>
+                    <option value="Epargne">Compte Epargne</option>
+                    <option value="Courant">Compte Courant</option>
+                    <option value="Bloque">Compte Bloque</option>
+                </select><br/>
+                <input type="text" name="" id="raison_social" placeholder="raison social"/>
+                <input type="number" name="" id="cle_rib" min="1" max="97" placeholder="Cle RIB"/><br/>
+                <input type="number" name="" id="taux_agios" placeholder="taux agios" /> 
+                <input type="number" name="" id="montant" placeholder="montant" /> <br/>
+                <input type="text" name="" id="nom_Entreprise" placeholder="nom Entreprise" />
+                <input type="text" name="" id="Adresse_Entreprise" placeholder="Adresse Entreprise" /><br/>
+                <input type="text" name="" id="Frais_Compte" placeholder="frais compte" readonly/> 
+                <input type="date" placeholder="date deblocage compte" id="date_deblocage" /> <br/>
+                <input type="text" name="" id="numeroAgence" placeholder="numeroAgence" readonly/>
+                <input type="text" name="" id="numCompte" placeholder="numeroCompte" readonly/> <br/>
+                <input type="date" name="" placeholder="date ouverture" id="date_m" /><br/>
+                <!-- the button for all the differents forms i the project -->
+                    <div class="button_for_i" id="button">
+                    <button id="button_i">Valider</button>  <button>Annuler</button>
+                    </div>
+                    <div class="button_for_m" id="button">
+                    <button id="button_m" class="btn_final">Valider</button>  <button>Annuler</button>
+                    </div>
+                    <div class="button_for_s" id="button">
+                    <button id="btn_Csalarie" >Valider</button>  <button>Annuler</button>
+                    </div>
+                <!-- end of all the  -->
+            </form>
+        </div>
+    </main>
+    
+
+
+<script type="text/javascript" src="<?= SRC_STYLE_JS.'/jsNoSalarie.js'?>"></script>
+</body>
+</html>

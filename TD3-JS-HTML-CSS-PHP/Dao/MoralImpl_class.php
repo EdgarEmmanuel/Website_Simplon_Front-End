@@ -3,6 +3,7 @@
 
 include_once("Mysql_connect_class.php");
 include_once(SRC_DAO."/ICMoral_interface.php");
+include_once(SRC_MODELS."/CMoral_class.php");
 
 class MoralImpl implements IClientMoral {
     public function addClient(Client_Moral $client){

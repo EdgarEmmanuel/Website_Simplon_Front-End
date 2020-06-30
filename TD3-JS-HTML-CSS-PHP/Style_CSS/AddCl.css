@@ -1,0 +1,81 @@
+
+body{
+    background:linear-gradient(0.25turn, #504DC1, rgb(80, 77, 193,0.8));
+}
+
+header .brand h1 a{
+    text-decoration: none;
+    font-size: 13px;
+    border:1px solid white;
+    background:white;
+}
+
+main .form form .salarie {
+    text-align: center;
+}
+
+main .form form{
+    margin-top: -3rem;
+    text-align: center;
+}
+
+main .form form button{
+    background:white;
+    border-radius:10px;
+    height:2.5rem;
+    width:150px;
+    color:#235d8e;
+    border-color:#235d8e;
+    cursor:pointer;
+    font-size:17px;
+}
+
+main .form form button:hover{
+    background:#235d8e;
+    color:white;
+}
+/* 
+main .form form .button_for_s{
+    margin-left: 450px;
+    margin-top: 20px;
+} */
+
+main .form form .salarie input{
+    width:620px;
+    height:2rem;
+    margin: 3px 0px;
+    font-style: bold;
+}
+
+main .form form input[type="checkbox"]{
+    width:20px;
+}
+
+main .form form h2{
+    text-align: center;
+}
+
+main .form form input{
+    width:620px;
+    height:2rem;
+}
+
+
+
+
+/* button after the div for account data */
+
+main .form form .button_for_s{
+    display:block;
+}
+
+/* end button after the div for account data */
+
+
+#choix2{
+    display:none;
+}
+
+#choix{
+    display:none;
+}

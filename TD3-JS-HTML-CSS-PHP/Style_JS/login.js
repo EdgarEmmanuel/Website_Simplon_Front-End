@@ -95,17 +95,17 @@ class UI_loginPage{
 //})
 
 ////after click on the butoton connexionn
-document.querySelector("#connect").addEventListener("click",(e)=>{
-    e.preventDefault();
-    UI_loginPage.verify_loginPage();
-});
+//document.querySelector("#connect").addEventListener("click",(e)=>{
+//    e.preventDefault();
+//    UI_loginPage.verify_loginPage();
+//});
 
 
 //when we click on the button annuler
-document.querySelector("#annuler").addEventListener("click",(e)=>{
-    e.preventDefault();
-     UI_loginPage.clearField();
-})
+//document.querySelector("#annuler").addEventListener("click",(e)=>{
+//    e.preventDefault();
+//     UI_loginPage.clearField();
+//})
 
 
 

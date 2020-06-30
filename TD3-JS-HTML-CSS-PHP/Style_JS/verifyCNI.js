@@ -9,10 +9,6 @@ clients = [
 
 class UI_GestClient{
     
-    static dosplayCaisiere(){
-        document.querySelector("#caissiere").value=`Id Responsable Compte : ${caissieres[0].idCaissier}`;
-    }
-    
     static clearFiled(){
         document.querySelector("#cni").value="";
     }
@@ -58,23 +54,12 @@ class UI_GestClient{
     }
 }
 
-//display the id of the Respo compte
-UI_GestClient.dosplayCaisiere();
-
 
 //go add a new client
-document.querySelector("#add").addEventListener("click",(e)=>{
-    e.preventDefault();
-    UI_GestClient.redirection("AddClient.html");
-});
-
-//deconnexion du responsable 
-
-document.querySelector("#deco").addEventListener("click",(e)=>{
-    e.preventDefault();
-    UI_GestClient.redirection("index.html");
-})
-
+//document.querySelector("#add").addEventListener("click",(e)=>{
+//    e.preventDefault();
+//    UI_GestClient.redirection("AddClient.html");
+//});
 
 document.querySelector("#verClient").addEventListener("click",(e)=>{
     e.preventDefault();

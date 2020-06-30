@@ -10,15 +10,21 @@ class Client_Salarie extends Client{
     private $_salaire;
     private $_nomEntreprise;
     private $_adresseEntreprise;
+    private $_profession;
 
-    public function __construct($tel,$mail,$nom,$nomEntreprise,$prenom,$cni,$salaire,$adreEntre,$matricule){
+    public function __construct($tel,$mail,$nom,$nomEntreprise,$prenom,$cni,$salaire,$adreEntre,$matricule,$profession){
         parent::__construct( $tel , $mail,$matricule);
         $this->_prenom=$prenom;
         $this->_cni=$cni;
         $this->_nom=$nom;
         $this->_nom_entreprise=$nomEntreprise;
         $this->_salaire=$salaire;
+        $this->_profession=$profession;
         $this->_adresseEntreprise=$adreEntre;
+    }
+
+    public function getProfession(){
+        return $this->_profession;
     }
 
 
@@ -34,7 +40,7 @@ class Client_Salarie extends Client{
         return $this->_nomEntreprise;
     }
 
-    public function getAdresse(){
+    public function getAdresseEntreprise(){
         return $this->_adresseEntreprise;
     }
 

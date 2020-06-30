@@ -4,7 +4,7 @@ class MySqlConnection {
  private static $USER = "root";
  private static  $PASSWD="" ;
  private static $SERVER="localhost";
- private static $BASE="test2"; 
+ private static $BASE="banque_peuple"; 
 
     public static function getConnection(){
             $dsn="mysql:dbname=".self::$BASE.";host=".self::$SERVER;

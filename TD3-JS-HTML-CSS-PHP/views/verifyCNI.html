@@ -16,9 +16,11 @@
     </header>
     <main>
         
-        <input type="text" placeholder="" id="caissiere" readonly/><button id="deco">Deconnexion</button><br>
+        <input type="text" value="Matricule : <?= $_SESSION['matricule'] ?> " placeholder="" id="caissiere" readonly/>
+        <a href="index.php?code=deconnex" >Deconnexion</a><br>
+        <input type="text" value="Nom Complet : <?= $_SESSION['nom_complet']?> " placeholder="" id="caissiere" readonly/><br>
         <form action="" id="formGest">
-            <input type="text" placeholder="CNI CLIENT" id="cni" autocomplete="off"/> <br>
+            <input type="text" placeholder="MATRICULE CLIENT" id="cni" autocomplete="off"/> <br>
             <button id="verClient">Verifier</button>
         </form>
        
@@ -27,7 +29,9 @@
         <h1>Le Client n'est Pas dans le Systeme</h1>
         <button id="createClient">Creer le Client </button> <button id="annuler">Annuler</button>
     </div> <br/><br/><br/>
-    <button id="add">Nouveau Client </button>
+    <a href="index.php?code=newCli" id="add">Client Salarie </a> <br>
+    <a href="index.php?code=CliMoral" id="add">Client Moral </a> <br>
+    <a href="index.php?code=CliNoSalarie" id="add">Client Independant </a>
 
 
 <script src="<?= SRC_STYLE_JS.'/verifyCNI.js'?>" type="text/javascript"></script>
