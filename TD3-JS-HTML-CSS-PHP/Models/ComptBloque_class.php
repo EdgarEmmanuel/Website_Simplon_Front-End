@@ -9,8 +9,8 @@ class ComptBloque extends Comptes{
     private $_solde;
 
 
-    public function __construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$idAgios,$solde,$fraisCompte,$dateDebloc){
-        parent::__construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$idAgios);
+    public function __construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$solde,$fraisCompte,$dateDebloc){
+        parent::__construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence);
         $this->_dateDeblocage=$dateDebloc;
         $this->_fraisCompte=$fraisCompte;
         $this->_solde=$solde;
@@ -30,10 +30,6 @@ class ComptBloque extends Comptes{
 
     public function setSolde($solde){
         return $this->_solde=$solde;
-    }
-
-    public function getIdAgios(){
-        return parent::getIdAgios();
     }
 
     public function getIdRespo(){

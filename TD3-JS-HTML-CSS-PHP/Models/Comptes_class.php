@@ -9,16 +9,14 @@ class Comptes {
     protected  $_Client;
     protected $_idRespoCompte;
     protected $_idAgence;
-    protected $_idAgios;
 
-    public function __construct($numCompte,$cleRib,$dateOu,$idCl,$idResp,$idAgence,$idAgios){
+    public function __construct($numCompte,$cleRib,$dateOu,$idCl,$idResp,$idAgence){
            $this->_cleRib=$cleRib;
            $this->_numCompte=$numCompte;
            $this->_dateOuverture = $dateOu;
            $this->_idRespoCompte = $idResp;
            $this->_idAgence = $idAgence;
            $this->_idClient=$idCl;
-           $this->_idAgios=$idAgios;
     }
 
     public function getIdAgence(){
@@ -45,10 +43,6 @@ class Comptes {
 
     public function getDateOuvert(){
         return $this->_dateOuverture;
-    }
-
-    public function getIdAgios(){
-        return $this->_idAgios;
     }
 }
 

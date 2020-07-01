@@ -15,12 +15,10 @@ class EpargneImpl implements ICOEpargne {
         $idCl=$compte->getIdClient();
         $idResp=$compte->getIdRespo();
         $idAgence=$compte->getIdAgence();
-        $idAgios=$compte->getIdAgios();
         $solde=$compte->getSolde();
-        $fraisOuvert=$compte->getFraisOuverture();
 
         //creation de la requete pour table compte
-        $sql_compte = "INSERT INTO comptes VALUES(null,'$numCompte',$cleRib,$idCl,$idResp,'$dateOuv',$idAgence,$idAgios)";
+        $sql_compte = "INSERT INTO comptes VALUES(null,'$numCompte',$cleRib,$idCl,$idResp,'$dateOuv',$idAgence)";
 
        //execution de la requete pour la table compte
         MysqlConnection::executeUpdate($sql_compte);
@@ -29,7 +27,7 @@ class EpargneImpl implements ICOEpargne {
         $idCompte = MysqlConnection::lastInsertId();
 
         //ensuite creation et execution de la requete pour la table compte_epargne
-        $sql_cepargne = "INSERT INTO compte_epargne VALUES(null,$fraisOuvert,$idCompte,$solde)";
+        $sql_cepargne = "INSERT INTO compte_epargne VALUES(null,$idCompte,$solde)";
 
         MysqlConnection::executeUpdate($sql_cepargne);
 
@@ -37,6 +35,14 @@ class EpargneImpl implements ICOEpargne {
         return $idCompte;
 
 
+    }
+
+    public function getFraisCompteTypeEpargne(){
+        MysqlConnection::getConnection();
+
+        $sql = "SELECT montant from frais_compte where typeCompte='epargne' ";
+
+        return MysqlConnection::execOne($sql);
     }
 
 }

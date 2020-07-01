@@ -22,9 +22,11 @@ define("SRC_MODELS",ROOT."Models");
 
 // echo '<meta http-equiv="refresh" content="0;URL=index.php?code=add_tissu">';
 
-//inclure le controllers
+//inclure les controllers
 include_once(SRC_CONTROLLERS."/Controller_BP_Class.php");
+include_once(SRC_CONTROLLERS."/Controller_Salarie_class.php");
 $controller = new Controller_BP();
+$controllerSalarie = new  Salarie_Controller();
 
 //pour les pages 
 if(isset($_GET["code"])){
@@ -70,7 +72,7 @@ if(isset($_POST["btn"])){
         break;
         case "cSalarie": 
             //var_dump($_POST);
-            $controller->Salarie($_POST);
+            $controllerSalarie->Salarie($_POST);
             //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=newCli">';
         break;
     }

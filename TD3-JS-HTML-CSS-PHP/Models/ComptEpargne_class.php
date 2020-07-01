@@ -4,12 +4,10 @@ include_once(SRC_MODELS."/Comptes_class.php");
 
 class ComptEpargne extends Comptes {
     private $_solde;
-    private $_fraisOuverture;
 
-    public function __construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$idAgios,$solde,$fraisOuvert){
-        parent::__construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$idAgios);
+    public function __construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$solde){
+        parent::__construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence);
         $this->_solde=$solde;
-        $this->_fraisOuverture=$fraisOuvert;
     }
 
     public function getSolde(){
@@ -18,14 +16,6 @@ class ComptEpargne extends Comptes {
 
     public function setSolde($solde){
         return $this->_solde=$solde;
-    }
-
-    public function getFraisOuverture(){
-        return $this->_fraisOuverture;
-    }
-
-    public function getIdAgios(){
-        return parent::getIdAgios();
     }
 
 public function getIdRespo(){

@@ -9,7 +9,6 @@ class SalarieImpl implements ICSalarie{
         $tel  = $client->getTelephone();
         $mail = $client->getMail();
         $nom = $client->getNom();
-        $salaire = $client->getSalaire();
         $adrEntreprise = $client->getAdresseEntreprise();
         $nomEnter = $client->nomEntreprise();
         $prenom = $client->getPrenom();
@@ -26,7 +25,7 @@ class SalarieImpl implements ICSalarie{
         $idClient = MysqlConnection::lastInsertId();
 
         //creation et execution de la requete pour inserer un client
-        $sql_csalarie = "INSERT INTO client_moral VALUES(null,'$prenom','$profession',$salaire,'$nomEnter','$adrEntreprise',$idClient,
+        $sql_csalarie = "INSERT INTO client_salarie VALUES(null,'$prenom','$profession','$nomEnter','$adrEntreprise',$idClient,
         '$nom','$cni')";
 
         MysqlConnection::executeUpdate($sql_csalarie);

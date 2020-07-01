@@ -2,8 +2,7 @@
 
 include_once(SRC_DAO."/EmpRespCompte_interface.php");
 include_once(SRC_DAO."/RespoCompteImpl_class.php");
-include_once(SRC_DAO."/SalarieImpl_class.php");
-include_once(SRC_DAO."/EpargneImpl_class.php");
+
 
 class Controller_BP{
 
@@ -87,34 +86,7 @@ class Controller_BP{
         
     }
 
-    public function SalarieAndEpargne($data){
-        $nom=$data["nom"];
-        $prenom=$data["prenom"];
-        $mat=$data["matricule"];
-        $nomEntreprise=$data[""];
-        $adresse=$data["adresse"];
-        $email=$data["email"];
-        $profession=$data["profession"];
-        $telephone=$data["telephone"];
-        $ISalariImpl = new  RespoCompteImpl();
-        $EpargneImpl = new EpargneImpl();
-    }
-
-
-    public function Salarie($data){
-        $type = $data["typeCompte"];
-        switch($type){
-            case "Epargne": 
-                $this->SalarieAndEpargne($data);
-            break;
-            case "Bloque" : 
-                echo "bloque";
-            break;
-            case "Courant": 
-                echo "courant";
-            break;
-        }
-    }
+   
 
 }
 

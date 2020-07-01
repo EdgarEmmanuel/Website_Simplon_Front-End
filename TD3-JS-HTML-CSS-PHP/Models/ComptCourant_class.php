@@ -9,8 +9,8 @@ class ComptCourant extends Comptes{
     private $_solde;
 
 
-    public function __construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$idAgios,$adres,$nomEnter,$raison,$solde){
-        parent::__construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$idAgios);
+    public function __construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$adres,$nomEnter,$raison,$solde){
+        parent::__construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence);
         $this->_adresse=$adres;
         $this->_nomEntreprise=$nomEnter;
         $this->_raisonSociale=$raison;
@@ -52,10 +52,6 @@ class ComptCourant extends Comptes{
 
     public function getRaisonSoc(){
         return $this->_raisonSociale;
-    }
-
-    public function getIdAgios(){
-        return parent::getIdAgios();
     }
 
     public function getSolde(){
