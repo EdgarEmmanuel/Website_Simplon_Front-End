@@ -2,6 +2,7 @@
 
 include_once(SRC_DAO."/SalarieImpl_class.php");
 include_once(SRC_DAO."/EpargneImpl_class.php");
+include_once(SRC_DAO."/BloqueImpl_class.php");
 include_once(SRC_DAO."/AgenceImpl_class.php");
 
 include_once(SRC_MODELS."/ComptEpargne_class.php");
@@ -9,25 +10,48 @@ include_once(SRC_MODELS."/CSalarie_class.php");
 
 
 class Salarie_Controller{
+
+    public function redirect($val){
+        if($val!=0){
+            $_SESSION["message"]="INSERTION EFFECTUE !!!";
+            echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
+        }else{
+            $_SESSION["message"]="ERREUR D'INSERTION !!!";
+            echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
+        }
+    }
+
+    public function InsertSalarie($telephone,$email,$nom,$nomEnterforCL,$prenom,$cni,$adresseforCL,$mat,$profession){
+        $ISalariImpl = new  SalarieImpl();
+        //creation du Salarie
+        $Salarie = new Client_Salarie($telephone,$email,$nom,$nomEnterforCL,$prenom,$cni,$adresseforCL,$mat,$profession);
+
+        //insertion client et recuperation du lastInsertId()
+        $idClient = $ISalariImpl->addSalarie($Salarie);
+
+        return $idClient;
+    }
+
     public function SalarieAndEpargne($data){
         //declaration des implementations 
-        $ISalariImpl = new  SalarieImpl();
         $EpargneImpl = new EpargneImpl();
 
         //recuperation des donnees
         $nom=$data["nom"];
         $prenom=$data["prenom"];
         $mat=$data["matricule"];
-        $nomEntreprise=$data["Nameentreprise"];
+        $nomEnterforCL = $data["nom_Entreprise"];
         $cni=$data["cni"];
-        $adresse=$data["adresse"];
+        $adresseforCL=$data["adresseforCl"];
         $email=$data["email"];
         $profession=$data["profession"];
         $telephone=$data["telephone"];
         $cleRib = $data["cle-rib"];
         $montant = $data["montant"];
         $dateOuvert = $data["dateOuvert"];
-        $idAgence = $data["numAgence"];
+
+        //avec Session voir page Controller_BP_class.php
+        $idAgence = $_SESSION["idAgence"];
         $FraisOuvertureEpargne = $EpargneImpl->getFraisCompteTypeEpargne();
         $idResp =  $_SESSION["idEmploye"];
 
@@ -38,22 +62,28 @@ class Salarie_Controller{
         //generer le solde final du compte
         $soldeFinal = (int)$montant - (int)$FraisOuvertureEpargne->montant;
 
-        //insertion client et recuperation du lastInsertId()
-        $idClient = $ISalariImpl->addSalarie($Salarie = new Client_Salarie($telephone,$email,$nom,$nomEntreprise,$prenom,$cni,$adresse,$mat,$profession));
+         //insertion client et recuperation du lastInsertId()
+        $idClient =$this->InsertSalarie($telephone,$email,$nom,$nomEnterforCL,$prenom,$cni,$adresseforCL,$mat,$profession);
+
+        //creation du Compte Epargne
+        $compte = new ComptEpargne($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$soldeFinal);
 
         //ensuite insertion dans la table compte et recuperation du lastInsertId()
-        $idCompte = $EpargneImpl->add($compte = new ComptEpargne($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$soldeFinal));
+        $idCompte = $EpargneImpl->add($compte);
 
-        //insertion dans etatCompte 
+        //insertion et mis ajour dans la table etatCompte 
         $val = $EpargneImpl->UpdateEtatAtAdding($idCompte,$dateOuvert);
 
-        if($val!=0){
-            $_SESSION["message"]="INSERTION EFFECTUE !!!";
-            echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
-        }else{
-            $_SESSION["message"]="ERREUR D'INSERTION !!!";
-            echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
-        }
+        //redirection apres insertion
+        $this->redirect($val);
+    }
+
+
+    public function SalarieAndBloque(){
+        $BloqImpl = new BloqueImpl();
+
+        $fraisBloque = $BloqImpl->getFraisWithTypBloque();
+        var_dump($fraisBloque);
     }
 
 
@@ -64,7 +94,7 @@ class Salarie_Controller{
                 $this->SalarieAndEpargne($data);
             break;
             case "Bloque" : 
-                echo "bloque";
+                $this->SalarieAndBloque();
             break;
             case "Courant": 
                 echo "courant";

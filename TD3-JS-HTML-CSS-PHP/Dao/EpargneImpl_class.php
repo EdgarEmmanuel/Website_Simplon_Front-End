@@ -2,6 +2,7 @@
 
 include_once("Mysql_connect_class.php");
 include_once(SRC_DAO."/ICOEpargne_interface.php");
+include_once(SRC_MODELS."/ComptEpargne_class.php");
 
 class EpargneImpl implements ICOEpargne {
     public function add(ComptEpargne $compte){
@@ -19,6 +20,8 @@ class EpargneImpl implements ICOEpargne {
 
         //creation de la requete pour table compte
         $sql_compte = "INSERT INTO comptes VALUES(null,'$numCompte',$cleRib,$idCl,$idResp,'$dateOuv',$idAgence)";
+        // var_dump($sql_compte);
+        // die();
 
        //execution de la requete pour la table compte
         MysqlConnection::executeUpdate($sql_compte);

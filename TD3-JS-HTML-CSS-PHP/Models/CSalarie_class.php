@@ -16,7 +16,7 @@ class Client_Salarie extends Client{
         $this->_prenom=$prenom;
         $this->_cni=$cni;
         $this->_nom=$nom;
-        $this->_nom_entreprise=$nomEntreprise;
+        $this->_nomEntreprise=$nomEntreprise;
         $this->_profession=$profession;
         $this->_adresseEntreprise=$adreEntre;
     }
@@ -29,7 +29,7 @@ class Client_Salarie extends Client{
         return $this->_cni;
     }
 
-    public function nomEntreprise(){
+    public function getnomEntreprise(){
         return $this->_nomEntreprise;
     }
 

@@ -364,9 +364,9 @@ class UI_Compte{
     static AccountEpargne(){
         UI_Compte.displayAll();
         document.querySelector("#raison_social").setAttribute("disabled","");
-        document.querySelector("#nom_Entreprise").setAttribute("disabled","");
         document.querySelector("#date_deblocage").setAttribute("disabled","");
         document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
+        document.querySelector("#nom_Entreprise").setAttribute("disabled","");
         document.querySelector("#taux_agios").setAttribute("disabled","");
         
         //remove the attribute reqired for specific fields 
@@ -376,6 +376,7 @@ class UI_Compte{
         document.querySelector("#montant").setAttribute("required","");
         document.querySelector("#date_m").setAttribute("required","");
         document.querySelector("#frais").setAttribute("required","");
+        
         
         //automate the field for frais compte 
         document.querySelector("#choix").style.display='block';

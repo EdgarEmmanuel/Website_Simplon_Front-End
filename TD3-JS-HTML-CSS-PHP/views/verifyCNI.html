@@ -18,7 +18,7 @@
         <?php 
         if(!empty($_SESSION["message"])){ ?>
             <div class="desMess">
-                <h1><?= "Bonjour" ?></h1>
+                <h1><?= $_SESSION["message"]; ?></h1>
             </div>
        <?php }unset($_SESSION["message"]);
     ?>
