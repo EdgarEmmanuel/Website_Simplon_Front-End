@@ -6,6 +6,7 @@ include_once(SRC_MODELS."/CSalarie_class.php");
 
 class SalarieImpl implements ICSalarie{
     public function addSalarie(Client_Salarie $client){
+        MysqlConnection::getConnection();
         $tel  = $client->getTelephone();
         $mail = $client->getMail();
         $nom = $client->getNom();
@@ -19,19 +20,29 @@ class SalarieImpl implements ICSalarie{
         //creation et execution de la requete pour inserer un client 
         $sql_clients = "INSERT INTO clients VALUES (null,'$tel','$mail','$matricule')";
 
-        MYSqlConnection::executeUpdate($sql_clients);
+        MysqlConnection::executeUpdate($sql_clients);
 
         //recuperation du lastInsertId dans la table clients
         $idClient = MysqlConnection::lastInsertId();
 
         //creation et execution de la requete pour inserer un client
-        $sql_csalarie = "INSERT INTO client_salarie VALUES(null,'$prenom','$profession','$nomEnter','$adrEntreprise',$idClient,
-        '$nom','$cni')";
+        $sql_csalarie = "INSERT INTO client_salarie VALUES(null,'$prenom','$profession','$nomEnter','$adrEntreprise',$idClient,'$nom','$cni')";
 
         MysqlConnection::executeUpdate($sql_csalarie);
 
 
         return $idClient;
+    }
+
+    public function getMatSalarie(){
+        MysqlConnection::getConnection();
+
+        $sql ="SELECT count(idClient) as num FROM clients where SUBSTR(matricule,1,3) = 'BPS' ";
+
+        $val = MysqlConnection::execOne($sql);
+        //"BPS".(int)
+        $tot = (int)$val->num +1;
+        return "BPS".(int)$tot;
     }
 }
 

@@ -18,7 +18,7 @@ class Salarie_Controller{
         $nom=$data["nom"];
         $prenom=$data["prenom"];
         $mat=$data["matricule"];
-        $nomEntreprise=$data[""];
+        $nomEntreprise=$data["Nameentreprise"];
         $cni=$data["cni"];
         $adresse=$data["adresse"];
         $email=$data["email"];
@@ -29,9 +29,31 @@ class Salarie_Controller{
         $dateOuvert = $data["dateOuvert"];
         $idAgence = $data["numAgence"];
         $FRaisOuvertureEpargne = $EpargneImpl->getFraisCompteTypeEpargne();
+        $idResp =  $_SESSION["idEmploye"];
 
-        //debut insertion
+
+        //generer le numero compte 
+        $numCompte=$EpargneImpl->generateNumCompte();
+
+        //generer le solde final du compte
+        $soldeFinal = (int)$montant - (int)$FRaisOuvertureEpargne;
+
+        //insertion client et recuperation du lastInsertId()
         $idClient = $ISalariImpl->addSalarie($Salarie = new Client_Salarie($telephone,$email,$nom,$nomEntreprise,$prenom,$cni,$adresse,$mat,$profession));
+
+        //ensuite insertion dans la table compte et recuperation du lastInsertId()
+        $idCompte = $EpargneImpl->add($compte = new ComptEpargne($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$soldeFinal));
+
+        //insertion dans etatCompte 
+        $val = $EpargneImpl->UpdateEtatAtAdding($idCompte,$dateOuvert);
+
+        if($val!=0){
+            $_SESSION["message"]="INSERTION EFFECTUE !!!";
+            echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
+        }else{
+            $_SESSION["message"]="ERREUR D'INSERTION !!!";
+            echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
+        }
         
     }
 
@@ -50,6 +72,9 @@ class Salarie_Controller{
             break;
         }
     }
+
+
+    
 }
 
 

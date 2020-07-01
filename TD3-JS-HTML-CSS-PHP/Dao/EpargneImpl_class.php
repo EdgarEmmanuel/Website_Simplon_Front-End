@@ -42,7 +42,29 @@ class EpargneImpl implements ICOEpargne {
 
         $sql = "SELECT montant from frais_compte where typeCompte='epargne' ";
 
-        return MysqlConnection::execOne($sql);
+        return $val=MysqlConnection::execOne($sql);
+    }
+
+    public function UpdateEtatAtAdding($idCompte,$date){
+        MysqlConnection::getConnection();
+
+        $sql = "INSERT INTO etat_compte VALUES(null,'OUVERT','$date',$idCompte)";
+
+        return $val = MysqlConnection::executeUpdate($sql);
+    }
+
+
+
+    public function generateNumCompte(){
+        MysqlConnection::getConnection();
+
+        $sql ="SELECT count(id_compte_epargne) as num from compte_epargne";
+
+        $id = MysqlConnection::execOne($sql);
+
+        $val = (int)$id->num +1 ;
+
+        return "CE".$val ;
     }
 
 }

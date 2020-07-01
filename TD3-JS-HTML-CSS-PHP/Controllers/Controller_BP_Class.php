@@ -2,7 +2,7 @@
 
 include_once(SRC_DAO."/EmpRespCompte_interface.php");
 include_once(SRC_DAO."/RespoCompteImpl_class.php");
-
+include_once(SRC_DAO."/SalarieImpl_class.php");
 
 class Controller_BP{
 
@@ -15,6 +15,9 @@ class Controller_BP{
     }
 
     public function getPageAddClientSalarie(){
+        //getMatSalarie()
+        $SalarieIMPL = new  SalarieImpl();
+        $value = $SalarieIMPL->getMatSalarie();
         include_once(SRC_VIEWS."/AddClientSalarie.html");
     }
 

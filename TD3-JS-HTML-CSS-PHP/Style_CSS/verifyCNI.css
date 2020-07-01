@@ -113,8 +113,8 @@ main button:hover{
 
 main .desMess{
     font-family:var(--font-Family) ;
-    font-size:30px;
-    margin-top: -3rem;
+    font-size:20px;
+    margin-top: -4rem;
     position:fixed;
 }
 /* end main part */
