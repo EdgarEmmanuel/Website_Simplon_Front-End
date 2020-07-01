@@ -28,7 +28,7 @@ class Salarie_Controller{
         $montant = $data["montant"];
         $dateOuvert = $data["dateOuvert"];
         $idAgence = $data["numAgence"];
-        $FRaisOuvertureEpargne = $EpargneImpl->getFraisCompteTypeEpargne();
+        $FraisOuvertureEpargne = $EpargneImpl->getFraisCompteTypeEpargne();
         $idResp =  $_SESSION["idEmploye"];
 
 
@@ -36,7 +36,7 @@ class Salarie_Controller{
         $numCompte=$EpargneImpl->generateNumCompte();
 
         //generer le solde final du compte
-        $soldeFinal = (int)$montant - (int)$FRaisOuvertureEpargne;
+        $soldeFinal = (int)$montant - (int)$FraisOuvertureEpargne->montant;
 
         //insertion client et recuperation du lastInsertId()
         $idClient = $ISalariImpl->addSalarie($Salarie = new Client_Salarie($telephone,$email,$nom,$nomEntreprise,$prenom,$cni,$adresse,$mat,$profession));
@@ -54,7 +54,6 @@ class Salarie_Controller{
             $_SESSION["message"]="ERREUR D'INSERTION !!!";
             echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
         }
-        
     }
 
 
@@ -74,7 +73,7 @@ class Salarie_Controller{
     }
 
 
-    
+
 }
 
 

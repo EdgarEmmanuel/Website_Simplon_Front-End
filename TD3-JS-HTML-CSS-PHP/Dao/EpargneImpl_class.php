@@ -42,7 +42,9 @@ class EpargneImpl implements ICOEpargne {
 
         $sql = "SELECT montant from frais_compte where typeCompte='epargne' ";
 
-        return $val=MysqlConnection::execOne($sql);
+        $val=MysqlConnection::execOne($sql);
+
+        return $val;
     }
 
     public function UpdateEtatAtAdding($idCompte,$date){

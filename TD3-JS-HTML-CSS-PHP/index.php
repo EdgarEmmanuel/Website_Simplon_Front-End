@@ -22,13 +22,13 @@ define("SRC_MODELS",ROOT."Models");
 
 // echo '<meta http-equiv="refresh" content="0;URL=index.php?code=add_tissu">';
 
-//inclure les controllers
+//inclure les controllers et leurs variables
 include_once(SRC_CONTROLLERS."/Controller_BP_Class.php");
 include_once(SRC_CONTROLLERS."/Controller_Salarie_class.php");
 $controller = new Controller_BP();
 $controllerSalarie = new  Salarie_Controller();
 
-//pour les pages 
+//pour les requetes get 
 if(isset($_GET["code"])){
     $code = $_GET["code"];
     switch($code){
@@ -60,19 +60,18 @@ if(isset($_GET["code"])){
 }
 
 
-//pour les post
+//pour les requetes post
 
 if(isset($_POST["btn"])){
     $post = $_POST["btn"];
     switch($post){
         case "connex": 
-            //var_dump($_POST);
             $controller->verifyPersonnel($_POST);
             //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=login">';
         break;
         case "cSalarie": 
-            //var_dump($_POST);
-            $controllerSalarie->Salarie($_POST);
+            var_dump($_POST);
+            //$controllerSalarie->Salarie($_POST);
             //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=newCli">';
         break;
     }
