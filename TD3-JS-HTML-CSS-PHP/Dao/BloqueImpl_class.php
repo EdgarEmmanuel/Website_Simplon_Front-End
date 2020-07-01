@@ -19,7 +19,6 @@ class BloqueImpl implements ICOBloque{
         $idResp=$compte->getIdRespo();
         $idAgence=$compte->getIdAgence();
         $solde=$compte->getSolde();
-        $fraisCompte=$compte->getFraisOuverture();
         $dateDebloc = $compte->getDateDeblocage();
 
         //creation de la requete pour table compte
@@ -32,7 +31,7 @@ class BloqueImpl implements ICOBloque{
         $idCompte = MySqlConnection::lastInsertId();
 
         //ensuite creation et execution de la requete pour la table compte_epargne
-        $sql_cbloque = "INSERT INTO compte_bloque VALUES($fraisCompte,'$dateDebloc',null,$idCompte,$solde)";
+        $sql_cbloque = "INSERT INTO compte_bloque VALUES('$dateDebloc',null,$idCompte,$solde)";
 
         MySqlConnection::executeUpdate($sql_cbloque);
 
@@ -48,6 +47,39 @@ class BloqueImpl implements ICOBloque{
         $val=MysqlConnection::execOne($sql);
 
         return $val->montant;
+    }
+
+    public function generateNumForCompteBloque(){
+
+        $sql ="SELECT count(id_compte_bloque) as num from compte_bloque";
+
+        $id = MysqlConnection::execOne($sql);
+
+        $val = (int)$id->num +1 ;
+
+        return "CB".$val ;
+    }
+
+    public function getDurationBetweenDate($date1 , $date2){
+        //compare two date
+
+        $diff = abs(strtotime($date2) - strtotime($date1));
+
+        $years = floor($diff / (365*60*60*24));
+
+        if($years>=1){
+            return 1;
+        }else{
+            return 2;
+        }
+    }
+
+    public function UpdateForCompteBloque($idCompte,$date){
+        MysqlConnection::getConnection();
+
+        $sql = "INSERT INTO etat_compte VALUES(null,'BLOQUE','$date',$idCompte)";
+
+        return $val = MysqlConnection::executeUpdate($sql);
     }
 
     

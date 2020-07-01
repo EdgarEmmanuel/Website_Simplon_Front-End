@@ -13,6 +13,10 @@ define("SRC_STYLE_CSS",WEBROOT."Style_CSS");
 //chemin absolu pour dossier img
 define("SRC_IMG",WEBROOT."Images");
 
+//Gerer la date en global
+$date = Date("yy-m-d");
+$_SESSION["date"]=$date;
+
 // POUR DOSSIER controllers , views and Models and Dao.
 define("ROOT",str_replace("index.php","",$_SERVER['SCRIPT_FILENAME']));
 define("SRC_VIEWS",ROOT."views");
@@ -50,6 +54,9 @@ if(isset($_GET["code"])){
         //deconnexion
         case "deconnex": 
             $controller->Deconnexion();
+        break;
+        case "test": 
+            include_once("test.php");
         break;
         default : 
             $controller->getPageLogin();

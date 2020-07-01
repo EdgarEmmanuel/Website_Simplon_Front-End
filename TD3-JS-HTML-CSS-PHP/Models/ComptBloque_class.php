@@ -5,19 +5,13 @@ include_once(SRC_MODELS."/Comptes_class.php");
 
 class ComptBloque extends Comptes{
     private $_dateDeblocage;
-    private $_fraisCompte;
     private $_solde;
 
 
-    public function __construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$solde,$fraisCompte,$dateDebloc){
+    public function __construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$solde,$dateDebloc){
         parent::__construct($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence);
         $this->_dateDeblocage=$dateDebloc;
-        $this->_fraisCompte=$fraisCompte;
         $this->_solde=$solde;
-    }
-
-    public function getFraisOuverture(){
-        return $this->_fraisCompte;
     }
 
     public function getDateDeblocage(){

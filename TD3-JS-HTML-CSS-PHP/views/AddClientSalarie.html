@@ -48,7 +48,7 @@
                 <input type="number" name="montant" id="montant" min="10000" placeholder="montant" /> <br/>
                 <input type="text" name="Nameentreprise" id="nom_Entreprise" placeholder="nom Entreprise" />
                 <input type="text" name="adrEntreprise" id="Adresse_Entreprise" placeholder="Adresse Entreprise" /><br/>
-                <input type="date" placeholder="date deblocage compte" id="date_deblocage" name="dateDebloc"/> 
+                <input type="date" placeholder="date deblocage compte" min="<?= $_SESSION['date'];?>" id="date_deblocage" name="dateDebloc"/> 
                 <input type="text" name="numAgence" id="numeroAgence" placeholder="numeroAgence" value="<?= $_SESSION['numAgence'] ;?>" readonly/><br/>
                 <label for="" style="color:white;">DATE OUVERTURE COMPTE</label><input type="date" name="dateOuvert" placeholder="date ouverture" id="date_m" /> 
                 <div id="choix">
