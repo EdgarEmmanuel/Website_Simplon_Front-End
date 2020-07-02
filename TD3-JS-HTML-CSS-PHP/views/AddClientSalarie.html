@@ -34,29 +34,6 @@
                         <input type="text" name="nom_Entreprise" placeholder="nom entreprise" id="NameEnter_salarie" autocomplete="off" required/><br/>
                         <input type="text" name="cni" placeholder="CNI" id="cni_salarie" autocomplete="off" required/>
                     </div>
-                    <!-- pour les informations du compte -->
-                <label for="" style="color:white;">TYPE COMPTE </label>
-                <select name="typeCompte" id="type_m" required>
-                    <option value="">Choisir...</option>
-                    <option value="Epargne">Compte Epargne</option>
-                    <option value="Courant">Compte Courant</option>
-                    <option value="Bloque">Compte Bloque</option>
-                </select><br/>
-                <input type="text" name="raison" id="raison_social" placeholder="raison social"/>
-                <input type="number" name="cle-rib" id="cle_rib" min="1" max="97" placeholder="Cle RIB"/><br/>
-                <input type="number" name="taux_agios" id="taux_agios" placeholder="taux agios" /> 
-                <input type="number" name="montant" id="montant" min="10000" placeholder="montant" /> <br/>
-                <input type="text" name="Nameentreprise" id="nom_Entreprise" placeholder="nom Entreprise" />
-                <input type="text" name="adrEntreprise" id="Adresse_Entreprise" placeholder="Adresse Entreprise" /><br/>
-                <input type="date" placeholder="date deblocage compte" min="<?= $_SESSION['date'];?>" id="date_deblocage" name="dateDebloc"/> 
-                <input type="text" name="numAgence" id="numeroAgence" placeholder="numeroAgence" value="<?= $_SESSION['numAgence'] ;?>" readonly/><br/>
-                <label for="" style="color:white;">DATE OUVERTURE COMPTE</label><input type="date" name="dateOuvert" placeholder="date ouverture" id="date_m" /> 
-                <div id="choix">
-                    <label for="" style="color:white;">FRAIS OUVERTURE</label><input  type="checkbox" name="souscription" value="souscri" id="frais"/>
-                </div>
-                <div id="choix2">
-                    <label for="" style="color:white;">RETRAIT AGIOS TOUS LES 3 MOIS</label> <input type="checkbox" name="agiosOBG" value="agios" id="fraisR"/>
-                </div>
                     <div class="button_for_s" id="button">
                         <button id="btn_Csalarie" name="btn" value="cSalarie">Valider</button>  <button>Annuler</button>
                     </div>
@@ -66,6 +43,6 @@
     </main>
 
 
-<script type="text/javascript" src="<?= SRC_STYLE_JS.'/AddClient.js'?>"></script>
+<script type="text/javascript" src="<?= SRC_STYLE_JS.'/AddClientSalarie.js'?>"></script>
 </body>
 </html>

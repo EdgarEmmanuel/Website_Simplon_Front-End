@@ -141,18 +141,20 @@ class Salarie_Controller{
 
 
     public function Salarie($data){
-        $type = $data["typeCompte"];
-        switch($type){
-            case "Epargne": 
-                $this->SalarieAndEpargne($data);
-            break;
-            case "Bloque" : 
-                $this->SalarieAndBloque($data);
-            break;
-            case "Courant": 
-                echo "courant";
-            break;
-        }
+        // $type = $data["typeCompte"];
+        // switch($type){
+        //     case "Epargne": 
+        //         $this->SalarieAndEpargne($data);
+        //     break;
+        //     case "Bloque" : 
+        //         $this->SalarieAndBloque($data);
+        //     break;
+        //     case "Courant": 
+        //         echo "courant";
+        //     break;
+        // }
+
+        var_dump($data);
     }
 
 
