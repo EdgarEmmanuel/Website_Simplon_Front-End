@@ -47,6 +47,18 @@ class SalarieImpl implements ICSalarie{
         $tot = (int)$val->num +1;
         return "BPS".(int)$tot;
     }
+
+    public function getClientById($id){
+        MysqlConnection::getConnection();
+
+        $sql ="SELECT nom , prenom from client_salarie where id_salarie=$id ";
+
+        $client = MysqlConnection::execOne($sql);
+
+        $nomComplet = $client->nom."".$client->prenom;
+
+        return $nomComplet;
+    }
 }
 
 

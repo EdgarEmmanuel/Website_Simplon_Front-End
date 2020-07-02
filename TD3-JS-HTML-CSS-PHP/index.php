@@ -39,17 +39,36 @@ if(isset($_GET["code"])){
         case "cni": 
             $controller->getPageVerifyCNI();
         break;
+        case "addCompte": 
+            if(!empty($_SESSION["nom_complet"])){
+                $controller->getPageAddCompte();
+            }else{
+                $controller->getPageLogin();
+            }
+        break;
         case "login": 
             $controller->getPageLogin();
         break;
         case "newCli": 
+            if(!empty($_SESSION["nom_complet"])){
             $controller->getPageAddClientSalarie();
+            }else{
+                $controller->getPageLogin();
+            }
         break;
         case "CliNoSalarie": 
+            if(!empty($_SESSION["nom_complet"])){
             $controller->getPageClientNoSalarie();
+            }else{
+                $controller->getPageLogin();
+            }
         break;
         case "CliMoral": 
-            $controller->getPageClientMoral();
+            if(!empty($_SESSION["nom_complet"])){
+                $controller->getPageClientMoral();
+            }else{
+                $controller->getPageLogin();
+            }
         break;
         //deconnexion
         case "deconnex": 

@@ -1,128 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-}
 
 body{
-    background-image:url("../img/images.jpg");
+    background:linear-gradient(0.25turn, #504DC1, rgb(80, 77, 193,0.8));
 }
 
-/* header parts */
-
-header{
-    z-index:4;
-    position: absolute;
-    width:100%;
-    height:4rem;
-    background: transparent;
-}
 
 header .brand h1{
-    margin-top: 5px;
-    color:black;
-    margin-left: 25px;
-    font-family: 'Balsamiq Sans', cursive;
+    font-family:'Balsamiq Sans', cursive
 }
 
-header .right{
-    margin-left:75rem;
-    margin-top: -42px;
-}
-
-header .right button{
-    background:transparent;
-    border:none;
-    border-radius: 10px;
-    padding: 10px 10px ;
-    font-weight:bold;
-    letter-spacing: .2em;
-    font-family: 'Balsamiq Sans', cursive;
-}
-
-header .right button:hover{
+header .brand h1 a{
+    text-decoration: none;
+    font-size: 13px;
+    border:1px solid white;
     background:white;
-    cursor: pointer;
 }
 
-
-/* ===========================start main ========================= */
-
-main form{
-    margin-left: 150px;
+main   form .salarie {
     text-align: center;
 }
 
+main   form select {
+    width:400px;
+}
 
-/* debut du style pour le formulaire client moral */
-main form .Moral{
-    display: block;
+main   form{
+    margin-top: -3rem;
     text-align: center;
 }
 
-main .Moral h2{
-    font-family: 'Balsamiq Sans', cursive;
-}
-
-main  .Moral input{
-    height:2rem;
-    width:220px;
-    margin-top: 10px;
+main   form button{
+    background:white;
     border-radius:10px;
-    font-size: 15px;
-    text-transform: uppercase;
+    height:2.5rem;
+    width:150px;
+    color:#235d8e;
+    border-color:#235d8e;
+    cursor:pointer;
+    font-size:17px;
 }
 
-/* fin du style pour le formulaire client moral */
+main   form button:hover{
+    background:#235d8e;
+    color:white;
+}
+/* 
+main   form .button_for_s{
+    margin-left: 450px;
+    margin-top: 20px;
+} */
 
+main   form .salarie input{
+    width:620px;
+    height:2rem;
+    margin: 3px 0px;
+    font-style: bold;
+}
 
+main   form input[type="checkbox"]{
+    width:20px;
+}
 
-/* start for the account part */
-main form .compte{
+main   form h2{
     text-align: center;
 }
-   
-   main form .compte input{
-       height:2rem;
-       width:240px;
-       margin-top: 10px;
-       border-radius:10px;
-       border-color:1px solid black;
-       font-size: 15px;
-       text-transform: uppercase;
-   }
-   
-   main form .compte h2{
-    font-family: 'Balsamiq Sans', cursive;
-   }
-   
-   main form .compte select{
-       width:10rem;
-       margin-top: 10px;
-       border-radius:10px;
-       font-size: 15px;
-       text-transform: uppercase;
-       background:white;
-   }
-/* end of data for account data  */
 
-/* end for the account part */
+main   form input{
+    width:620px;
+    height:2rem;
+}
+
+
 
 
 /* button after the div for account data */
-
-main form button{
-background:#6d63fa;
-    border:1px solid #6d63fa;
-    color:white;
-    width:200px;
-    font-weight: bold;
-    height:2rem;
-    margin-top: 10px;
-    text-transform: uppercase;
-    cursor:pointer;
-}
 
 main form .button_for_s{
     display:block;
@@ -131,10 +83,26 @@ main form .button_for_s{
 /* end button after the div for account data */
 
 
-.divMess{
-    width:50%;
-    background:white;
+#choix2{
+    display:none;
+}
+
+#choix{
+    display:none;
+}
+
+
+/* for the JS */
+.text{
+    color:white;
+    text-transform:uppercase;
     text-align: center;
-    margin: auto;
-    margin-top: 50px;
+    font-weight: Bold;
+    margin-top: 100px;
+}
+
+
+main .div{
+    text-align: center;
+    color:white;
 }

@@ -107,5 +107,9 @@ class UI_loginPage{
 //     UI_loginPage.clearField();
 //})
 
-
-
+setInterval(()=>{
+    if(document.querySelector("body").classList.contains("divMess")==false){
+        
+    }
+},2000)
+console.log();
