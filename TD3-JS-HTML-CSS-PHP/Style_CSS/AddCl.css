@@ -77,7 +77,7 @@ main .form form input{
 /* button after the div for account data */
 
 main .form form .button_for_s{
-    display:none;
+    display:block;
 }
 
 /* end button after the div for account data */

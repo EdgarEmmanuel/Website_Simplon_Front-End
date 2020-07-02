@@ -55,6 +55,8 @@ class UI_Salarie{
             if(document.querySelector("#nom_salarie").value===""){
                 document.querySelector("#nom_salarie").style.borderColor='#FA6D63';
                  UI.messageDis("Tous les champs sont Obligatoires");
+            }else{
+                document.querySelector("#nom_salarie").style.borderColor='none';
             }
         })
         
@@ -75,6 +77,8 @@ class UI_Salarie{
             if(document.querySelector("#prenom_salarie").value===""){
                 document.querySelector("#prenom_salarie").style.borderColor='#FA6D63';
                  UI.messageDis("Tous les champs sont Obligatoires");
+            }else{
+                document.querySelector("#prenom_salarie").style.borderColor='none';
             }
         })
         
@@ -96,6 +100,8 @@ class UI_Salarie{
             if(document.querySelector("#addr_salarie").value===""){
                 document.querySelector("#addr_salarie").style.borderColor='#FA6D63';
                  UI.messageDis("Tous les champs sont Obligatoires");
+            }else{
+                document.querySelector("#addr_salarie").style.borderColor='none';
             }
         })
         
@@ -109,8 +115,10 @@ class UI_Salarie{
             var tot = b+c+d;
             if(a!="+" && tot!="221"){
                 document.querySelector("#tele_salarie").style.borderColor='red';
-            }else if(document.querySelector("#tele_salarie").value.trim().length!=14){
+                 UI.messageDis("Format de Numero : +221 xx xxx xx xx avec 14 chiffres ");
+            }else if(document.querySelector("#tele_salarie").value.length>=13 || document.querySelector("#tele_salarie").value.length<13 ){
                 document.querySelector("#tele_salarie").style.borderColor='#FA6D63';
+                 UI.messageDis("Format de Numero : +221 xx xxx xx xx avec 14 chiffres ");
             }
         });
         document.querySelector("#tele_salarie").addEventListener('blur',(e)=>{
@@ -118,25 +126,18 @@ class UI_Salarie{
             if(document.querySelector("#tele_salarie").value===""){
                 document.querySelector("#tele_salarie").style.borderColor='#FA6D63';
                  UI.messageDis("Tous les champs sont Obligatoires");
+            }else{
+               document.querySelector("#tele_salarie").style.borderColor='none';
             }
         })
         
         //for email salarie
-        document.querySelector("#email_salarie").addEventListener('keyup',(e)=>{
-            e.preventDefault();
-            if(e.code[3]==="i"){
-                var a =document.querySelector("#email_salarie").value.trim().length;
-                var recup="";
-                for(var i=0;i<a-1;i++){
-                    recup+=document.querySelector("#email_salarie").value[i];
-                }
-                document.querySelector("#email_salarie").value=recup;
-            }
-        });
         document.querySelector("#email_salarie").addEventListener('blur',(e)=>{
             e.preventDefault();
             if(document.querySelector("#email_salarie").value===""){
                 document.querySelector("#email_salarie").style.borderColor='#FA6D63';
+            }else{
+                document.querySelector("#email_salarie").style.borderColor='none';
             }
         })
         
@@ -157,6 +158,8 @@ class UI_Salarie{
             if(document.querySelector("#emploi_salarie").value===""){
                 document.querySelector("#emploi_salarie").style.borderColor='#FA6D63';
                  UI.messageDis("Tous les champs sont Obligatoires");
+            }else{
+                document.querySelector("#emploi_salarie").style.borderColor='none';
             }
         })
         
@@ -177,6 +180,8 @@ class UI_Salarie{
             if(document.querySelector("#NameEnter_salarie").value===""){
                 document.querySelector("#NameEnter_salarie").style.borderColor='#FA6D63';
                 UI.messageDis("Tous les champs sont Obligatoires ");
+            }else{
+                document.querySelector("#NameEnter_salarie").style.borderColor='none';
             }
         })
         
@@ -186,11 +191,12 @@ class UI_Salarie{
             if(document.querySelector("#cni_salarie").value===""){
                 document.querySelector("#cni_salarie").style.borderColor='#FA6D63';
                 UI.messageDis("Tous les champs sont Obligatoires");
+            }else{
+                document.querySelector("#cni_salarie").style.borderColor='none';
             }
         })
         
-        //for the field button hidden
-        document.querySelector("main .form form .button_for_s").style.diplay='none';
+       
     }
     
 }
@@ -308,31 +314,9 @@ document.querySelector(".form").removeChild(document.querySelector(".text"));
         location.href=url;
     }
     
-    static displayButton(){
-        var inter = setInterval(()=>{
-            var name = document.querySelector("#nom_salarie").value.trim();
-        var prenom = document.querySelector("#prenom_salarie").value.trim();
-        var adresse = document.querySelector("#addr_salarie").value.trim();
-        var tel = document.querySelector("#tele_salarie").value.trim();
-        var email = document.querySelector("#email_salarie").value.trim();
-        var profession = document.querySelector("#emploi_salarie").value.trim();
-        var enterprise_name = document.querySelector("#NameEnter_salarie").value.trim();
-        var cni = document.querySelector("#cni_salarie").value.trim();
-            if(name==="" || prenom==="" || adresse==="" || tel==="" || email==="" || profession==="" || enterprise_name==="" ||
-              cni===""){
-               return;
-               }else{
-               clearInterval(inter);
-               }
-        },1000)
-    }
 }
-
 
 //operations 
 UI_Salarie.verifyFieldNom();
-
-//
-UI.displayButton();
 
 
