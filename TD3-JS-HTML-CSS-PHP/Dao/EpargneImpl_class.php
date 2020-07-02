@@ -47,7 +47,7 @@ class EpargneImpl implements ICOEpargne {
 
         $val=MysqlConnection::execOne($sql);
 
-        return $val;
+        return $val->montant;
     }
 
     public function UpdateEtatAtAdding($idCompte,$date){

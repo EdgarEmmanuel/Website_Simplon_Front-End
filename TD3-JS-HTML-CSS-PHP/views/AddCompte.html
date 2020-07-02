@@ -17,14 +17,16 @@
         </div>
     </header>
     <main>
-        <form action="">
-             <!-- form for adding moral client -->
+        <form action="index.php" method="post">
+             <!-- form for adding moral client $_SESSION["idClient"] -->
 
              <div class="Moral">
                 <h2>INFORMATIONS COMPTE DU CLIENT </h2>
-                <input type="text" name="" placeholder="nom complet" id="prenom" readonly/>
-                <input type="text" name="" placeholder="cni" id="idClient" readonly/>
-                <input type="text" name="" placeholder="cni" id="cni" readonly/><br/>
+                <input type="text" name="" placeholder="nom complet"
+                 value="<?php if(!empty($_SESSION['nomClient'])){echo $_SESSION['nomClient'];}?>" id="prenom" readonly/>
+
+                <input type="text" name="" placeholder="cni" 
+                 value="<?php if(!empty($_SESSION['idClient'])){echo $_SESSION['idClient'];}?>" id="idClient" readonly/>
             </div>
 
             <label for="" style="color:white;">TYPE COMPTE </label>
@@ -41,7 +43,7 @@
                 <input type="text" name="Nameentreprise" id="nom_Entreprise" placeholder="nom Entreprise" />
                 <input type="text" name="adrEntreprise" id="Adresse_Entreprise" placeholder="Adresse Entreprise" /><br/>
                 <input type="date" placeholder="date deblocage compte" min="<?= $_SESSION['date'];?>" id="date_deblocage" name="dateDebloc"/> 
-                <input type="text" name="numAgence" id="numeroAgence" placeholder="numeroAgence" value="<?= $_SESSION['numAgence'] ;?>" readonly/><br/>
+                <input type="text" name="numAgence" id="numeroAgence" placeholder="numeroAgence" value="<?php if(!empty($_SESSION['numAgence'] )){echo $_SESSION['numAgence'] ;}?>" readonly/><br/>
                 <label for="" style="color:white;">DATE OUVERTURE COMPTE</label><input type="date" name="dateOuvert" placeholder="date ouverture" id="date_m" /> 
                 <div id="choix">
                     <label for="" style="color:white;">FRAIS OUVERTURE</label><input  type="checkbox" name="souscription" value="souscri" id="frais"/>
@@ -50,26 +52,16 @@
                     <label for="" style="color:white;">RETRAIT AGIOS TOUS LES 3 MOIS</label> <input type="checkbox" name="agiosOBG" value="agios" id="fraisR"/>
                 </div>
         <div class="button_for_s" id="button">
-            <button id="btn_create" >Valider</button>  <button>Annuler</button>
+            <button id="btn_create" name="btn" value="C_compte" >Valider</button>  <button>Annuler</button>
         </div>
         </form>
-
-        <?php 
-        if(!empty($_SESSION["message"])){ ?>
+        <?php if(!empty($_SESSION["message"])){ ?>
             <div class="div">
                 <h1><?= $_SESSION["message"]; ?></h1>
             </div>
-       <?php }unset($_SESSION["message"]);
-    ?>
+       <?php }unset($_SESSION["message"]);?>
 
     </main>
-
-<script>
-    var div = document.querySelector(".div");
-    setTimeout(()=>{
-        document.querySelector("main").removeChild(div);
-    },5000)
-</script>
 
 <script src="<?= SRC_STYLE_JS.'/AddCompte.js'?>" type="text/javascript"></script>
 </body>

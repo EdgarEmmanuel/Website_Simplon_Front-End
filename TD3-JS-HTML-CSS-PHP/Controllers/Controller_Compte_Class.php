@@ -9,6 +9,16 @@ include_once(SRC_MODELS."/ComptBloque_class.php");
 
 class Controller_Compte{
 
+    public function redirect($val){
+        if($val!=0){
+            $_SESSION["message"]="INSERTION EFFECTUE AVEC SUCCES";
+        echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
+        }else{
+            $_SESSION["message"]="PROBLEME SERVEUR ";
+        echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
+        }
+    }
+
     // public function SalarieAndBloque($data){
     //     $BloqImpl = new BloqueImpl();
 
@@ -54,51 +64,70 @@ class Controller_Compte{
     //         $_SESSION["message"]="INSERTION IMPOSSIBLE DUREE DE DEBLOCAGE INFERIEUR A 1 AN !!!";
     //         echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
     //     }
-
-        
-    
     // }
 
 
-    // public function SalarieAndEpargne($data){
-    //     //declaration des implementations 
-    //     $EpargneImpl = new EpargneImpl();
+    public function addEpargne($data){
+        //declaration des implementations 
+        $EpargneImpl = new EpargneImpl();
 
-    //     //recuperation des donnees
-    //     $cleRib = $data["cle-rib"];
+        //recuperation des donnees
+        $cleRib = $data["cle-rib"];
 
-    //     $montant = $data["montant"];
-    //     $dateOuvert = $data["dateOuvert"];
+        $montant = $data["montant"];
+        $dateOuvert = $data["dateOuvert"];
 
-    //     //avec Session voir page Controller_BP_class.php
-    //     $idAgence = $_SESSION["idAgence"];
-    //     $FraisOuvertureEpargne = $EpargneImpl->getFraisCompteTypeEpargne();
-    //     $idResp =  $_SESSION["idEmploye"];
+        //avec Session voir page Controller_BP_class.php
+        $idAgence = $_SESSION["idAgence"];
+
+        //recuperer les frais
+        $FraisOuvertureEpargne = $EpargneImpl->getFraisCompteTypeEpargne();
+
+        //recupere l'ID dyu responsable qui est en Session voir Controller_BP_class.php(function verifyRespoCompte)
+        $idResp =  $_SESSION["idEmploye"];
 
 
-    //     //generer le numero compte 
-    //     $numCompte=$EpargneImpl->generateNumCompte();
+        //generer le numero compte 
+        $numCompte=$EpargneImpl->generateNumCompte();
 
-    //     //generer le solde final du compte
-    //     $soldeFinal = (int)$montant - (int)$FraisOuvertureEpargne->montant;
+        //generer le solde final du compte
+        $soldeFinal = (int)$montant - (int)$FraisOuvertureEpargne;
 
       
+         //insertion client et recuperation du lastInsertId()
+        $idClient =$_SESSION["idClient"];
 
-    //      //insertion client et recuperation du lastInsertId()
-    //     $idClient =$this->InsertSalarie($data);
 
-    //     //creation du Compte Epargne
-    //     $compte = new ComptEpargne($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$soldeFinal);
+        //creation du Compte Epargne
+        $compte = new ComptEpargne($numCompte,$cleRib,$dateOuvert,$idClient,
+        $idResp,$idAgence,$soldeFinal);
 
-    //     //ensuite insertion dans la table compte et recuperation du lastInsertId()
-    //     $idCompte = $EpargneImpl->add($compte);
+        //ensuite insertion dans la table compte et recuperation du lastInsertId()
+        $idCompte = $EpargneImpl->add($compte);
 
-    //     //insertion et mis ajour dans la table etatCompte 
-    //     $val = $EpargneImpl->UpdateEtatAtAdding($idCompte,$dateOuvert);
+        //insertion et mis a jour dans la table etatCompte 
+        $val = $EpargneImpl->UpdateEtatAtAdding($idCompte,$dateOuvert);
 
-    //     //redirection apres insertion
-    //     $this->redirect($val);
-    // }
+        //redirection selon le resultat de l'insertion 
+        $this->redirect($val);
+    }
+
+
+    public function DecideAccountBeforeInsert($data){
+        $typeCompte = $data["typeCompte"];
+        switch($typeCompte){
+            case "Epargne": 
+                $this->addEpargne($data);
+            break;
+            case "Bloque":
+                echo "bloque"; 
+            break;
+            case "Courant": 
+                echo "courant";
+            break;
+        }
+    }
+
 
 }
 

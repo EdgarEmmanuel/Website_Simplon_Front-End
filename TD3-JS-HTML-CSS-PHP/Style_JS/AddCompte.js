@@ -201,5 +201,14 @@ class UI_Compte{
     }
 }
 
-
+//get all the account
 UI_Compte.getTypeCompte();
+
+//hiddng the div 
+
+var div = document.querySelector(".div");
+setTimeout(()=>{
+        document.querySelector("main").removeChild(div);
+},5000)
+
+

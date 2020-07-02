@@ -29,8 +29,10 @@ define("SRC_MODELS",ROOT."Models");
 //inclure les controllers et leurs variables
 include_once(SRC_CONTROLLERS."/Controller_BP_Class.php");
 include_once(SRC_CONTROLLERS."/Controller_Salarie_class.php");
+include_once(SRC_CONTROLLERS."/Controller_Compte_Class.php");
 $controller = new Controller_BP();
 $controllerSalarie = new  Salarie_Controller();
+$ControllerCompte = new Controller_Compte();
 
 //pour les requetes get 
 if(isset($_GET["code"])){
@@ -96,9 +98,13 @@ if(isset($_POST["btn"])){
             //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=login">';
         break;
         case "cSalarie": 
-            //var_dump($_POST);
             $controllerSalarie->Salarie($_POST);
             //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=newCli">';
+        break;
+        case "C_compte": 
+            //var_dump($_POST);
+            $ControllerCompte->addEpargne($_POST);
+            //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=addCompte">';
         break;
     }
 }

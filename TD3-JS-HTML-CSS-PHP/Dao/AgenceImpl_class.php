@@ -14,7 +14,7 @@ class AgenceImpl implements IAgence{
         $sql = "SELECT * FROM agences where id_agence=$id";
 
         $agence = MySqlConnection::execOne($sql);
-        return $agence;
+        return $agence->numero_agence;
     }
 }
 

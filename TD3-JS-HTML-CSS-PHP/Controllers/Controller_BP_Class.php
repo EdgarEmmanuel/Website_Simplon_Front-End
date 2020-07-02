@@ -47,23 +47,23 @@ class Controller_BP{
 
     public function verifyRespoCompte($login,$mdp){
         $IRespo = new RespoCompteImpl();
-        $EpargneImpl = new AgenceImpl();
+        $AgenceImpl = new AgenceImpl();
         $respo = $IRespo->getRespoByLoginAndMdp($login ,$mdp);
         if(!empty($respo)){
             //recuperer l'id Employe du responsable et son matricule
             $_SESSION["idEmploye"] = (int)$respo->idEmp;
             $_SESSION["matricule"] = $respo->matricule;
 
-            //getAgenceById($id)
-
-            //pour aller recuperer les donnees(nom et prenom) du client avec son IDEmploye
+            //pour aller recuperer les donnees(nom et prenom) de l'utilisateur avec son IDEmploye
             $infos = $IRespo->getAllInfoRespoById($_SESSION["idEmploye"]);
             $_SESSION["nom_complet"]=$infos->nom." ".$infos->prenom;
             $_SESSION["idAgence"]=$infos->idagencEmploye;
 
-            //recupere le numero de l'agence
-           $value = $EpargneImpl->getAgenceById($infos->idagencEmploye);
-           $_SESSION["numAgence"]=$value->numero_agence;
+            //recuperer l'ID de l'agence
+           $value = $AgenceImpl->getAgenceById($infos->idagencEmploye);
+           $_SESSION["numAgence"]=$value;
+
+
             //redirection vers la page VerifyCNI.html
             echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
         }else{
