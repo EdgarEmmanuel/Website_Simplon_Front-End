@@ -55,7 +55,7 @@ class SalarieImpl implements ICSalarie{
 
         $client = MysqlConnection::execOne($sql);
 
-        $nomComplet = $client->nom."".$client->prenom;
+        $nomComplet = $client->nom." ".$client->prenom;
 
         return $nomComplet;
     }

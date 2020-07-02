@@ -43,7 +43,10 @@ class Salarie_Controller{
 
     public function Salarie($data){
         $ISalariImpl = new  SalarieImpl();
+
+        //apres insertion on recupere le LastInsertId
         $idClient = $this->InsertSalarie($data);
+        
 
         //variable en session getClientById($id)
         $_SESSION["idClient"]=$idClient;

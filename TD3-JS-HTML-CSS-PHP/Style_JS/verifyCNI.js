@@ -79,6 +79,12 @@ document.querySelector("#annuler").addEventListener("click",(e)=>{
     UI_GestClient.clearFiled();
 })
 
+//remove the div when she appears
+var div = document.querySelector(".desMess");
+setTimeout(()=>{
+    document.querySelector("main").removeChild(div);
+},4000)
+
 
 
 

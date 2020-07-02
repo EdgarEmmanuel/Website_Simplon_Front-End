@@ -19,52 +19,44 @@ class Controller_Compte{
         }
     }
 
-    // public function SalarieAndBloque($data){
-    //     $BloqImpl = new BloqueImpl();
+    public function AddAccountBloque($data){
+        $BloqImpl = new BloqueImpl();
 
-    //     //recupere valeur 
-    //     $cleRib = $data["cle-rib"];
-    //     $montant = $data["montant"];
-    //     $dateDebloc = $data["dateDebloc"];
-    //     $dateOuvert = $data["dateOuvert"];
+        //recupere valeur 
+        $cleRib = $data["cle-rib"];
+        $montant = $data["montant"];
+        $dateDebloc = $data["dateDebloc"];
+        $dateOuvert = $data["dateOuvert"];
 
-    //     //compare two dates 
-    //     $value = $BloqImpl->getDurationBetweenDate($dateOuvert , $dateDebloc);
+            //have all the frais for locked account
+            $fraisBloque = $BloqImpl->getFraisWithTypBloque();
 
-    //     if($value==1){
-    //         //have all the frais for locked account
-    //         $fraisBloque = $BloqImpl->getFraisWithTypBloque();
+            //solde final moins les frais d'ouverture
+            $solde = (int)$montant - (int)$fraisBloque;
 
-    //         //solde final moins les frais d'ouverture
-    //         $solde = (int)$montant - (int)$fraisBloque;
+            //generer le numero de Compte Bloque
+            $numCompte = $BloqImpl->generateNumForCompteBloque();
 
-    //         //generer le numero de Compte
-    //         $numCompte = $BloqImpl->generateNumForCompteBloque();
+            //infos de $_SESSION voir page Controller_BP_Class.php
+            $idAgence = $_SESSION["idAgence"];
+            $idResp =  $_SESSION["idEmploye"];
 
-    //         //infos de $_SESSION
-    //         $idAgence = $_SESSION["idAgence"];
-    //         $idResp =  $_SESSION["idEmploye"];
+            //insertion client et recuperation du lastInsertId()
+            $idClient =$_SESSION["idClient"];
 
-    //         //get the IDClient 
-    //         $idClient = $this->InsertSalarie($data);
+            //create CompteBloque
+            $compteBloque = new ComptBloque($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$solde,$dateDebloc);
 
-    //         //create CompteBloque
-    //         $compteBloque = new ComptBloque($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$solde,$dateDebloc);
+            //inserer dans la table
+            $idCompte = $BloqImpl->add($compteBloque);
 
-    //         //inserer dans la table
-    //         $idCompte = $BloqImpl->add($compteBloque);
+            //mettre a jour la table Compte
+            $val = $BloqImpl->UpdateForCompteBloque($idCompte,$dateOuvert);
 
-    //         //mettre a jour la table Compte
-    //         $val = $BloqImpl->UpdateForCompteBloque($idCompte,$dateOuvert);
+            //redirection
+            $this->redirect($val);
 
-    //         //redirection
-    //         $this->redirect($val);
-
-    //     }else{
-    //         $_SESSION["message"]="INSERTION IMPOSSIBLE DUREE DE DEBLOCAGE INFERIEUR A 1 AN !!!";
-    //         echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
-    //     }
-    // }
+    }
 
 
     public function addEpargne($data){
@@ -120,7 +112,7 @@ class Controller_Compte{
                 $this->addEpargne($data);
             break;
             case "Bloque":
-                echo "bloque"; 
+                $this->AddAccountBloque($data);
             break;
             case "Courant": 
                 echo "courant";

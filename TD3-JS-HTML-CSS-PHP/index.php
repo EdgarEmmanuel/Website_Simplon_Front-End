@@ -95,15 +95,12 @@ if(isset($_POST["btn"])){
     switch($post){
         case "connex": 
             $controller->verifyPersonnel($_POST);
-            //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=login">';
         break;
         case "cSalarie": 
             $controllerSalarie->Salarie($_POST);
-            //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=newCli">';
         break;
         case "C_compte": 
-            //var_dump($_POST);
-            $ControllerCompte->addEpargne($_POST);
+            $ControllerCompte->DecideAccountBeforeInsert($_POST);
             //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=addCompte">';
         break;
     }

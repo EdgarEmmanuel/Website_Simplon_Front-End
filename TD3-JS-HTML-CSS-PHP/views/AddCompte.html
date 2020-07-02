@@ -42,9 +42,13 @@
                 <input type="number" name="montant" id="montant" min="10000" placeholder="montant" /> <br/>
                 <input type="text" name="Nameentreprise" id="nom_Entreprise" placeholder="nom Entreprise" />
                 <input type="text" name="adrEntreprise" id="Adresse_Entreprise" placeholder="Adresse Entreprise" /><br/>
-                <input type="date" placeholder="date deblocage compte" min="<?= $_SESSION['date'];?>" id="date_deblocage" name="dateDebloc"/> 
-                <input type="text" name="numAgence" id="numeroAgence" placeholder="numeroAgence" value="<?php if(!empty($_SESSION['numAgence'] )){echo $_SESSION['numAgence'] ;}?>" readonly/><br/>
-                <label for="" style="color:white;">DATE OUVERTURE COMPTE</label><input type="date" name="dateOuvert" placeholder="date ouverture" id="date_m" /> 
+
+                <!-- pour la session avec la date , voir la page index.php(Ligne 16-18) -->
+                <input type="date" placeholder="date deblocage compte" min="<?php echo $date = Date("Y-m-d",strtotime('+1 year')); ?>" id="date_deblocage" name="dateDebloc"/> 
+                
+                <input type="text" name="numAgence" id="numeroAgence"  placeholder="numeroAgence" value="<?php if(!empty($_SESSION['numAgence'] )){echo $_SESSION['numAgence'] ;}?>" readonly/><br/>
+                <label for="" style="color:white;">DATE OUVERTURE COMPTE</label>
+                <input type="date" value="<?= $_SESSION['date'];?>" name="dateOuvert" min="<?= $_SESSION['date'];?>" placeholder="date ouverture" id="date_m" /> 
                 <div id="choix">
                     <label for="" style="color:white;">FRAIS OUVERTURE</label><input  type="checkbox" name="souscription" value="souscri" id="frais"/>
                 </div>
