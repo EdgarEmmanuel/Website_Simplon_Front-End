@@ -116,7 +116,7 @@ class UI_Salarie{
             if(a!="+" && tot!="221"){
                 document.querySelector("#tele_salarie").style.borderColor='red';
                  UI.messageDis("Format de Numero : +221 xx xxx xx xx avec 14 chiffres ");
-            }if(document.querySelector("#tele_salarie").value.length!=13{
+            }if(document.querySelector("#tele_salarie").value.length!=13){
                 document.querySelector("#tele_salarie").style.borderColor='#FA6D63';
                  UI.messageDis("Format de Numero : +221 xx xxx xx xx avec 14 chiffres ");
             }

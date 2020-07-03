@@ -2,14 +2,18 @@
 include_once(SRC_DAO."/EpargneImpl_class.php");
 include_once(SRC_DAO."/BloqueImpl_class.php");
 include_once(SRC_DAO."/AgenceImpl_class.php");
+include_once(SRC_DAO."/CourantImpl_class.php");
 
 include_once(SRC_MODELS."/ComptEpargne_class.php");
 include_once(SRC_MODELS."/ComptBloque_class.php");
+include_once(SRC_MODELS."/ComptCourant_class.php");
 
 
 class Controller_Compte{
 
     public function redirect($val){
+        unset($_SESSION['nomClient']);
+        unset($_SESSION['idClient']);
         if($val!=0){
             $_SESSION["message"]="INSERTION EFFECTUE AVEC SUCCES";
         echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
@@ -17,6 +21,57 @@ class Controller_Compte{
             $_SESSION["message"]="PROBLEME SERVEUR ";
         echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
         }
+    }
+
+    public function AddAccountCourant($data){
+        $CourantImpl = new CourantImpl();
+
+        //recuperer donnees
+        $cleRib = $data["cle-rib"];
+        $montant = $data["montant"];
+        $dateOuvert = $data["dateOuvert"];
+        $nomEnter = $data["Nameentreprise"];
+        $raison = $data ["raison"];
+        $adres = $data["adrEntreprise"];
+
+         //have all the frais for locked account
+         $fraisCourant = $CourantImpl->getFraisCompteTypeCourant();
+
+          //infos de $_SESSION voir page Controller_BP_Class.php
+          $idAgence = $_SESSION["idAgence"];
+          $idResp =  $_SESSION["idEmploye"];
+
+          //solde final moins les frais d'ouverture
+          $solde = (int)$montant - (int)$fraisCourant;
+
+          //infos de $_SESSION voir page Controller_BP_Class.php
+          $idAgence = $_SESSION["idAgence"];
+          $idResp =  $_SESSION["idEmploye"];
+
+          //insertion client et recuperation du lastInsertId()
+          $idClient =$_SESSION["idClient"];
+
+          //get the agios 
+          $idAgios = $CourantImpl->getAgiosEntretien();
+
+           //generer le numero de Compte Bloque
+           $numCompte = $CourantImpl->generateNumCompte();
+
+          //create compte courant
+          $courant = new ComptCourant($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$adres,$nomEnter
+          ,$raison,$solde,$idAgios);
+
+          //creation Compte Courant
+          $idCompte = $CourantImpl->add($courant);
+
+          //mettre a jour table
+          $val = $CourantImpl->UpdateForCompteBloque($idCompte,$dateOuvert);
+
+
+          //redirection
+          $this->redirect($val);
+
+
     }
 
     public function AddAccountBloque($data){
@@ -115,7 +170,7 @@ class Controller_Compte{
                 $this->AddAccountBloque($data);
             break;
             case "Courant": 
-                echo "courant";
+                $this->AddAccountCourant($data);
             break;
         }
     }

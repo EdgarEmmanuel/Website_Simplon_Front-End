@@ -42,6 +42,7 @@ class Controller_BP{
     //deconnexion fonction
     public function Deconnexion(){
         session_unset();
+        unset($_SESSION);
         echo '<meta http-equiv="refresh" content="0;URL=index.php?code=login">';
     }
 

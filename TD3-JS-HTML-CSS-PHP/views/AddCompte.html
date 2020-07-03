@@ -38,15 +38,18 @@
                 </select><br/>
                 <input type="text" name="raison" id="raison_social" placeholder="raison social"/>
                 <input type="number" name="cle-rib" id="cle_rib" min="1" max="97" placeholder="Cle RIB"/><br/>
-                <input type="number" name="taux_agios" id="taux_agios" placeholder="taux agios" /> 
-                <input type="number" name="montant" id="montant" min="10000" placeholder="montant" /> <br/>
-                <input type="text" name="Nameentreprise" id="nom_Entreprise" placeholder="nom Entreprise" />
-                <input type="text" name="adrEntreprise" id="Adresse_Entreprise" placeholder="Adresse Entreprise" /><br/>
-
-                <!-- pour la session avec la date , voir la page index.php(Ligne 16-18) -->
-                <input type="date" placeholder="date deblocage compte" min="<?php echo $date = Date("Y-m-d",strtotime('+1 year')); ?>" id="date_deblocage" name="dateDebloc"/> 
-                
+                <!-- <input type="number" name="taux_agios" id="taux_agios" placeholder="taux agios" />  -->
+                <input type="number" name="montant" id="montant" min="10000" placeholder="montant" /> 
+                <input type="text" name="Nameentreprise" id="nom_Entreprise" placeholder="nom Entreprise" /><br/>
+                <input type="text" name="adrEntreprise" id="Adresse_Entreprise" placeholder="Adresse Entreprise" />
                 <input type="text" name="numAgence" id="numeroAgence"  placeholder="numeroAgence" value="<?php if(!empty($_SESSION['numAgence'] )){echo $_SESSION['numAgence'] ;}?>" readonly/><br/>
+
+                
+                <label for="" style="color:white;">DATE DEBLOCAGE COMPTE </label>
+                <input type="date" placeholder="date deblocage compte" min="<?php echo $date = Date("Y-m-d",strtotime('+1 year')); ?>" value="<?php echo $date = Date("Y-m-d",strtotime('+1 year')); ?>" id="date_deblocage" name="dateDebloc"/> 
+                
+                <!-- pour la session avec la date , voir la page index.php(Ligne 16-18) -->
+                <br/>
                 <label for="" style="color:white;">DATE OUVERTURE COMPTE</label>
                 <input type="date" value="<?= $_SESSION['date'];?>" name="dateOuvert" min="<?= $_SESSION['date'];?>" placeholder="date ouverture" id="date_m" /> 
                 <div id="choix">

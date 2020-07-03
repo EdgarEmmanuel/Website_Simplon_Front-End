@@ -23,11 +23,8 @@ class UI_Compte{
     static clearFieldCompte(){
           document.querySelector("#raison_social").value="";
         document.querySelector("#nom_Entreprise").value="";
-        document.querySelector("#date_deblocage").value="";
     document.querySelector("#Adresse_Entreprise").value="";
-        document.querySelector("#date_deblocage").value="";
         document.querySelector("#cle_rib").value="";
-        document.querySelector("#taux_agios").value="";
         document.querySelector("#montant").value="";
     }
     
@@ -39,7 +36,6 @@ class UI_Compte{
         document.querySelector("#Adresse_Entreprise").removeAttribute("disabled");
         document.querySelector("#date_deblocage").removeAttribute("disabled");
         document.querySelector("#cle_rib").removeAttribute("disabled");
-        document.querySelector("#taux_agios").removeAttribute("disabled");
         document.querySelector("#montant").removeAttribute("disabled");
         document.querySelector("#date_m").removeAttribute("disabled");
         document.querySelector("#choix").style.display='none';
@@ -52,7 +48,6 @@ class UI_Compte{
     document.querySelector("#Adresse_Entreprise").removeAttribute("required");
         document.querySelector("#date_deblocage").removeAttribute("required");
         document.querySelector("#cle_rib").removeAttribute("required");
-        document.querySelector("#taux_agios").removeAttribute("required");
         document.querySelector("#montant").removeAttribute("required");
         document.querySelector("#date_m").removeAttribute("required");
         document.querySelector("#frais").removeAttribute("required");
@@ -141,13 +136,10 @@ class UI_Compte{
         document.querySelector("#raison_social").setAttribute("disabled","");
         document.querySelector("#nom_Entreprise").setAttribute("disabled","");
         document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
-       document.querySelector("#taux_agios").setAttribute("disabled","");
        
        //for the required attribute 
         document.querySelector("#date_deblocage").setAttribute("required","");
-        document.querySelector("#date_deblocage").setAttribute("required","");
         document.querySelector("#cle_rib").setAttribute("required","");
-        document.querySelector("#taux_agios").setAttribute("required","");
         document.querySelector("#montant").setAttribute("required","");
         document.querySelector("#date_m").setAttribute("required","");
        document.querySelector("#frais").setAttribute("required","");
@@ -164,12 +156,9 @@ class UI_Compte{
         document.querySelector("#date_deblocage").setAttribute("disabled","");
         document.querySelector("#Adresse_Entreprise").setAttribute("disabled","");
         document.querySelector("#nom_Entreprise").setAttribute("disabled","");
-        document.querySelector("#taux_agios").setAttribute("disabled","");
         
         //remove the attribute reqired for specific fields 
-        document.querySelector("#date_deblocage").setAttribute("required","");
         document.querySelector("#cle_rib").setAttribute("required","");
-        document.querySelector("#taux_agios").setAttribute("required","");
         document.querySelector("#montant").setAttribute("required","");
         document.querySelector("#date_m").setAttribute("required","");
         document.querySelector("#frais").setAttribute("required","");
@@ -188,9 +177,7 @@ class UI_Compte{
          document.querySelector("#raison_social").setAttribute("required","");
         document.querySelector("#nom_Entreprise").setAttribute("required","");
     document.querySelector("#Adresse_Entreprise").setAttribute("required","");
-        document.querySelector("#date_deblocage").setAttribute("required","");
         document.querySelector("#cle_rib").setAttribute("required","");
-        document.querySelector("#taux_agios").setAttribute("required","");
         document.querySelector("#montant").setAttribute("required","");
         document.querySelector("#date_m").setAttribute("required","");
         document.querySelector("#fraisR").setAttribute("required","");
