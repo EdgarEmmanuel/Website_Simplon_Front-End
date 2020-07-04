@@ -31,10 +31,13 @@ include_once(SRC_CONTROLLERS."/Controller_BP_Class.php");
 include_once(SRC_CONTROLLERS."/Controller_Salarie_class.php");
 include_once(SRC_CONTROLLERS."/Controller_Compte_Class.php");
 include_once(SRC_CONTROLLERS."/Controller_noSalarie_class.php");
+include_once(SRC_CONTROLLERS."/Controller_Moral_class.php");
 $controller = new Controller_BP();
 $controllerSalarie = new  Salarie_Controller();
 $ControllerCompte = new Controller_Compte();
 $Co_NoSalarie = new Controller_noSalarie();
+$Co_Moral = new Controller_Moral();
+
 
 //pour  toutes les requetes get 
 if(isset($_GET["code"])){
@@ -113,6 +116,10 @@ if(isset($_POST["btn"])){
         case "Cindependant" : 
             //var_dump($_POST);
             $Co_NoSalarie->NoSalarie($_POST);
+        break;
+        case "CMoral": 
+            //var_dump($_POST);
+            $Co_Moral->MoralClient($_POST);
         break;
     }
 }

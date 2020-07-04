@@ -29,7 +29,6 @@ class Controller_noSalarie{
         $telephone=$data["teli"];
 
         //creation du Salarie
-        //$tel,$mail,$nom,$activite,$prenom,$cni,$matricule
         $Salarie = new Client_Non_Salarie($telephone,$email,$nom,$activite,$prenom,$cni,$mat,$adresse);
 
         //insertion client et recuperation du lastInsertId()

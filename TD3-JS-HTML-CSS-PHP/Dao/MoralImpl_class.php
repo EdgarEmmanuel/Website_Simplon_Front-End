@@ -1,20 +1,21 @@
 <?php
 
-
 include_once("Mysql_connect_class.php");
 include_once(SRC_DAO."/ICMoral_interface.php");
 include_once(SRC_MODELS."/CMoral_class.php");
 
 class MoralImpl implements IClientMoral {
     public function addClient(Client_Moral $client){
+        MysqlConnection::getConnection();
+
         $adresse  = $client->getAdresse();
          $tel  = $client->getTelephone();
          $mail = $client->getMail();
          $type = $client->getTypeEntreprise();
          $activite = $client->getActiviteEntreprise();
          $nomEnter = $client->getNomEntreprise();
-         $raison = $client->getRaisonSocial();
          $matricule = $client->getMatricule();
+         $ninea=$client->getNinea();
 
          //creation et execution de la requete pour inserer un client 
          $sql_clients = "INSERT INTO clients VALUES (null,'$tel','$mail','$matricule')";
@@ -25,13 +26,43 @@ class MoralImpl implements IClientMoral {
          $idClient = MysqlConnection::lastInsertId();
 
          //creation et execution de la requete pour inserer un client
-         $sql_cmoral = "INSERT INTO client_moral VALUES(null,'$type','$activite',$idClient,'$nomEnter','$raison','$adresse')";
+         $sql_cmoral = "INSERT INTO client_moral VALUES(null,'$type','$activite',$idClient,'$nomEnter','$adresse',$ninea)";
 
          MysqlConnection::executeUpdate($sql_cmoral);
 
 
          return $idClient;
     }
+
+    public function getMatriculeMoral(){
+        MysqlConnection::getConnection();
+
+        $sql ="SELECT count(idClient) as num FROM clients where SUBSTR(matricule,1,3) = 'BPMS' ";
+
+        $val = MysqlConnection::execOne($sql);
+        //"BPS".(int)
+        $tot = (int)$val->num +1;
+        return "BPMS-".(int)$tot;
+    }
+
+    public function getClientMoralById($id){
+        MysqlConnection::getConnection();
+
+        $sql ="SELECT nom , prenom from client_non_salarie where id_non_salarie=$id ";
+
+        $client = MysqlConnection::execOne($sql);
+
+        $nomComplet = $client->nom." ".$client->prenom;
+
+        return $nomComplet;
+    }
+
+
+
+
+
+
+
 }
 
 

@@ -5,6 +5,7 @@ include_once(SRC_DAO."/RespoCompteImpl_class.php");
 include_once(SRC_DAO."/SalarieImpl_class.php");
 include_once(SRC_DAO."/AgenceImpl_class.php");
 include_once(SRC_DAO."/NoSalarieImpl_class.php");
+include_once(SRC_DAO."/MoralImpl_class.php");
 
 class Controller_BP{
 
@@ -28,13 +29,13 @@ class Controller_BP{
         //generer le matricule pour client non salarie
         $NoSalarieIMPL = new NoSalarieImpl();
         $matriculeNoSalarie = $NoSalarieIMPL-> getMatriculeNoSalarie();
-
-        //array for autocomplete
-        $array =["test","Gabon","nike"];
         include_once(SRC_VIEWS."/AddClientNoSalarie.html");
     }
 
     public function getPageClientMoral(){
+        //
+        $IMoralImpl = new  MoralImpl();
+        $matriculeMoral =  $IMoralImpl->getMatriculeMoral();
         include_once(SRC_VIEWS."/AddClientMoral.html");
     }
 
