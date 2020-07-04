@@ -4,7 +4,6 @@ include_once(SRC_DAO."/MoralImpl_class.php");
 include_once(SRC_MODELS."/CMoral_class.php");
 
 
-
 class Controller_Moral{
     public function redirect($val){
         if($val!=0){
@@ -14,7 +13,6 @@ class Controller_Moral{
             $_SESSION["message"]="PROBLEME SERVEUR ";
         echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
         }
-        
     }
 
     private function InsertMoral($data){

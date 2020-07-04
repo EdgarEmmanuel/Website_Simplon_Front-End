@@ -48,11 +48,11 @@ class MoralImpl implements IClientMoral {
     public function getClientMoralById($id){
         MysqlConnection::getConnection();
 
-        $sql ="SELECT nom , prenom from client_non_salarie where id_non_salarie=$id ";
+        $sql ="SELECT nom_entreprise from client_moral where id_entreprise=$id ";
 
         $client = MysqlConnection::execOne($sql);
 
-        $nomComplet = $client->nom." ".$client->prenom;
+        $nomComplet = $client->nom_entreprise;
 
         return $nomComplet;
     }
