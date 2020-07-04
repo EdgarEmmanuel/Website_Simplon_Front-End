@@ -4,6 +4,7 @@ include_once(SRC_DAO."/EmpRespCompte_interface.php");
 include_once(SRC_DAO."/RespoCompteImpl_class.php");
 include_once(SRC_DAO."/SalarieImpl_class.php");
 include_once(SRC_DAO."/AgenceImpl_class.php");
+include_once(SRC_DAO."/NoSalarieImpl_class.php");
 
 class Controller_BP{
 
@@ -11,6 +12,7 @@ class Controller_BP{
         include_once(SRC_VIEWS."/login.html");
     }
 
+    
     public function getPageAddCompte(){
         include_once(SRC_VIEWS."/AddCompte.html");
     }
@@ -23,6 +25,12 @@ class Controller_BP{
     }
 
     public function getPageClientNoSalarie(){
+        //generer le matricule pour client non salarie
+        $NoSalarieIMPL = new NoSalarieImpl();
+        $matriculeNoSalarie = $NoSalarieIMPL-> getMatriculeNoSalarie();
+
+        //array for autocomplete
+        $array =["test","Gabon","nike"];
         include_once(SRC_VIEWS."/AddClientNoSalarie.html");
     }
 
