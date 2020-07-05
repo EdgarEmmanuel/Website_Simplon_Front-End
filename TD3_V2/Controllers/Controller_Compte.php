@@ -99,7 +99,7 @@ function redirectC($val){
     }
 
 
-    function addEpargne($data){
+    function addCEpargne($data){
 
         //recuperation des donnees
         $cleRib = $data["cle-rib"];
@@ -141,7 +141,7 @@ function redirectC($val){
         $typeCompte = $data["typeCompte"];
         switch($typeCompte){
             case "Epargne": 
-                addEpargne($data);
+                addCEpargne($data);
             break;
             case "Bloque":
                 AddAccountBloque($data);

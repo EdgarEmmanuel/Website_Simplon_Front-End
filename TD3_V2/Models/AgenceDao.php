@@ -8,7 +8,7 @@ function getAgenceById($id){
         $sql = "SELECT * FROM agences where id_agence=$id";
 
         $agence = $conn->query($sql)->fetchAll();
-        return $agence["numero_agence"];
+        return $agence;
     }
 
 

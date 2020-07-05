@@ -36,12 +36,12 @@
                     <option value="Courant">Compte Courant</option>
                     <option value="Bloque">Compte Bloque</option>
                 </select><br/>
-                <input type="text" name="raison" id="raison_social" placeholder="raison social"/>
-                <input type="number" name="cle-rib" id="cle_rib" min="1" max="97" placeholder="Cle RIB"/><br/>
+                <input type="text" name="raison" id="raison_social" placeholder="raison social" autocomplete="off"/>
+                <input type="number" name="cle-rib" id="cle_rib" min="1" max="97" placeholder="Cle RIB" autocomplete="off"/><br/>
                 <!-- <input type="number" name="taux_agios" id="taux_agios" placeholder="taux agios" />  -->
-                <input type="number" name="montant" id="montant" min="10000" placeholder="montant" /> 
-                <input type="text" name="Nameentreprise" id="nom_Entreprise" placeholder="nom Entreprise" /><br/>
-                <input type="text" name="adrEntreprise" id="Adresse_Entreprise" placeholder="Adresse Entreprise" />
+                <input type="number" name="montant" id="montant" min="10000" placeholder="montant" autocomplete="off"/> 
+                <input type="text" name="Nameentreprise" id="nom_Entreprise" placeholder="nom Entreprise" autocomplete="off" /><br/>
+                <input type="text" name="adrEntreprise" id="Adresse_Entreprise" placeholder="Adresse Entreprise" autocomplete="off" />
                 <input type="text" name="numAgence" id="numeroAgence"  placeholder="numeroAgence" value="<?php if(!empty($_SESSION['numAgence'] )){echo $_SESSION['numAgence'] ;}?>" readonly/><br/>
 
                 

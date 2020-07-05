@@ -34,7 +34,7 @@ function addEpargne($numCompte,$cleRib,$dateOuv,$idCl,$idResp,$idAgence,$solde){
     function UpdateEtatEpargneAtAdding($idCompte,$dateOuvert){
         $conn = connect();
 
-        $sql = "INSERT INTO etat_compte VALUES(null,'BLOQUE','$date',$idCompte)";
+        $sql = "INSERT INTO etat_compte VALUES(null,'BLOQUE','$dateOuvert',$idCompte)";
 
         return $val = $conn->exec($sql);
     }

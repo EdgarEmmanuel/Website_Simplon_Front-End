@@ -4,6 +4,7 @@ include_once("Mysql_connect_class.php");
 
 function getRespoByLoginAndMdp($login ,$mdp){
     $conn = connect();
+    $respo=[];
 
         $sql = "SELECT * FROM responsable_compte where login='$login' and password='$mdp' ";
 

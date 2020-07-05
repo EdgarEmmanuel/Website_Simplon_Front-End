@@ -54,7 +54,7 @@ if(isset($_GET["code"])){
             }
         break;
         case "login": 
-            $controller->getPageLogin();
+            getPageLogin();
         break;
         case "newCli": 
             if(!empty($_SESSION["nom_complet"])){
@@ -98,7 +98,7 @@ if(isset($_POST["btn"])){
             verifyPersonnel($_POST);
         break;
         case "cSalarie": 
-            $controllerSalarie->Salarie($_POST);
+            Salarie($_POST);
         break;
         case "C_compte": 
             DecideAccountBeforeInsert($_POST);

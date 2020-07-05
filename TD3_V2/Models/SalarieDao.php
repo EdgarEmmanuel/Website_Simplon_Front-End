@@ -38,9 +38,11 @@ include_once("Mysql_connect_class.php");
     function getClientSalarieById($id){
         $conn = connect();
 
-        $sql ="SELECT nom , prenom from client_salarie where id_salarie=$id ";
+        $sql ="SELECT nom , prenom from client_salarie where idClient=$id ";
 
         $client =  $conn->query($sql)->fetch();
+        // var_dump($client);
+        // die();
 
         $nomComplet = $client["nom"]." ".$client["prenom"];
 

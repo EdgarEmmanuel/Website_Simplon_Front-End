@@ -1,6 +1,4 @@
 <?php
-
-
 include_once(SRC_MODELS."/RespoCompteDao.php");
 include_once(SRC_MODELS."/SalarieDao.php");
 include_once(SRC_MODELS."/AgenceDao.php");
@@ -50,19 +48,23 @@ include_once(SRC_MODELS."/MoralDao.php");
 
       function verifyRespoCompte($login,$mdp){
         $respo = getRespoByLoginAndMdp($login ,$mdp);
+        
         if(!empty($respo)){
             //recuperer l'id Employe du responsable et son matricule
-            $_SESSION["idEmploye"] = (int)$respo["idEmp"];
-            $_SESSION["matricule"] = $respo["matricule"];
+            $_SESSION["idEmploye"] = (int)$respo[0]["idEmp"];
+            $_SESSION["matricule"] = $respo[0]["matricule"];
 
             //pour aller recuperer les donnees(nom et prenom) de l'utilisateur avec son IDEmploye
             $infos = getAllInfoRespoById($_SESSION["idEmploye"]);
-            $_SESSION["nom_complet"]=$infos["nom"]." ".$infos["prenom"];
-            $_SESSION["idAgence"]=$infos["idagencEmploye"];
+            $_SESSION["nom_complet"]=$infos[0]["nom"]." ".$infos[0]["prenom"];
+            $_SESSION["idAgence"]=$infos[0]["idagencEmploye"];
+            // var_dump($_SESSION);
+            //     die();
 
             //recuperer l'ID de l'agence
-           $value = getAgenceById($infos["idagencEmploye"]);
-           $_SESSION["numAgence"]=$value;
+           $value = getAgenceById($infos[0]["idagencEmploye"]);
+        
+           $_SESSION["numAgence"]=$value[0]["numero_agence"];
 
 
             //redirection vers la page VerifyCNI.html
