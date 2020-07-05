@@ -1,0 +1,314 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* header parts */
+
+header{
+    z-index:4;
+    position: absolute;
+    width:100%;
+    height:4rem;
+    background: transparent;
+}
+
+header .brand h1{
+    margin-top: 5px;
+    color:black;
+    margin-left: 25px;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+/* start for the menu  */
+header .menu{
+    margin-left: 25rem;
+}
+
+header .menu{
+    width:35rem;
+    height:1.6rem;
+    z-index:6;
+    margin-top: -45px;
+    text-align: center;
+    padding: 15px 20px ;
+}
+
+
+header .menu a{
+    background:#6d63fa;
+    font-size:22px;
+    text-decoration: none;
+    color:white;
+    font-weight:bold;
+    margin:0px 10px ;
+    border:1px solid #6d63fa;
+    border-radius:10px;
+    padding: 5px 5px;
+    font-family: 'Balsamiq Sans', cursive;
+    cursor: pointer;
+}
+
+
+
+header .menu a:hover{
+    background:white;
+    color:#6d63fa;
+    border-color: white;
+}
+
+/* end for the menu */
+
+header .right{
+    margin-left:75rem;
+    margin-top: -42px;
+}
+
+header .right button{
+    background:transparent;
+    border:none;
+    border-radius: 10px;
+    padding: 10px 10px ;
+    font-weight:bold;
+    letter-spacing: .2em;
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+header .right button:hover{
+    background:white;
+    cursor: pointer;
+}
+
+
+/*=================start of main part===================== */
+
+
+main img{
+    width:100%;
+    margin-top: -18rem;
+    z-index:2
+}
+
+
+
+/* start of the div with the class form */
+main .form{
+    width:75rem;
+   background:rgb(255,255,255,0.2);
+   margin-left: 100px;
+   margin-top: -570px;
+   margin-bottom: 4rem;
+   text-align: center;
+  
+}
+
+main .form input:focus{
+    outline: none;
+}
+
+main .form form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+main .form button{
+    background:#6d63fa;
+    border:1px solid #6d63fa;
+    color:white;
+    width:200px;
+    font-weight: bold;
+    height:2rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+    cursor:pointer;
+}
+/* end of the div with the class form */
+
+
+
+/* start for the salarie form  */
+main .form .salarie{
+    display: block;
+}
+
+main .form .salarie h2{
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+main .form .salarie input{
+    height:2rem;
+    width:30rem;
+    margin-top: 10px;
+    border-radius:10px;
+    border-color:1px solid black;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+main .form .salarie label{
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+
+main .form .salarie select{
+    width:10rem;
+    margin-top: 10px;
+    border-radius:10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    background:white;
+}
+
+main .form .salarie select ~ label{
+    margin-left:-160px;
+}
+/* end for the salarie form  */
+
+
+/* start for the independant formulaire */
+main .form form .Independant{
+    display: none;
+}
+
+
+main .form form .Independant h2{
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+main .form form .Independant input{
+    height:2rem;
+    width:30rem;
+    margin-top: 10px;
+    border-radius:10px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+main .form form .Independant label{
+    font-family: 'Balsamiq Sans', cursive;
+}
+ 
+
+main .form form .Independant select{
+    width:10rem;
+    margin-top: 10px;
+    border-radius:10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    background:white;
+}
+
+main .form form .Independant select ~ label{
+    margin-left:-160px;
+}
+/* end for the independant formulaire  */
+
+
+
+/* debut du style pour le formulaire client moral */
+main .form form .Moral{
+    display: none;
+}
+
+main .form .Moral h2{
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+main .form .Moral input{
+    height:2rem;
+    width:30rem;
+    margin-top: 10px;
+    border-radius:10px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+
+main .form .Moral select ~ label{
+    margin-left:-160px;
+}
+
+/* fin du style pour le formulaire client moral */
+
+
+
+/* button after the div for account data */
+main .form form  #button{
+    margin-left: 50px;
+    margin-top: -5rem;
+}
+
+main .form form .button_for_i{
+    display:none;
+}
+
+main .form form .button_for_m{
+    display: none;
+}
+
+main .form form .button_for_s{
+    display:block;
+}
+
+/* end button after the div for account data */
+
+
+
+
+/* start of the div for account data */
+ 
+main .form .compte{
+    margin-left: 45px;
+   }
+   
+   main .form .compte input{
+       height:2rem;
+       width:30rem;
+       margin-top: 10px;
+       border-radius:10px;
+       border-color:1px solid black;
+       font-size: 15px;
+       text-transform: uppercase;
+   }
+   
+   main .form .compte h2{
+    font-family: 'Balsamiq Sans', cursive;
+   }
+   
+   main .form .compte select{
+       width:10rem;
+       margin-top: 10px;
+       border-radius:10px;
+       font-size: 15px;
+       text-transform: uppercase;
+       background:white;
+   }
+
+  
+   
+
+
+/* end of data for account data  */
+
+
+/* =================end of the main part ================== */
+
+
+
+/* for the javascript code  */
+
+.text{
+    background:white;
+    text-align: center;
+    margin-top: -1rem;
+    overflow-y: hidden;
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 200px;
+}

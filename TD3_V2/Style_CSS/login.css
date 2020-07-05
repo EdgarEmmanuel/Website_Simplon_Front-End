@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
+
+
+
+body{
+    /* background:linear-gradient(100deg,#242e4c,#ea6a9f); */
+    /* background:linear-gradient(0.25turn, #242e4c, #ea6a9f); */
+    background:linear-gradient(0.25turn, #504DC1, rgb(80, 77, 193,0.8));
+}
+
+
+
+/* header part */
+
+header .brand{
+    color:white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 56px;
+    text-align: center;
+}
+
+/* end header part */
+
+
+
+/* form part */
+
+.div_form {
+    background:#242e4c;
+    width:40rem;
+    height: 20rem;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 70px;
+    padding: 10px 20px;
+}
+
+.div_form form{
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.div_form form select{
+    width:320px;
+    height:40px;
+    font:16px;
+    color:white;
+    font-style: italic;
+    text-transform: uppercase;
+    background:#0f1436;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.div_form form .input{
+    margin-top: 50px;
+    width:320px;
+    height:40px;
+    background:#0f1436;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color:white;
+}
+
+.div_form form .input:focus , select:focus{
+    border-color:#504DC1;
+    outline:none;
+}
+
+.div_form form button{
+    background:#504DC1;
+    color:white;
+    width:220px;
+    height:2rem;
+    font-size:19px;
+    border-radius:10px;
+    border:0.5px solid;
+    border-color: white;
+    margin-top: 30px;
+    cursor:pointer;
+}
+
+.div_form form button:hover{
+    background:white;
+    color:#504DC1;
+}
+
+/* end of the form part */
+
+/* for the javacsript */
+
+.divMess h1{
+    text-align: center;
+    color:white;
+    font-weight:bold;
+    font-weight:bold;
+    font-family: 'Notable', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* end for the javascript */

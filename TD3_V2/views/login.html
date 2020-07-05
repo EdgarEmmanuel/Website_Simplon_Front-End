@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANQUE PEUPLE</title>
+    <link rel="shortcut icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
+    <link rel="icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
+    <!-- link for stylesheet -->
+    <link rel="stylesheet" href="<?= SRC_STYLE_CSS.'/login.css' ?>"/> 
+</head>
+<body>
+<header>
+    <div class="brand">Sign In</div>
+</header>
+    <div class="div_form">
+            <form action="index.php" method="post">
+                <select name="type" id="type_employe">
+                    <option value="">...</option>
+                    <option value="responsable">Responsable Compte</option>
+                    <option value="administrateur">Administrateur</option>
+                    <option value="caissiere">Caissiere</option>
+                </select><br>
+                <input class="input" type="text" name="login" id="login" autocomplete="off" placeholder="entrer votre login"/><br>
+                <input class="input" type="password" name="password" id="pwd" placeholder="entrer votre mot de passe"/><br>
+                <button type="submit" name="btn" value="connex" >CONNEXION</button> <button type="reset" id="annuler">ANNULER</button>
+            </form>
+    </div>
+
+    <?php 
+        if(!empty($_SESSION["message"])){ ?>
+            <div class="divMess">
+        <h1><?=  $_SESSION["message"]; ?></h1>
+            </div>
+       <?php }unset($_SESSION["message"]);
+    ?>
+
+    
+
+<script src="<?=SRC_STYLE_JS.'/login.js' ?>" type="text/javascript"></script>
+</body>
+</html>
