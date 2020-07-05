@@ -20,7 +20,6 @@ $_SESSION["date"]=$date;
 // POUR DOSSIER controllers , views and Models and Dao.
 define("ROOT",str_replace("index.php","",$_SERVER['SCRIPT_FILENAME']));
 define("SRC_VIEWS",ROOT."views");
-define("SRC_DAO",ROOT."Dao");
 define("SRC_CONTROLLERS",ROOT."Controllers");
 define("SRC_MODELS",ROOT."Models"); 
 
@@ -28,15 +27,10 @@ define("SRC_MODELS",ROOT."Models");
 
 //inclure les controllers et leurs variables
 include_once(SRC_CONTROLLERS."/Controller_BP_Class.php");
-include_once(SRC_CONTROLLERS."/Controller_Salarie_class.php");
-include_once(SRC_CONTROLLERS."/Controller_Compte_Class.php");
-include_once(SRC_CONTROLLERS."/Controller_noSalarie_class.php");
-include_once(SRC_CONTROLLERS."/Controller_Moral_class.php");
-$controller = new Controller_BP();
-$controllerSalarie = new  Salarie_Controller();
-$ControllerCompte = new Controller_Compte();
-$Co_NoSalarie = new Controller_noSalarie();
-$Co_Moral = new Controller_Moral();
+include_once(SRC_CONTROLLERS."/Controller_Salarie.php");
+include_once(SRC_CONTROLLERS."/Controller_Compte.php");
+include_once(SRC_CONTROLLERS."/Controller_noSalarie.php");
+include_once(SRC_CONTROLLERS."/Controller_Moral.php");
 
 
 //pour  toutes les requetes get 
@@ -45,18 +39,18 @@ if(isset($_GET["code"])){
     switch($code){
         case "cni": 
             if(!empty($_SESSION["nom_complet"])){
-                $controller->getPageVerifyCNI();
+                getPageVerifyCNI();
             }else{
-                $controller->getPageLogin();
+                getPageLogin();
             }
         break;
         case "addCompte": 
             if(empty($_SESSION["nom_complet"]) ){
-                $controller->getPageLogin();
+                getPageLogin();
             }else if(!empty($_SESSION["nom_complet"]) && empty($_SESSION['nomClient']) && empty($_SESSION['idClient'])){
-                $controller->getPageVerifyCNI();
+                getPageVerifyCNI();
             }else{
-                $controller->getPageAddCompte();
+                getPageAddCompte();
             }
         break;
         case "login": 
@@ -64,38 +58,35 @@ if(isset($_GET["code"])){
         break;
         case "newCli": 
             if(!empty($_SESSION["nom_complet"])){
-            $controller->getPageAddClientSalarie();
+            getPageAddClientSalarie();
             }else{
-                $controller->getPageLogin();
+                getPageLogin();
             }
         break;
         case "CliNoSalarie": 
             if(!empty($_SESSION["nom_complet"])){
-            $controller->getPageClientNoSalarie();
+            getPageClientNoSalarie();
             }else{
-                $controller->getPageLogin();
+                getPageLogin();
             }
         break;
         case "CliMoral": 
             if(!empty($_SESSION["nom_complet"])){
-                $controller->getPageClientMoral();
+                getPageClientMoral();
             }else{
-                $controller->getPageLogin();
+                getPageLogin();
             }
         break;
         //deconnexion
         case "deconnex": 
-            $controller->Deconnexion();
-        break;
-        case "test": 
-            include_once("test.php");
+            Deconnexion();
         break;
         default : 
-            $controller->getPageLogin();
+            getPageLogin();
         break;
     }
 }else{
-    $controller->getPageLogin();
+    getPageLogin();
 }
 
 
@@ -104,22 +95,22 @@ if(isset($_POST["btn"])){
     $post = $_POST["btn"];
     switch($post){
         case "connex": 
-            $controller->verifyPersonnel($_POST);
+            verifyPersonnel($_POST);
         break;
         case "cSalarie": 
             $controllerSalarie->Salarie($_POST);
         break;
         case "C_compte": 
-            $ControllerCompte->DecideAccountBeforeInsert($_POST);
+            DecideAccountBeforeInsert($_POST);
             //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=addCompte">';
         break;
         case "Cindependant" : 
             //var_dump($_POST);
-            $Co_NoSalarie->NoSalarie($_POST);
+            NoSalarie($_POST);
         break;
         case "CMoral": 
             //var_dump($_POST);
-            $Co_Moral->MoralClient($_POST);
+            MoralClient($_POST);
         break;
     }
 }

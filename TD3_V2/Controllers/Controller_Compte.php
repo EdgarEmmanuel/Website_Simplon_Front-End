@@ -1,17 +1,10 @@
 <?php 
-include_once(SRC_DAO."/EpargneImpl_class.php");
-include_once(SRC_DAO."/BloqueImpl_class.php");
-include_once(SRC_DAO."/AgenceImpl_class.php");
-include_once(SRC_DAO."/CourantImpl_class.php");
 
-include_once(SRC_MODELS."/ComptEpargne_class.php");
-include_once(SRC_MODELS."/ComptBloque_class.php");
-include_once(SRC_MODELS."/ComptCourant_class.php");
+include_once(SRC_MODELS."/EpargneDao.php");
+include_once(SRC_MODELS."/BloqueDao.php");
+include_once(SRC_MODELS."/CourantDao.php");
 
-
-class Controller_Compte{
-
-    public function redirect($val){
+function redirectC($val){
         unset($_SESSION['nomClient']);
         unset($_SESSION['idClient']);
         if($val!=0){
@@ -23,8 +16,7 @@ class Controller_Compte{
         }
     }
 
-    public function AddAccountCourant($data){
-        $CourantImpl = new CourantImpl();
+    function AddAccountCourant($data){
 
         //recuperer donnees
         $cleRib = $data["cle-rib"];
@@ -35,7 +27,7 @@ class Controller_Compte{
         $adres = $data["adrEntreprise"];
 
          //have all the frais for locked account
-         $fraisCourant = $CourantImpl->getFraisCompteTypeCourant();
+         $fraisCourant = getFraisCompteTypeCourant();
 
           //infos de $_SESSION voir page Controller_BP_Class.php
           $idAgence = $_SESSION["idAgence"];
@@ -52,30 +44,26 @@ class Controller_Compte{
           $idClient =$_SESSION["idClient"];
 
           //get the agios 
-          $idAgios = $CourantImpl->getAgiosEntretien();
+          $idAgios = getAgiosEntretien();
 
            //generer le numero de Compte Bloque
-           $numCompte = $CourantImpl->generateNumCompte();
-
-          //create compte courant
-          $courant = new ComptCourant($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$adres,$nomEnter
-          ,$raison,$solde,$idAgios);
+           $numCompte = generateNumCompteC();
 
           //creation Compte Courant
-          $idCompte = $CourantImpl->add($courant);
+          $idCompte = addCourant($numCompte, $cleRib,$dateOuvert, $idClient, $idResp, $idAgence,
+           $solde,$adres, $nomEnter, $raison,$idAgios);
 
           //mettre a jour table
-          $val = $CourantImpl->UpdateForCompteBloque($idCompte,$dateOuvert);
+          $val = UpdateForCompteCourant($idCompte,$dateOuvert);
 
 
           //redirection
-          $this->redirect($val);
+          redirectC($val);
 
 
     }
 
-    public function AddAccountBloque($data){
-        $BloqImpl = new BloqueImpl();
+    function AddAccountBloque($data){
 
         //recupere valeur 
         $cleRib = $data["cle-rib"];
@@ -84,13 +72,13 @@ class Controller_Compte{
         $dateOuvert = $data["dateOuvert"];
 
             //have all the frais for locked account
-            $fraisBloque = $BloqImpl->getFraisWithTypBloque();
+            $fraisBloque = getFraisWithTypBloque();
 
             //solde final moins les frais d'ouverture
             $solde = (int)$montant - (int)$fraisBloque;
 
             //generer le numero de Compte Bloque
-            $numCompte = $BloqImpl->generateNumForCompteBloque();
+            $numCompte = generateNumForCompteBloque();
 
             //infos de $_SESSION voir page Controller_BP_Class.php
             $idAgence = $_SESSION["idAgence"];
@@ -99,28 +87,22 @@ class Controller_Compte{
             //insertion client et recuperation du lastInsertId()
             $idClient =$_SESSION["idClient"];
 
-            //create CompteBloque
-            $compteBloque = new ComptBloque($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$solde,$dateDebloc);
-
             //inserer dans la table
-            $idCompte = $BloqImpl->add($compteBloque);
+            $idCompte = addCompteBloq($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$solde,$dateDebloc);
 
             //mettre a jour la table Compte
-            $val = $BloqImpl->UpdateForCompteBloque($idCompte,$dateOuvert);
+            $val = UpdateForCompteBloque($idCompte,$dateOuvert);
 
             //redirection
-            $this->redirect($val);
+            redirectC($val);
 
     }
 
 
-    public function addEpargne($data){
-        //declaration des implementations 
-        $EpargneImpl = new EpargneImpl();
+    function addEpargne($data){
 
         //recuperation des donnees
         $cleRib = $data["cle-rib"];
-
         $montant = $data["montant"];
         $dateOuvert = $data["dateOuvert"];
 
@@ -128,14 +110,14 @@ class Controller_Compte{
         $idAgence = $_SESSION["idAgence"];
 
         //recuperer les frais
-        $FraisOuvertureEpargne = $EpargneImpl->getFraisCompteTypeEpargne();
+        $FraisOuvertureEpargne = getFraisCompteTypeEpargne();
 
         //recupere l'ID dyu responsable qui est en Session voir Controller_BP_class.php(function verifyRespoCompte)
         $idResp =  $_SESSION["idEmploye"];
 
 
         //generer le numero compte 
-        $numCompte=$EpargneImpl->generateNumCompte();
+        $numCompte=generateNumCompteEpargne();
 
         //generer le solde final du compte
         $soldeFinal = (int)$montant - (int)$FraisOuvertureEpargne;
@@ -144,39 +126,32 @@ class Controller_Compte{
          //insertion client et recuperation du lastInsertId()
         $idClient =$_SESSION["idClient"];
 
-
-        //creation du Compte Epargne
-        $compte = new ComptEpargne($numCompte,$cleRib,$dateOuvert,$idClient,
-        $idResp,$idAgence,$soldeFinal);
-
         //ensuite insertion dans la table compte et recuperation du lastInsertId()
-        $idCompte = $EpargneImpl->add($compte);
+        $idCompte =addEpargne($numCompte,$cleRib,$dateOuvert,$idClient,$idResp,$idAgence,$soldeFinal);
 
         //insertion et mis a jour dans la table etatCompte 
-        $val = $EpargneImpl->UpdateEtatAtAdding($idCompte,$dateOuvert);
+        $val = UpdateEtatEpargneAtAdding($idCompte,$dateOuvert);
 
         //redirection selon le resultat de l'insertion 
-        $this->redirect($val);
+        redirectC($val);
     }
 
 
-    public function DecideAccountBeforeInsert($data){
+    function DecideAccountBeforeInsert($data){
         $typeCompte = $data["typeCompte"];
         switch($typeCompte){
             case "Epargne": 
-                $this->addEpargne($data);
+                addEpargne($data);
             break;
             case "Bloque":
-                $this->AddAccountBloque($data);
+                AddAccountBloque($data);
             break;
             case "Courant": 
-                $this->AddAccountCourant($data);
+                AddAccountCourant($data);
             break;
         }
     }
 
-
-}
 
 
 

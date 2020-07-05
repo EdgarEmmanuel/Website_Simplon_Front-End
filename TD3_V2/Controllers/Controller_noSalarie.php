@@ -1,11 +1,9 @@
 <?php 
 
-include_once(SRC_DAO."/NoSalarieImpl_class.php");
-include_once(SRC_MODELS."/CNoSalarie_class.php");
+include_once(SRC_MODELS."/NoSalarieDao.php");
 
-class Controller_noSalarie{
 
-    public function redirect($val){
+function redirectNS($val){
         if($val!=0){
             $_SESSION["message"]="INSERTION EFFECTUE AVEC SUCCES";
         echo '<meta http-equiv="refresh" content="0;URL=index.php?code=addCompte">';
@@ -16,8 +14,7 @@ class Controller_noSalarie{
         
     }
 
-    private function InsertNoSalarie($data){
-        $ISalariImpl = new   NoSalarieImpl();
+    function InsertNoSalarie($data){
 
         $nom=$data["nomi"];
         $prenom=$data["prenomi"];
@@ -28,40 +25,26 @@ class Controller_noSalarie{
         $activite=$data["activitei"];
         $telephone=$data["teli"];
 
-        //creation du Salarie
-        $Salarie = new Client_Non_Salarie($telephone,$email,$nom,$activite,$prenom,$cni,$mat,$adresse);
-
         //insertion client et recuperation du lastInsertId()
-        $idClient = $ISalariImpl->addCNoSalarie($Salarie);
+        $idClient = addCNoSalarie($telephone,$email,$nom,$prenom,$activite,$cni,$mat,$adresse);
 
         return $idClient;
     }
 
 
-    public function NoSalarie($data){
-        $ISalariImpl = new   NoSalarieImpl();
-        $idClient = $this->InsertNoSalarie($data);
+function NoSalarie($data){
+        $idClient = InsertNoSalarie($data);
 
         //variable en session 
         $_SESSION["idClient"]=$idClient;
 
         //avoir le nom Complet du Client Non Salarie INserer
-        $_SESSION["nomClient"]=$ISalariImpl->getClientById($idClient);
+        $_SESSION["nomClient"]=getClientNoSById($idClient);
 
         //redirection
-        $this->redirect($idClient);
+        redirectNS($idClient);
 
     }
-
-
-
-}
-
-
-
-
-
-
 
 
 

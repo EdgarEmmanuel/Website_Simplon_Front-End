@@ -1,76 +1,67 @@
 <?php
 
-include_once(SRC_DAO."/EmpRespCompte_interface.php");
-include_once(SRC_DAO."/RespoCompteImpl_class.php");
-include_once(SRC_DAO."/SalarieImpl_class.php");
-include_once(SRC_DAO."/AgenceImpl_class.php");
-include_once(SRC_DAO."/NoSalarieImpl_class.php");
-include_once(SRC_DAO."/MoralImpl_class.php");
 
-class Controller_BP{
+include_once(SRC_MODELS."/RespoCompteDao.php");
+include_once(SRC_MODELS."/SalarieDao.php");
+include_once(SRC_MODELS."/AgenceDao.php");
+include_once(SRC_MODELS."/NoSalarieDao.php");
+include_once(SRC_MODELS."/MoralDao.php");
 
-    public function getPageLogin(){
+
+    function getPageLogin(){
         include_once(SRC_VIEWS."/login.html");
     }
 
     
-    public function getPageAddCompte(){
+    function getPageAddCompte(){
         include_once(SRC_VIEWS."/AddCompte.html");
     }
 
-    public function getPageAddClientSalarie(){
-        //getMatSalarie()
-        $SalarieIMPL = new  SalarieImpl();
-        $value = $SalarieIMPL->getMatSalarie();
+    function getPageAddClientSalarie(){
+        $value = getMatSalarie();
         include_once(SRC_VIEWS."/AddClientSalarie.html");
     }
 
-    public function getPageClientNoSalarie(){
-        //generer le matricule pour client non salarie
-        $NoSalarieIMPL = new NoSalarieImpl();
-        $matriculeNoSalarie = $NoSalarieIMPL-> getMatriculeNoSalarie();
+    function getPageClientNoSalarie(){
+        $matriculeNoSalarie = getMatriculeNoSalarie();
         include_once(SRC_VIEWS."/AddClientNoSalarie.html");
     }
 
-    public function getPageClientMoral(){
-        //
-        $IMoralImpl = new  MoralImpl();
-        $matriculeMoral =  $IMoralImpl->getMatriculeMoral();
+      function getPageClientMoral(){
+        $matriculeMoral =  getMatriculeMoral();
         include_once(SRC_VIEWS."/AddClientMoral.html");
     }
 
-    public function getPageVerifyCNI(){
+      function getPageVerifyCNI(){
         include_once(SRC_VIEWS."/verifyCNI.html");
     }
 
-    public function getPageOPerations(){
+      function getPageOPerations(){
         include_once(SRC_VIEWS."/operations.html");
     }
 
 
     //deconnexion fonction
-    public function Deconnexion(){
+      function Deconnexion(){
         session_unset();
         unset($_SESSION);
         echo '<meta http-equiv="refresh" content="0;URL=index.php?code=login">';
     }
 
-    public function verifyRespoCompte($login,$mdp){
-        $IRespo = new RespoCompteImpl();
-        $AgenceImpl = new AgenceImpl();
-        $respo = $IRespo->getRespoByLoginAndMdp($login ,$mdp);
+      function verifyRespoCompte($login,$mdp){
+        $respo = getRespoByLoginAndMdp($login ,$mdp);
         if(!empty($respo)){
             //recuperer l'id Employe du responsable et son matricule
-            $_SESSION["idEmploye"] = (int)$respo->idEmp;
-            $_SESSION["matricule"] = $respo->matricule;
+            $_SESSION["idEmploye"] = (int)$respo["idEmp"];
+            $_SESSION["matricule"] = $respo["matricule"];
 
             //pour aller recuperer les donnees(nom et prenom) de l'utilisateur avec son IDEmploye
-            $infos = $IRespo->getAllInfoRespoById($_SESSION["idEmploye"]);
-            $_SESSION["nom_complet"]=$infos->nom." ".$infos->prenom;
-            $_SESSION["idAgence"]=$infos->idagencEmploye;
+            $infos = getAllInfoRespoById($_SESSION["idEmploye"]);
+            $_SESSION["nom_complet"]=$infos["nom"]." ".$infos["prenom"];
+            $_SESSION["idAgence"]=$infos["idagencEmploye"];
 
             //recuperer l'ID de l'agence
-           $value = $AgenceImpl->getAgenceById($infos->idagencEmploye);
+           $value = getAgenceById($infos["idagencEmploye"]);
            $_SESSION["numAgence"]=$value;
 
 
@@ -82,7 +73,7 @@ class Controller_BP{
         }
     }
 
-    public function verifyPersonnel($data){
+      function verifyPersonnel($data){
         $personne = $data["type"];
         $password = $data["password"];
         $login = $data["login"];
@@ -92,10 +83,10 @@ class Controller_BP{
         }else{
             switch($personne){
                 case "caissiere": 
-                    $this->getPageOPerations();
+                getPageOPerations();
                 break;
                 case "responsable": 
-                $this->verifyRespoCompte($login,$password);
+                verifyRespoCompte($login,$password);
                 break;
                 case "administrateur": 
                     echo "administrateur";
@@ -104,10 +95,6 @@ class Controller_BP{
         }
         
     }
-
-   
-
-}
 
 
 
