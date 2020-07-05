@@ -87,9 +87,6 @@ if(isset($_GET["code"])){
         case "deconnex": 
             $controller->Deconnexion();
         break;
-        case "test": 
-            include_once("test.php");
-        break;
         default : 
             $controller->getPageLogin();
         break;
