@@ -36,15 +36,24 @@ class NoSalarieImpl implements ICNonSalarie {
         return $idClient;
     }
 
+    public function getClientNOSByMatricule($mat){
+        MysqlConnection::getConnection();
+
+        $sql = "SELECT * from clients where matricule='$mat' ";
+
+        $resultat = MysqlConnection::execOne($sql);
+        return $resultat;
+    }
+
     public function getMatriculeNoSalarie(){
         MysqlConnection::getConnection();
 
-        $sql ="SELECT count(idClient) as num FROM clients where SUBSTR(matricule,1,3) = 'BPNS' ";
+        $sql ="SELECT count(idClient) as num FROM clients where SUBSTR(matricule,1,3) = 'BCI' ";
 
         $val = MysqlConnection::execOne($sql);
         //"BPS".(int)
         $tot = (int)$val->num +1;
-        return "BPNS-".(int)$tot;
+        return "BCI".(int)$tot;
     }
 
     public function getClientById($id){

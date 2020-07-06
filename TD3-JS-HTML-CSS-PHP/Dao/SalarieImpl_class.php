@@ -48,6 +48,15 @@ class SalarieImpl implements ICSalarie{
         return "BPS".(int)$tot;
     }
 
+    public function getClientByMatricule($mat){
+        MysqlConnection::getConnection();
+
+        $sql = "SELECT * from clients where matricule='$mat' ";
+
+        $resultat = MysqlConnection::execOne($sql);
+        return $resultat;
+    }
+
     public function getClientById($id){
         MysqlConnection::getConnection();
 

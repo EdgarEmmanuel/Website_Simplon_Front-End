@@ -83,6 +83,9 @@ if(isset($_GET["code"])){
                 $controller->getPageLogin();
             }
         break;
+        case "DCompte":
+            $controller->repartirVersAccueil();
+        break;
         //deconnexion
         case "deconnex": 
             $controller->Deconnexion();
@@ -117,6 +120,9 @@ if(isset($_POST["btn"])){
         case "CMoral": 
             //var_dump($_POST);
             $Co_Moral->MoralClient($_POST);
+        break;
+        case "verify": 
+            $controller->getClientById($_POST);
         break;
     }
 }

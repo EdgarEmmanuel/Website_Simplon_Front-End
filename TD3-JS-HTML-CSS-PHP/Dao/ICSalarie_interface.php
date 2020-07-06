@@ -7,6 +7,7 @@ interface ICSalarie{
     public function addSalarie(Client_Salarie $client);
     public function getMatSalarie();
     public function getClientById($id);
+    public function getClientByMatricule($mat);
 }
 
 

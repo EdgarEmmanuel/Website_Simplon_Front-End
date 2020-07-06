@@ -52,26 +52,29 @@ class UI_GestClient{
             UI_GestClient.verifyCNI(cni);
         }
     }
+    
+    static getAllButons(){
+        document.querySelector(".new").addEventListener('click',(e)=>{
+            e.preventDefault();
+            if(document.querySelector(".addM").style.display==='none'){
+               document.querySelector(".addM").style.display='initial';
+                document.querySelector(".addI").style.display='initial';
+                document.querySelector(".addS").style.display='initial';
+               }else{
+                   document.querySelector(".addM").style.display='none';
+                    document.querySelector(".addI").style.display='none';
+                    document.querySelector(".addS").style.display='none';
+               }
+        
+        })
+    }
 }
 
+document.querySelector(".addM").style.display='none';
+document.querySelector(".addI").style.display='none';
+document.querySelector(".addS").style.display='none';
 
-//go add a new client
-//document.querySelector("#add").addEventListener("click",(e)=>{
-//    e.preventDefault();
-//    UI_GestClient.redirection("AddClient.html");
-//});
-
-document.querySelector("#verClient").addEventListener("click",(e)=>{
-    e.preventDefault();
-    UI_GestClient.verifyGestClient();
-});
-
-
-document.querySelector("#createClient").addEventListener("click",(e)=>{
-    e.preventDefault();
-    UI_GestClient.redirection("AddClient.html");
-});
-
+UI_GestClient.getAllButons();
 
 document.querySelector("#annuler").addEventListener("click",(e)=>{
     e.preventDefault();
@@ -84,8 +87,6 @@ var div = document.querySelector(".desMess");
 setTimeout(()=>{
     document.querySelector("main").removeChild(div);
 },4000)
-
-
 
 
 

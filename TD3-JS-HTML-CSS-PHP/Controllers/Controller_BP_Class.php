@@ -82,6 +82,51 @@ class Controller_BP{
         }
     }
 
+    public function getClientById($data){
+        $matricule = $data["matricule"];
+
+        //concatenation des 3 premiers caracteres
+        $DebutMatricule = $matricule[0].$matricule[1].$matricule[2];
+
+        //creer l'implementation de Client Salarie
+        $SalarieIMPL = new SalarieImpl();
+
+        //getClientNOSByMatricule($mat)
+        $NoSalarieIMPL = new NoSalarieImpl();
+
+        
+
+        //verififier et faire un traitement en fonction du debut de matricule
+        switch($DebutMatricule){
+            case "BPS": 
+                $result = $SalarieIMPL->getClientByMatricule($matricule);
+                if($result==false){
+                    $_SESSION["message"]="CLIENT ABSENT DU SYSTEME !!!";
+                    echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
+                }else{
+                    //donner toutes les valeurs
+                    $_SESSION["idClient"]=(int)$result->idClient;
+                    $_SESSION["nomClient"]=$SalarieIMPL->getClientById($_SESSION["idClient"]);
+
+                    //faire une redirection
+                    $_SESSION["message"]="CLIENT PRESENT DANS LE  SYSTEME !!!";
+                    echo '<meta http-equiv="refresh" content="0;URL=index.php?code=addCompte">';
+                }
+            break;
+            case "BCI": 
+               $result = $NoSalarieIMPL->getClientNOSByMatricule($matricule);
+               var_dump($result);
+            break;
+            case "BCM": 
+                echo "Client Moral";
+            break;
+            default :
+                $_SESSION["message"]="CLIENT ABSENT DU SYSTEME !!!";
+                echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
+            break;
+        }
+    }
+
     public function verifyPersonnel($data){
         $personne = $data["type"];
         $password = $data["password"];
@@ -103,6 +148,13 @@ class Controller_BP{
                 }
         }
         
+    }
+
+
+    public function repartirVersAccueil(){
+        unset($_SESSION["idClient"]);
+        unset($_SESSION["nomClient"]);
+        echo '<meta http-equiv="refresh" content="0;URL=index.php?code=cni">';
     }
 
    

@@ -37,12 +37,12 @@ class MoralImpl implements IClientMoral {
     public function getMatriculeMoral(){
         MysqlConnection::getConnection();
 
-        $sql ="SELECT count(idClient) as num FROM clients where SUBSTR(matricule,1,3) = 'BPMS' ";
+        $sql ="SELECT count(idClient) as num FROM clients where SUBSTR(matricule,1,3) = 'BCM' ";
 
         $val = MysqlConnection::execOne($sql);
         //"BPS".(int)
         $tot = (int)$val->num +1;
-        return "BPMS-".(int)$tot;
+        return "BCM".(int)$tot;
     }
 
     public function getClientMoralById($id){
