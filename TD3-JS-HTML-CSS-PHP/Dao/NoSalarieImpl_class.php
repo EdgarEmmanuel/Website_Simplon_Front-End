@@ -56,12 +56,14 @@ class NoSalarieImpl implements ICNonSalarie {
         return "BCI".(int)$tot;
     }
 
-    public function getClientById($id){
+    public function getClientNoSById($id){
         MysqlConnection::getConnection();
 
-        $sql ="SELECT nom , prenom from client_non_salarie where id_non_salarie=$id ";
+        $sql ="SELECT nom , prenom from client_non_salarie where idClient=$id ";
+       
 
         $client = MysqlConnection::execOne($sql);
+        
 
         $nomComplet = $client->nom." ".$client->prenom;
 

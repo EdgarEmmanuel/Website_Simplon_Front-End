@@ -75,18 +75,18 @@ document.querySelector(".addI").style.display='none';
 document.querySelector(".addS").style.display='none';
 
 UI_GestClient.getAllButons();
-
-document.querySelector("#annuler").addEventListener("click",(e)=>{
-    e.preventDefault();
-    location.reload();
-    UI_GestClient.clearFiled();
-})
+//
+//document.querySelector("#annuler").addEventListener("click",(e)=>{
+//    e.preventDefault();
+//    location.reload();
+//    UI_GestClient.clearFiled();
+//})
 
 //remove the div when she appears
 var div = document.querySelector(".desMess");
 setTimeout(()=>{
     document.querySelector("main").removeChild(div);
-},4000)
+},4000)   
 
 
 
