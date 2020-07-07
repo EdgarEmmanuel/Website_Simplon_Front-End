@@ -6,6 +6,7 @@ interface IClientMoral{
     public function addClient(Client_Moral $client);
     public function getMatriculeMoral();
     public function getClientMoralById($id);
+    public function getClientMoralByMatricule($matricule);
 }
 
 

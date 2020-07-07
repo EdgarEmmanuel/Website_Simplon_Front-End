@@ -97,13 +97,16 @@ class Controller_BP{
         //creer l'implementation de Client Salarie
         $SalarieIMPL = new SalarieImpl();
 
-        //creer l'implementation du Client Moral
+        //creer l'implementation du Client Independant
         $NoSalarieIMPL = new NoSalarieImpl();
 
+        //creer l'implementation pour client moral
+        $moralIMPL = new MoralImpl();
         
 
         //verififier et faire un traitement en fonction du debut de matricule
         switch($DebutMatricule){
+            //pour client salarie
             case "BPS": 
                 $result = $SalarieIMPL->getClientByMatricule($matricule);
                 if($result==false){
@@ -119,6 +122,7 @@ class Controller_BP{
                 }
             break;
             case "BCI": 
+                //pour client independant
                $result = $NoSalarieIMPL->getClientNOSByMatricule($matricule);
                if($result==false){
                 $this->ClientAbsentDuSysteme();
@@ -132,8 +136,19 @@ class Controller_BP{
                     echo '<meta http-equiv="refresh" content="0;URL=index.php?code=addCompte">';
                }
             break;
-            case "BCM": 
-                echo "Client Moral";
+            case "BCM":
+                //pour client Moral
+                $result = $moralIMPL->getClientMoralByMatricule($matricule);
+                if($result==false){
+                    $this->ClientAbsentDuSysteme();
+                }else{
+                    $_SESSION["idClient"]=(int)$result->idClient;
+                    $_SESSION["nomClient"]=$moralIMPL->getClientMoralById((int)$result->idClient);
+
+                    //faire une redirection
+                    $_SESSION["message"]="CLIENT PRESENT DANS LE  SYSTEME !!!";
+                    echo '<meta http-equiv="refresh" content="0;URL=index.php?code=addCompte">';
+                }
             break;
             default :
                 $_SESSION["message"]="CLIENT ABSENT DU SYSTEME !!!";
