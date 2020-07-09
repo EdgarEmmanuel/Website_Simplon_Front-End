@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
+    <link rel="icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
+    <title>CLIENT INDEPENDANT</title>
+    <!-- link for stylesheet -->
+    <link rel="stylesheet" href="<?= SRC_STYLE_CSS.'/cssNoSalarie.css' ?>">
+</head>
+<body>
+    <header>
+        <div class="brand"> 
+            <h1>BANQUE DU PEUPLE<a href="index.php?code=cni">ACCUEIL</a></h1>
+        </div>
+    </header>
+    <main>
+        <div class="form">
+                <form action="index.php" method="post">
+
+                <!-- form for adding Indepndant client -->
+                <div class="Independant">
+                    <h2>INFORMATIONS CLIENT INDEPENDANT</h2>
+                    <input type="text" name="nomi" placeholder="nom" id="nom_i" autocomplete="off" required/>
+                    <input type="text" name="prenomi" placeholder="prenom" id="prenom_i" autocomplete="off" required /><br/>
+                    <input type="text" name="adressei" placeholder="adresse" id="adresse_i" autocomplete="off" required />
+                    <input type="text" name="teli" placeholder="telephone" id="telephone_i" autocomplete="off" required /><br/>
+                    <input type="email" name="emaili" placeholder="email" id="email_i" autocomplete="off" required/>
+                    <input type="text" name="mati" value="<?= $matriculeNoSalarie; ?>" autocomplete="off" placeholder="mat_client" id="mat_client" required readonly/><br/>
+                    <input type="text" name="activitei" placeholder="activite" id="activite_i" autocomplete="off" required /><br/>
+                    <input type="text" name="cni" placeholder="CNI" id="activite_i" autocomplete="off" required/><br/>
+                </div>
+               <button name="btn" value="Cindependant">Valider</button><button>Annuler</button>
+            </form>
+        </div>
+    </main>
+    
+<script type="text/javascript" src="<?= SRC_STYLE_JS.'/jsNoSalarie.js'?>"></script>
+</body>
+</html>

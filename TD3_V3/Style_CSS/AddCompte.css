@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
+
+body{
+    background:linear-gradient(0.25turn, #504DC1, rgb(80, 77, 193,0.8));
+}
+
+
+header .brand h1{
+    font-family:'Balsamiq Sans', cursive
+}
+
+header .brand h1 a{
+    text-decoration: none;
+    font-size: 13px;
+    border:1px solid white;
+    background:white;
+}
+
+main   form .salarie {
+    text-align: center;
+}
+
+main   form select {
+    width:400px;
+}
+
+main   form{
+    margin-top: -3rem;
+    text-align: center;
+}
+
+main   form button{
+    background:white;
+    border-radius:10px;
+    height:2.5rem;
+    width:150px;
+    color:#235d8e;
+    border-color:#235d8e;
+    cursor:pointer;
+    font-size:17px;
+}
+
+main   form button:hover{
+    background:#235d8e;
+    color:white;
+}
+/* 
+main   form .button_for_s{
+    margin-left: 450px;
+    margin-top: 20px;
+} */
+
+main   form .salarie input{
+    width:620px;
+    height:2rem;
+    margin: 3px 0px;
+    font-style: bold;
+}
+
+main   form input[type="checkbox"]{
+    width:20px;
+}
+
+main   form h2{
+    text-align: center;
+}
+
+main   form input{
+    width:620px;
+    height:2rem;
+}
+
+
+
+
+/* button after the div for account data */
+
+main form .button_for_s{
+    display:block;
+}
+
+/* end button after the div for account data */
+
+
+#choix2{
+    display:none;
+}
+
+#choix{
+    display:none;
+}
+
+
+/* for the JS */
+.text{
+    color:white;
+    text-transform:uppercase;
+    text-align: center;
+    font-weight: Bold;
+    margin-top: 100px;
+}
+
+
+main .div{
+    text-align: center;
+    color:white;
+}

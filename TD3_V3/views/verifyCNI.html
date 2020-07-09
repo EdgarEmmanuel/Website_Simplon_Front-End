@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
+    <link rel="icon" href="<?=SRC_IMG.'/favicon.ico'?>" type="image/x-icon"/>
+    <link rel="stylesheet" href="<?= SRC_STYLE_CSS.'/verifyCNI.css'?>"/>
+    <title>INTERFACE RESPONSABLE</title>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            Banque du Peuple
+        </div>
+    </header>
+    <main>
+        <?php 
+        if(!empty($_SESSION["message"])){ ?>
+            <div class="desMess">
+                <h1><?= $_SESSION["message"]; ?></h1>
+            </div>
+       <?php }unset($_SESSION["message"]);
+    ?>
+     <input type="text" value="Matricule : <?= $_SESSION['matricule'] ?> " placeholder="" id="caissiere" readonly/>
+        <a href="index.php?code=deconnex" id="a" >Deconnexion</a><br>
+        <input type="text" value="Nom Complet : <?= $_SESSION['nom_complet']?> " placeholder="" id="nom" readonly/><br>
+        <form action="index.php" method="post" id="formGest">
+            <label id="label"  for="">ANCIEN CLIENT</label><br/>
+            <input type="text" placeholder="MATRICULE CLIENT" name="matricule" id="cni" autocomplete="off" required /> <br>
+            <button id="verClient" name="btn" value="verify">Verifier</button>
+        </form>
+    </main> <br/><br/>
+    <a class="new" id="add">NOUVEAU CLIENT</a> <br/><br/><br/><br/>
+    <a class="addS" href="index.php?code=newCli" id="add">Nouveau Client Salarie </a> <br/><br/><br/><br/>
+    <a class="addM" href="index.php?code=CliMoral" id="add">Nouveau Client Moral </a> <br/><br/><br/><br/>
+    <a class="addI" href="index.php?code=CliNoSalarie" id="add">Nouveau Client Independant </a>
+
+
+<script src="<?= SRC_STYLE_JS.'/verifyCNI.js'?>" type="text/javascript"></script>
+</body>
+</html>

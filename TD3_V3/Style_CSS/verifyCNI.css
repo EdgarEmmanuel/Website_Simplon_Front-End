@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
+
+:root{
+ --font-Family:'Balsamiq Sans', cursive;
+}
+
+
+body{
+    background:linear-gradient(0.25turn, #504DC1, rgb(80, 77, 193,0.8));
+   
+}
+
+
+/* header part */
+
+header .brand{
+    font-family:var(--font-Family) ;
+    font-size: 45px;
+    color:white;
+}
+/*  end header part*/
+
+main{
+    margin-left: 700px;
+}
+
+
+/* div with the class message */
+
+.message {
+    background:white;
+    width:20rem;
+    text-align: center;
+    padding:10px 10px;
+    margin-top: -170px;
+    margin-left: 200px;
+    display: none;
+}
+
+.message button{
+    background:white;
+    border-radius:10px;
+    width:150px;
+    color:#235d8e;
+    border-color:#235d8e;
+    cursor:pointer;
+}
+
+.message button:hover{
+    background:#235d8e;
+    color:white;
+}
+
+
+/* end the div with the class message */
+
+
+
+/* start main part */
+main input{
+    height:2rem;
+    width:20rem;
+    margin-top: 10px;
+    border-radius:10px;
+    border-color:1px solid black;
+    font-size: 15px;
+}
+
+main form{
+    margin-top: 50px;
+}
+
+main #a{
+    padding: 10px 10px;
+    border-radius:10px;
+}
+
+main form #label{
+    text-align:center;
+    color:white;
+    font-weight:bold;
+    margin-left:100px;
+    font-weight:bold;
+}
+
+main button{
+    border:1px solid #235d8e;
+    color:white;
+    background:#235d8e;
+    width:200px;
+    font-weight: bold;
+    height:2rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+    cursor:pointer;
+    margin-left: 60px;
+}
+
+main a{
+    border:1px solid #235d8e;
+    color:white;
+    background:#235d8e;
+    width:260px;
+    font-weight: bold;
+    height:2rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+    cursor:pointer;
+    margin-left: 60px;
+    text-decoration: none;
+}
+
+main a:hover{
+    color:#235d8e;
+    background:white;
+    border-color:white;
+}
+
+main button:hover{
+    color:#235d8e;
+    background:white;
+    border-color:white;
+}
+ 
+main .desMess{
+    font-family:var(--font-Family) ;
+    font-size:10px;
+    margin-top: -4rem;
+    position:fixed;
+}
+/* end main part */
+
+
+
+/* button for adding new client */
+#add{
+    color:white;
+    background:#235d8e;
+    width:320px;
+    font-weight: bold;
+    height:2rem;
+    border:1px solid #235d8e;
+    border-radius:10px;
+    text-transform: uppercase;
+    cursor:pointer;
+    margin-left: 47.5rem;
+    text-decoration: none;
+    padding: 10px 10px;
+}
+
+#add:hover{
+    color:#235d8e;
+    background:white;
+    border-color:white; 
+}
+/* end for the button for adding  */
