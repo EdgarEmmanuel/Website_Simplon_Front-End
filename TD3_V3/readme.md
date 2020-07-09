@@ -1,6 +1,6 @@
 #  PROJECT BANQUE PEUPLE 
 ---
-### POO - MVC
+### POO - MVC - NAMESPACE - AUTOLOAD
 ### HTML 
 ### CSS 
 ### javascript
@@ -9,8 +9,3 @@
 
 ---
 
-> Emmanuel Edgar
-
-<!-- link -->
-
-> [ DevbyJESUS ](https://www.youtube.com/channel/UCOGsYx7csXU44Fnnpi5DObg?view_as=subscriber)
