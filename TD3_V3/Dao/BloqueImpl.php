@@ -42,11 +42,11 @@ class BloqueImpl implements ICOBloque{
     }
 
     public function getFraisWithTypBloque(){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql = "SELECT montant from frais_compte where typeCompte='bloque' ";
 
-        $val=MysqlConnection::execOne($sql);
+        $val=MySqlConnection::execOne($sql);
 
         return $val->montant;
     }
@@ -55,7 +55,7 @@ class BloqueImpl implements ICOBloque{
 
         $sql ="SELECT count(id_compte_bloque) as num from compte_bloque";
 
-        $id = MysqlConnection::execOne($sql);
+        $id = MySqlConnection::execOne($sql);
 
         $val = (int)$id->num +1 ;
 
@@ -77,11 +77,11 @@ class BloqueImpl implements ICOBloque{
     }
 
     public function UpdateForCompteBloque($idCompte,$date){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql = "INSERT INTO etat_compte VALUES(null,'BLOQUE','$date',$idCompte)";
 
-        return $val = MysqlConnection::executeUpdate($sql);
+        return $val = MySqlConnection::executeUpdate($sql);
     }
 
     

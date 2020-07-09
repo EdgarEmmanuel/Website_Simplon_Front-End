@@ -10,7 +10,7 @@ include_once SRC_PUBLICAUTO."/autoloadFile.php";
 
 class MoralImpl implements IClientMoral {
     public function addClient(\App\Models\Client_Moral $client){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $adresse  = $client->getAdresse();
          $tel  = $client->getTelephone();
@@ -24,37 +24,37 @@ class MoralImpl implements IClientMoral {
          //creation et execution de la requete pour inserer un client 
          $sql_clients = "INSERT INTO clients VALUES (null,'$tel','$mail','$matricule')";
 
-         MYSqlConnection::executeUpdate($sql_clients);
+         MySqlConnection::executeUpdate($sql_clients);
 
          //recuperation du lastInsertId dans la table clients
-         $idClient = MysqlConnection::lastInsertId();
+         $idClient = MySqlConnection::lastInsertId();
 
          //creation et execution de la requete pour inserer un client
          $sql_cmoral = "INSERT INTO client_moral VALUES(null,'$type','$activite',$idClient,'$nomEnter','$adresse',$ninea)";
 
-         MysqlConnection::executeUpdate($sql_cmoral);
+         MySqlConnection::executeUpdate($sql_cmoral);
 
 
          return $idClient;
     }
 
     public function getMatriculeMoral(){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql ="SELECT count(idClient) as num FROM clients where SUBSTR(matricule,1,3) = 'BCM' ";
 
-        $val = MysqlConnection::execOne($sql);
+        $val = MySqlConnection::execOne($sql);
         //"BPS".(int)
         $tot = (int)$val->num +1;
         return "BCM".(int)$tot;
     }
 
     public function getClientMoralById($id){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql ="SELECT nom_entreprise from client_moral where idClient=$id ";
 
-        $client = MysqlConnection::execOne($sql);
+        $client = MySqlConnection::execOne($sql);
 
         $nomComplet = $client->nom_entreprise;
 
@@ -63,10 +63,10 @@ class MoralImpl implements IClientMoral {
 
 
     public function getClientMoralByMatricule($matricule){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
         $sql = "SELECT * from clients where matricule= '$matricule' ";
 
-        $result = MysqlConnection::execOne($sql);
+        $result = MySqlConnection::execOne($sql);
         return $result;
     }
 

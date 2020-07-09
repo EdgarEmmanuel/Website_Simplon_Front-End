@@ -27,15 +27,15 @@ class EpargneImpl implements ICOEpargne {
         // die();
 
        //execution de la requete pour la table compte
-        MysqlConnection::executeUpdate($sql_compte);
+        MySqlConnection::executeUpdate($sql_compte);
 
          //recuperation du lastInsertId apres insertion dans compte
-        $idCompte = MysqlConnection::lastInsertId();
+        $idCompte = MySqlConnection::lastInsertId();
 
         //ensuite creation et execution de la requete pour la table compte_epargne
         $sql_cepargne = "INSERT INTO compte_epargne VALUES(null,$idCompte,$solde)";
 
-        MysqlConnection::executeUpdate($sql_cepargne);
+        MySqlConnection::executeUpdate($sql_cepargne);
 
 
         return $idCompte;
@@ -44,31 +44,31 @@ class EpargneImpl implements ICOEpargne {
     }
 
     public function getFraisCompteTypeEpargne(){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql = "SELECT montant from frais_compte where typeCompte='epargne' ";
 
-        $val=MysqlConnection::execOne($sql);
+        $val=MySqlConnection::execOne($sql);
 
         return $val->montant;
     }
 
     public function UpdateEtatAtAdding($idCompte,$date){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql = "INSERT INTO etat_compte VALUES(null,'OUVERT','$date',$idCompte)";
 
-        return $val = MysqlConnection::executeUpdate($sql);
+        return $val = MySqlConnection::executeUpdate($sql);
     }
 
 
 
     public function generateNumCompte(){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql ="SELECT count(id_compte_epargne) as num from compte_epargne";
 
-        $id = MysqlConnection::execOne($sql);
+        $id = MySqlConnection::execOne($sql);
 
         $val = (int)$id->num +1 ;
 

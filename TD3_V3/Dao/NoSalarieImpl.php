@@ -11,7 +11,7 @@ include_once SRC_PUBLICAUTO."/autoloadFile.php";
 
 class NoSalarieImpl implements INonSalarie {
     public function addCNoSalarie(\App\Models\Client_Non_Salarie $client){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
         //$adr,$tel,$mail,$nom,$activite,$prenom,$cni,$matricule
         $tel  = $client->getTelephone();
         $mail = $client->getMail();
@@ -26,47 +26,47 @@ class NoSalarieImpl implements INonSalarie {
         //creation et execution de la requete pour inserer un client 
         $sql_clients = "INSERT INTO clients VALUES (null,'$tel','$mail','$matricule')";
 
-        MysqlConnection::executeUpdate($sql_clients);
+        MySqlConnection::executeUpdate($sql_clients);
 
         //recuperation du lastInsertId dans la table clients
-        $idClient = MysqlConnection::lastInsertId();
+        $idClient = MySqlConnection::lastInsertId();
 
         //creation et execution de la requete pour inserer un client_non_salarie
         $sql_cnoSalarie = "INSERT INTO client_non_salarie VALUES(null,'$prenom','$activite',$idClient,'$nom','$cni','$localisation')";
 
-        MysqlConnection::executeUpdate($sql_cnoSalarie);
+        MySqlConnection::executeUpdate($sql_cnoSalarie);
 
 
         return $idClient;
     }
 
     public function getClientNOSByMatricule($mat){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql = "SELECT * from clients where matricule='$mat' ";
 
-        $resultat = MysqlConnection::execOne($sql);
+        $resultat = MySqlConnection::execOne($sql);
         return $resultat;
     }
 
     public function getMatriculeNoSalarie(){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql ="SELECT count(idClient) as num FROM clients where SUBSTR(matricule,1,3) = 'BCI' ";
 
-        $val = MysqlConnection::execOne($sql);
+        $val = MySqlConnection::execOne($sql);
         //"BPS".(int)
         $tot = (int)$val->num +1;
         return "BCI".(int)$tot;
     }
 
     public function getClientNoSById($id){
-        MysqlConnection::getConnection();
+        MySqlConnection::getConnection();
 
         $sql ="SELECT nom , prenom from client_non_salarie where idClient=$id ";
        
 
-        $client = MysqlConnection::execOne($sql);
+        $client = MySqlConnection::execOne($sql);
         
 
         $nomComplet = $client->nom." ".$client->prenom;
