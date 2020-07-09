@@ -34,13 +34,15 @@ define("SRC_PUBLICAUTO",ROOT."public");
 // include_once(SRC_CONTROLLERS."/Controller_noSalarie_class.php");
 // include_once(SRC_CONTROLLERS."/Controller_Moral_class.php");
 
-include_once SRC_PUBLICAUTO."/autoloadFile.php";
+include_once "public/autoloadFile.php";
 
-$controller = new \App\Controllers\Controller_BP();
-$controllerSalarie = new  \App\Controllers\Salarie_Controller();
-$ControllerCompte = new \App\Controllers\Controller_Compte();
-$Co_NoSalarie = new \App\Controllers\Controller_noSalarie();
-$Co_Moral = new \App\Controllers\Controller_Moral();
+use \App\Controllers\{Controller_BP,Salarie_Controller,Controller_Compte,Controller_noSalarie,Controller_Moral};
+
+$controller = new Controller_BP();
+$controllerSalarie = new Salarie_Controller();
+$ControllerCompte = new Controller_Compte();
+$Co_NoSalarie = new Controller_noSalarie();
+$Co_Moral = new Controller_Moral();
 
 
 //pour  toutes les requetes get 
@@ -108,21 +110,23 @@ if(isset($_POST["btn"])){
     $post = $_POST["btn"];
     switch($post){
         case "connex": 
+            //pour la page login on verifie la personne qui se connecte
             $controller->verifyPersonnel($_POST);
         break;
         case "cSalarie": 
+            //les operations concernant la creation d'un client Salarie
             $controllerSalarie->Salarie($_POST);
         break;
         case "C_compte": 
+            //les operations concernant verifier le type de compte avant insertion
             $ControllerCompte->DecideAccountBeforeInsert($_POST);
-            //echo '<meta http-equiv="refresh" content="0;URL=index.php?code=addCompte">';
         break;
         case "Cindependant" : 
-            //var_dump($_POST);
+            //les operations concernant la creation d'un client Independant
             $Co_NoSalarie->NoSalarie($_POST);
         break;
         case "CMoral": 
-            //var_dump($_POST);
+            //les operations concernant la creation d'un client Moral
             $Co_Moral->MoralClient($_POST);
         break;
         case "verify": 
